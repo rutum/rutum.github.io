@@ -1,6 +1,8 @@
 ---
 layout: post
 title: All about that Bayes - An Intro to Probability
+image: assets/images/bayes.jpg
+categories: [probability, statistics]
 ---
 
 RANDOM VARIABLES

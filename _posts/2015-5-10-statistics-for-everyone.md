@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Understanding your Data - Basic Statistics
-tags: statistics standard-deviation variance mean SEM
+categories: [statistics, standard deviation, variance, mean, SEM]
 image: assets/images/stats.jpg
 ---
 

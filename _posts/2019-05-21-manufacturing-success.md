@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Manufacuring success and the process of winning
-tags: success winning
+categories: [success, winning]
 image: assets/images/winning.jpg
-author: rutum
+<!-- author: rutum -->
 ---
 
 "The feeing of being a winner is MANUFACTURED!"

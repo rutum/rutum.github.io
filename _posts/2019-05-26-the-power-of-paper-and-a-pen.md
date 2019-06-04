@@ -1,10 +1,11 @@
 ---
 layout: post
 title: The power of paper and a pen
-tags: positivity mindset winning
+categories: [positivity, mindset, winning]
 featured: true
+hidden: true
 image: assets/images/journal.jpg
-author: rutum
+<!-- author: rutum -->
 ---
 
 That is a terrible title. Oh well.. I you have a better one I am all ears. 
