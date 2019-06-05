@@ -2,8 +2,6 @@
 layout: post
 title: The power of paper and a pen
 categories: [positivity, mindset, winning]
-featured: true
-hidden: true
 image: assets/images/journal.jpg
 <!-- author: rutum -->
 ---
