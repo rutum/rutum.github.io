@@ -4,7 +4,7 @@ title: "Rutu Mulkar"
 description: "The solver of problems, the creator of companies, the mother of children and the wife of a developer"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/root2.png'
-baseurl: http://rutumulkar.com
+# baseurl: http://rutumulkar.com
 google_analytics: 'UA-64523004-1'
 disqus: 'datasciencetoolbox'
 mailchimp-list: 'https://ticary.us13.list-manage.com/subscribe/post?u=64e382ea2426e22ee909aff02&amp;id=f0936d6c78'
