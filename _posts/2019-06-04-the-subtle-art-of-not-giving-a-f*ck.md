@@ -1,7 +1,7 @@
 ---
 layout: post
-title: The Subtle Art of Not Giving a F*ck - a book review
-categories: [book review, self care]
+title: The Subtle Art of Not Giving a F*ck - a book summary
+categories: [book summary, self help]
 featured: true
 hidden: true
 image: assets/images/subtle_art.jpg
