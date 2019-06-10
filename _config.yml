@@ -1,7 +1,6 @@
 # Site
 name: "Dr. Rutu Mulkar"
 title: "Rutu Mulkar"
-description: "The solver of problems, the creator of companies, the mother of children and the wife of a developer"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/root2.png'
 # baseurl: 
@@ -23,7 +22,6 @@ authors:
     gravatar: e56154546cf4be74e393c62d1ae9f9d4
     email: me@rutumulkar.com
     twitter: https://twitter.com/rutumulkar
-    description: "The solver of problems, the mother of human children, the wife of a developer, the creator of companies"
 
 # Plugins
 plugins:
