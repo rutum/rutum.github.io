@@ -4,11 +4,10 @@ title: Should I do a Ph.D.?
 description: A post about the reasons to do a PhD. Does a PhD lead to more money? Does a PhD lead to a better quality of life? Why do people actually do a PhD?
 categories: [PhD, higher education] 
 image: assets/images/phd.jpg
-rating: 4
 ---
 tl;dr: 
 
-DO a PhD if you have the inclination for research and knowledge! You live once in life and you can always make more money later.
+**DO** a PhD if you have the inclination for research and knowledge! You live once in life and you can always make more money later.
 
 Do your PhD when you are younger - not having a spouse and kids helps in not worrying about money and traveling to conferences.
 
