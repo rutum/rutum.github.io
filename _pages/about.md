@@ -23,7 +23,7 @@ permalink: /about
     <div class="mx-auto">
         <img src="/assets/images/avatar.png" class="rounded-circle"/>
         <br><br>
-        <a href=""><img src="assets/images/linkedin.png" width="30px"/></a>
+        <a href=""><img src="assets/images/linkedin.jpg" width="30px"/></a>
         <a href=""><img src="assets/images/twitter.png" width="30px"/></a>
     </div>
 <!-- <h5>Buy me a coffee</h5>
