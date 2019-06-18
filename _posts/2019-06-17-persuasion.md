@@ -4,16 +4,14 @@ title: Influence - The Psychology of Persuasion, a book summary
 description: A post about the psychology of persuasion
 categories: [book summary] 
 image: assets/images/influence.jpg
+rating: 5
 ---
-
-<a href="https://amzn.to/2Fj5vFp">Influence: The Psychology of Persuasion</a>
-
-
-Original Tweet thread: https://twitter.com/loopuleasa/status/1140290649255751680?s=12
 
 Okay here are the main distilled points from Cialdini's book - "Influence" Timeless wisdom in it
 It's all about how others manipulate you by pushing your emotional buttons and how to defend against them
 This was @naval's recommendation on the topic of persuasion
+
+<a href="https://amzn.to/2Fj5vFp">Influence: The Psychology of Persuasion</a>
 
 Our brain love shortcuts, and other people can make us follow them by pushing our emotional buttons.
 
@@ -41,18 +39,18 @@ Our shortcut deems any reason sufficient
 
 There are 6 principles for exploitation, widely used by marketing and business people, be wary of them:
 
-1) Reciprocation
-2) Scarcity
-3) Consistency
-4) Social proof
-5) Likability
-6) Authority
+1. Reciprocation
+2. Scarcity
+3. Consistency
+4. Social proof
+5. Likability
+6. Authority
 
 I will expand on each one of them.
 
-1. Reciprocation - Humans have an overpowering need to return favors
+### 1. Reciprocation 
 
-Ever received free samples?
+Humans have an overpowering need to return favors. Ever received free samples?
 
 That is a trick, since people feel obliged to return favors, even much larger favors. Don't fall for it.
 
@@ -76,7 +74,7 @@ Defense against Reciprocation tactics:
 - If you're feeling obliged, don't be. Say No.
 - Don't negotiate with people that are playing dirty, and starting with unrealistic offers.
 
-2. Scarcity exploitation - When something is hard to obtain, it makes us inclined to buy it our of fear of missing out (FOMO)
+### 2. Scarcity exploitation - When something is hard to obtain, it makes us inclined to buy it our of fear of missing out (FOMO)
 
 
 effects contribute to scarcity exploitation:
@@ -122,7 +120,7 @@ How to defend against manipulation through scarcity:
 
 There is always time to make buys, rather than lose out of being impulsive in the long run.
 
-3. Consistency - Staying true to your word 
+### 3. Consistency - Staying true to your word 
 (even when that is not in your interest)
 
 We have a strong desire for consistency, especially internal, not just social.
@@ -152,7 +150,7 @@ See signaling effects:
 - Gang tattoos
 - making you want a product, then mentioning the price after, or even changing it
 
-4. Social Proof - We often decide the best course of action by copying other people.
+### 4. Social Proof - We often decide the best course of action by copying other people.
 
 Ever wondered why laugh tracks are added in sitcoms. Because our brains short-circuit through imitation, and find stuff funny, which is not.
 
@@ -180,7 +178,7 @@ How to defend against social proof manipulation:
 - Ask reality, and reason from first-principles
 - Never assume, always check
 
-5. Likability - We comply with people we like and it's easy for others to trick us into liking them
+### 5. Likability - We comply with people we like and it's easy for others to trick us into liking them
 
 Best person to sell you something is a friend.
 
@@ -207,7 +205,7 @@ How to defend against likability manipulation:
 - It's too good to be true
 - If you liked someone recently, they're probably sucking up
 
-6. Authority effect - We obey authorities because they appear competent.
+### 6. Authority effect - We obey authorities because they appear competent.
 
 We were raised to obey as kids (fathers, teachers)
 
@@ -244,3 +242,4 @@ Hope it makes you understand your mental shortcuts better, before others manipul
 And remember:
 "Do your best not to fool yourself, and know that you're the easiest person to fool"
 
+Read the original tweet thread <a href="https://twitter.com/loopuleasa/status/1140290649255751680?s=12">here</a>
