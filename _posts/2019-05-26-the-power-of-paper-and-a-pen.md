@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The power of paper and a pen
+title: Bullet Journaling - The power of paper and a pen
 categories: [positivity, mindset, winning]
 image: assets/images/journal.jpg
 <!-- author: rutum -->
