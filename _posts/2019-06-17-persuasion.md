@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Influence - book summary
+title: Influence - The Psychology of Persuasion, a book summary
 description: A post about the psychology of persuasion
 categories: [book summary] 
 image: assets/images/influence.jpg
