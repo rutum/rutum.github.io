@@ -6,9 +6,7 @@ categories: [book summary]
 image: assets/images/influence.jpg
 ---
 
-<a target="_blank"  href="https://www.amazon.com/gp/product/006124189X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=006124189X&linkCode=as2&tag=rammyghally-20&linkId=b3d502c7b420e4e9e9fcebaac4f2913c"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=006124189X&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=rammyghally-20" ></a><img src="//ir-na.amazon-adsystem.com/e/ir?t=rammyghally-20&l=am2&o=1&a=006124189X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-
-<a href-"https://amzn.to/2Fj5vFp">Influence: The Psychology of Persuasion</a>
+<a href="https://amzn.to/2Fj5vFp">Influence: The Psychology of Persuasion</a>
 
 
 Original Tweet thread: https://twitter.com/loopuleasa/status/1140290649255751680?s=12
@@ -20,6 +18,8 @@ This was @naval's recommendation on the topic of persuasion
 Our brain love shortcuts, and other people can make us follow them by pushing our emotional buttons.
 
 These manipulators are everywhere in the industry, they're compliance professionals, and their entire job is to influence you into doing what they want.
+
+<a target="_blank"  href="https://www.amazon.com/gp/product/006124189X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=006124189X&linkCode=as2&tag=rammyghally-20&linkId=b3d502c7b420e4e9e9fcebaac4f2913c"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=006124189X&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=rammyghally-20" ></a><img src="//ir-na.amazon-adsystem.com/e/ir?t=rammyghally-20&l=am2&o=1&a=006124189X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
 The world is a complex place, where you can't process everything, and our brains evolved to use these shortcuts to make decisions.
 
