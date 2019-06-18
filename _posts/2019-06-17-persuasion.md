@@ -78,7 +78,7 @@ Defense against Reciprocation tactics:
 
 
 effects contribute to scarcity exploitation:
-- Recency bias (When we perceive a the availability of something to be recently decreased, we want it more )
+- Recency bias (When we perceive the availability of something to be recently decreased, we want it more)
 - Competitive nature (We hate losing to a rival)
 - Loss aversion (We like winning, but we hate losing out)
 
