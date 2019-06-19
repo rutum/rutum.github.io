@@ -42,15 +42,14 @@ The definition of trusting can be captured by the acronym BRAVING
 - N - Non-judgment - Ask for what you need, and don't judge others for what they need
 - G - Generosity - Be generous with your intentions, words and actions of others
 
-Applying the concept of BRAVING to yourself - 
-- do you trust yourself? 
-- do you respect your own boundaries?
-- are you reliable with yourself?
-- are you accountable with yourself?
-- do you respect your vault/your information? 
-- do you act with integrity?
-- do you ask for what you need?
-- are you generous towards yourself? 
+Applying the concept of BRAVING to yourself - do you trust yourself? 
+- B - do you respect your own boundaries?
+- R - are you reliable with yourself?
+- A - are you accountable with yourself?
+- V - do you respect your vault/your information? 
+- I - do you act with integrity?
+- N - do you ask for what you need?
+- G - are you generous towards yourself? 
 
 >True belonging is the spiritual practice of believing in and belonging to yourself so deeply that you can share your most authentic self with the world and find sacredness in both - being a part of something and standing alone in the wilderness. True belonging doesn't require you to CHANGE who you are; it requires you to BE who you are. 
 
