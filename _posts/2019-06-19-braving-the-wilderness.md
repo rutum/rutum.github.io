@@ -75,7 +75,7 @@ We might hate or dislike large groups of people of a certain category, but we ca
 e.g. "Democrats are such losers" - yes - except your coworker who helped watch your kids when you were taking care of your sick family member. 
 e.g. "Republicans are selfish assholes" - yes - except your son-in-law who is so kind and warm. 
 
-We don't like certain ideologies - which bring us pain - but to deny our own pain, or denying others pain - neither of those options really work. 
+We don't like certain ideologies - which bring us pain - but to deny our own pain, or denying others pain - neither of those options really work. We need to be able to find a way to get on the same page. 
 
 Anger needs to be transformed into something life-giving - like courage, love, change, compassion and justice. 
 
@@ -95,7 +95,7 @@ Some thoughts on conflict resolution:
 - Q: "Conflict transformation" instead of "conflict resolution". Why?
 - A: The latter dissipates the tension to go back to previous states of affairs, the former transforms the conflict to a higher level of understanding and creating something new from the situation. 
 
-- Q: Preparing arguments when other people are talking. What is the alternative?
+- Q: I am preparing arguments in my head when other people are talking. But I don't like it when others do it to me. What is the alternative?
 - A: One of the more courageous things to do is to say - "tell me more". Just when you want to end the conversation, turn away etc - use it as an opportunity to fully understand the other persons perspective even better. Listen to them - really listen. We have to listen the same way we want to be understood. 
 
 > We have to listen the same way we want to be understood. 
