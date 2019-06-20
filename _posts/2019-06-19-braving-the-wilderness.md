@@ -26,6 +26,10 @@ The biggest desire that is often unmet is our need to belong to ourselves - givi
 
 We belong everywhere - and yet we don't belong completely at any one place. But the realization that we belong to ourselves is huge - it is a steep uphill realization, but the rewards are incredible. 
 
+<script type="text/javascript">  
+        mixpanel.track( "{{ page.title }} - section1" );
+</script>
+
 ### The Quest for True Belonging
 
 We want to belong - truly and completely in a way that is authentic and unconditional. 
@@ -53,6 +57,10 @@ Applying the concept of BRAVING to yourself - do you trust yourself?
 
 >True belonging is the spiritual practice of believing in and belonging to yourself so deeply that you can share your most authentic self with the world and find sacredness in both - being a part of something and standing alone in the wilderness. True belonging doesn't require you to CHANGE who you are; it requires you to BE who you are. 
 
+<script type="text/javascript">  
+        mixpanel.track( "{{ page.title }} - section2" );
+</script>
+
 ### High Lonesome: A Spiritual Crisis
 
 "High Lonesome" - that holler that is in between a spirited yippee and a painful wail - something that is thick with misery and redemption. 
@@ -66,6 +74,10 @@ Loneliness is - "perceived social isolation".  We experience it when we feel dis
 To combat loneliness we must first learn to identify it, and then treat it like a warning sign - signaling a need for socialization - like the warning sign we get from our body when we are hungry (and need food), or thirsty (and need water). 
 
 High lonesome can be a beautiful and powerful place if we can own our pain and share it, instead of inflicting pain on others - and if we can find a way to FEEL the hurt (and do something about it) rather than SPREAD the hurt. 
+
+<script type="text/javascript">  
+        mixpanel.track( "{{ page.title }} - section3" );
+</script>
 
 ### People are Hard to Hate Close Up: MOVE IN!
 
@@ -99,6 +111,10 @@ Some thoughts on conflict resolution:
 
 > We have to listen the same way we want to be understood. 
 
+<script type="text/javascript">  
+        mixpanel.track( "{{ page.title }} - section4" );
+</script>
+
 ### Speak Truth to Bullshit. Be Civil. 
 
 Liar, truth speaker - are different sides to the same game. Liar is aware of the authority of the truth, but ignores it. A bullshitter is playing another game - ignoring the rules of the game altogether - he pays no attention to truth or lying and just says what he wants to say. 
@@ -110,6 +126,11 @@ It is easier to stay civil when we are combating lying, as opposed to when we ar
 A man chided his father for using the term "oriental" for the fathers next door neighbor who the father was very close with. The father clearly didn't know that "orient" was a derogatory term and was not used anymore. The conversation could be civil by simply stating it without judgment to the father instead of making the father feel ashamed for using the wrong word. 
 
 It is a paradox to be able to be civil when someone is bullshitting and trying to illicit an emotional and irrational response to you. But when you belong to you, you are true to yourself, and it is easier to be civil when you are honoring yourself and your place in the world rather than responding to another persons emotion. 
+
+<script type="text/javascript">  
+        mixpanel.track( "{{ page.title }} - section5" );
+</script>
+
 
 ### Hold Hands with Strangers
 
@@ -127,6 +148,10 @@ We are afraid to be vulnerable enough to feel joy - which is why when we experie
 
 > No vulnerability, no courage
 
+<script type="text/javascript">  
+        mixpanel.track( "{{ page.title }} - section6" );
+</script>
+
 ### Strong back. Soft Front. Wild Heart. 
 
 Having a strong back - metaphorically speaking - and develop a spine that is flexible yet sturdy, we are confident in our shell, and have a strong core of belonging to ourselves. 
@@ -134,7 +159,4 @@ Having a strong back - metaphorically speaking - and develop a spine that is fle
 With a strong back, we can afford to have a soft front - vulnerable and open - letting the world see us for who we are and what we are. A soft and open front is not being weak - it is being brave and being the wilderness. 
 
 A wild heart is being awake to the pain of the world, but does not diminish its own pain. A wild heart can beat with gratitude, lean it to pure joy. 
-
-
-
 
