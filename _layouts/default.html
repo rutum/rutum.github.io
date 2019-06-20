@@ -120,10 +120,12 @@ change your GA id in _config.yml
 ================================================== -->
 
 <div class="main-content">
-
+    <script type="text/javascript">  
+        mixpanel.track( "{{ page.title }} - start" );
+    </script>
     {{ content }}
     <script type="text/javascript">  
-        mixpanel.track( "{{ page.title }}" );
+        mixpanel.track( "{{ page.title }} - end" );
     </script>
 
 </div>
