@@ -125,7 +125,7 @@ change your GA id in _config.yml
 </div>
 
 <script type="text/javascript">  
-        mixpanel.track("End of article");
+        mixpanel.track( \"{{ page.title }}\" );
 </script>
 
 {% if site.mailchimp-list %}
