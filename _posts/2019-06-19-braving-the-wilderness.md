@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Braving the Wilderness - a book summary
-description: A book summary of QBraving the Wilderness, by Brene Brown, PhD
+description: A book summary of QBraving the Wilderness, by Brené Brown, PhD
 categories: [book summary, self help]
 hidden: false 
 image: assets/images/wilderness.jpg
@@ -12,7 +12,7 @@ This book is about our struggle to try to "belong" to something, what the belong
 
 <a target="_blank"  href="https://www.amazon.com/gp/product/0812995848/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0812995848&linkCode=as2&tag=rammyghally-20&linkId=4a1ab4639f65300d586aa980ea259d6c"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=0812995848&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=rammyghally-20" ></a><img src="//ir-na.amazon-adsystem.com/e/ir?t=rammyghally-20&l=am2&o=1&a=0812995848" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
-<a href="https://amzn.to/2IynY1A">Braving the Wilderness, A quest for True Belonging and the Courage to Stand Alone</a> - by Brene Brown
+<a href="https://amzn.to/2IynY1A">Braving the Wilderness, A quest for True Belonging and the Courage to Stand Alone</a> - by Brené Brown
 
 ### Everywhere and Nowhere
 
@@ -20,7 +20,7 @@ In this chapter Dr. Brown talks about the famous quote by Dr. Maya Angelou
 
 > You are only free when you realize you belong no place - you belong every place - no place at all. The price is high. The reward is great. 
 
-As humans we find great comfort in belonging to something - a team, a group, a place that gives comfort of community. Brene Brown talks about her childhood - growing up in New Orleans, Texas, Washington DC and the impact that it had in her life to belong somewhere. She talks about how she didn't get into her school drill team - something she desperately wanted, to enable her to belong somewhere and have an enviable social life. She talks about the desire to belong in our families, and with our spouses. 
+As humans we find great comfort in belonging to something - a team, a group, a place that gives comfort of community. Brené Brown talks about her childhood - growing up in New Orleans, Texas, Washington DC and the impact that it had in her life to belong somewhere. She talks about how she didn't get into her school drill team - something she desperately wanted, to enable her to belong somewhere and have an enviable social life. She talks about the desire to belong in our families, and with our spouses. 
 
 The biggest desire that is often unmet is our need to belong to ourselves - giving ourselves the permission to be us - and following our path and our truth - unadulterated by judgment from ourselves and from others. 
 
@@ -98,5 +98,43 @@ Some thoughts on conflict resolution:
 - A: One of the more courageous things to do is to say - "tell me more". Just when you want to end the conversation, turn away etc - use it as an opportunity to fully understand the other persons perspective even better. Listen to them - really listen. We have to listen the same way we want to be understood. 
 
 > We have to listen the same way we want to be understood. 
+
+### Speak Truth to Bullshit. Be Civil. 
+
+Liar, truth speaker - are different sides to the same game. Liar is aware of the authority of the truth, but ignores it. A bullshitter is playing another game - ignoring the rules of the game altogether - he pays no attention to truth or lying and just says what he wants to say. 
+
+It is easier to stay civil when we are combating lying, as opposed to when we are speaking truth to bullshit. When we are bullshitting, we are not interested in the truth as a shared starting point. This makes arguing about truth not important and the focus shifts to - what I think matters and not the truth. 
+
+> Civility is about disagreeing without disrespect and seeking common ground as the starting point. 
+
+A man chided his father for using the term "oriental" for the fathers next door neighbor who the father was very close with. The father clearly didn't know that "orient" was a derogatory term and was not used anymore. The conversation could be civil by simply stating it without judgment to the father instead of making the father feel ashamed for using the wrong word. 
+
+It is a paradox to be able to be civil when someone is bullshitting and trying to illicit an emotional and irrational response to you. But when you belong to you, you are true to yourself, and it is easier to be civil when you are honoring yourself and your place in the world rather than responding to another persons emotion. 
+
+### Hold Hands with Strangers
+
+Collective joy and collective pain are sacred experiences. The joy shared by a stadium full of people watching football, or the joy shared by humankind for successful space mission - brings us together in an inexplicable sense of being. 
+
+The pain that we share when something goes wrong in our world - even imaginary world like when Professor Dumbledore died in Harry Potter is shared by our collective beings and the sorrow brings us together. 
+
+The more we are willing to seek out the moments of collective joy (in person not online), the more it becomes difficult to deny our human connection. 
+
+The bond that we often share with some people - connected by our collective hate of other people or other things, is a counterfeit connection as the opposite of true belonging. The emotion we experience is intense and immediately gratifying, and an easy way to discharge outrage and pain, but is NOT fuel for real connection. Social media is one such example - not a real connection. 
+
+Experiencing collective joy or pain needs courage. And the foundation of courage is vulnerability. We need to be vulnerable and open to be able to experience joy - true joy - not an instant gratification like feeling that one migth get by dehumanizing someone else. 
+
+We are afraid to be vulnerable enough to feel joy - which is why when we experience it - we sucker punch it by thinking the most horrific thing we can. E.g. Vacation - hurricane, kids going to prom - car crash. The only way to combat it is by "gratitude". It is only possible to fully lean in to joy if we can practice gratitude. 
+
+> No vulnerability, no courage
+
+### Strong back. Soft Front. Wild Heart. 
+
+Having a strong back - metaphorically speaking - and develop a spine that is flexible yet sturdy, we are confident in our shell, and have a strong core of belonging to ourselves. 
+
+With a strong back, we can afford to have a soft front - vulnerable and open - letting the world see us for who we are and what we are. A soft and open front is not being weak - it is being brave and being the wilderness. 
+
+A wild heart is being awake to the pain of the world, but does not diminish its own pain. A wild heart can beat with gratitude, lean it to pure joy. 
+
+
 
 
