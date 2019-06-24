@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Braving the Wilderness - a book summary
-description: A book summary of QBraving the Wilderness, by Brené Brown, PhD
+description: A book summary of Braving the Wilderness, by Brené Brown, PhD
 categories: [book summary, self help]
 hidden: false 
 image: assets/images/wilderness.jpg
