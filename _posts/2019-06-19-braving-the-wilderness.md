@@ -6,6 +6,7 @@ categories: [book summary, self help]
 hidden: false 
 image: assets/images/wilderness.jpg
 rating: 5
+author: rutum
 ---
 
 This book is about our struggle to try to "belong" to something, what the belonging means, and the legitimacy of our desires to belong. 
