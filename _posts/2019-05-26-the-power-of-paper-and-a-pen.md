@@ -3,7 +3,8 @@ layout: post
 title: Bullet Journaling - The power of paper and a pen
 categories: [positivity, mindset, winning]
 image: assets/images/journal.jpg
-<!-- author: rutum -->
+author: rutum
+filter: [Life]
 ---
 
 That is a terrible title. Oh well.. I you have a better one I am all ears. 

@@ -3,6 +3,8 @@ layout: post
 title: Understanding your Data - Basic Statistics
 categories: [statistics, standard deviation, variance, mean, SEM]
 image: assets/images/stats.jpg
+filter: [Artificial Intelligence]
+author: rutum
 ---
 
 

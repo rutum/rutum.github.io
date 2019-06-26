@@ -3,8 +3,8 @@ layout: post
 title: Are you a serious entrepreneur?
 categories: [ entrepreneurship, startups ]
 image: assets/images/entrepreneur.jpg
-<!-- featured: true -->
-<!-- hidden: true -->
+filter: [Artificial Intelligence]
+author: rutum
 ---
 
 What does it mean to be an entrepreneur or a serious entrepreneur? Often when people find out that I am a tech startup founder, they start asking me questions like — Do you have an office or do you work out of our home? With the default assumption that if you work from home, you are not very serious about what you do. The second question that I am asked is — do you have employees or are you by yourself? Again with the assumption that if you have employees, you are doing well, otherwise you are not. The third question that I am often asked is — do you have external funding? Which basically loosely translates to — does anyone else believe in your idea enough to give you money for it?

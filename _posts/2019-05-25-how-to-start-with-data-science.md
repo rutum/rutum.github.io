@@ -3,7 +3,9 @@ layout: post
 title: How to Start with Data Science
 description: Basic principles on how to start with a data science project. 
 categories: [Data Science] 
+filter: [Artificial Intelligence]
 image: assets/images/data-science.jpg
+author: rutum
 ---
 
 Starting with any data science project is tricky because it has so many prerequisites such as data, processing power, storage space, and not to mention the vast amount of research and studies that one needs to of to keep up with cutting edge technology that might be suitable for your project.

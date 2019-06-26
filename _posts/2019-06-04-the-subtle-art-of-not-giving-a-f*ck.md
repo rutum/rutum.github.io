@@ -3,8 +3,8 @@ layout: post
 title: The Subtle Art of Not Giving a F*ck - a book summary
 description: This is a book summary of the Subtle art of not giving a fuck. It provides insights about how to prioritize what to care about. 
 categories: [book summary, self help]
-<!-- featured: true -->
-hidden: false
+author: rutum
+filter: [Books]
 image: assets/images/subtle_art.jpg
 rating: 5
 ---
