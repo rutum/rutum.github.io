@@ -161,3 +161,4 @@ With a strong back, we can afford to have a soft front - vulnerable and open - l
 
 A wild heart is being awake to the pain of the world, but does not diminish its own pain. A wild heart can beat with gratitude, lean it to pure joy. 
 
+Read more about the book <a href="https://amzn.to/2IynY1A">here</a>
