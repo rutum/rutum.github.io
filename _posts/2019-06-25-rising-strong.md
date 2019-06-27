@@ -42,7 +42,7 @@ Act 1: Protagonist is called on an adventure.
 Act 2: Protagonist looks for every comfortable way to solve the problem - but is not able to. This act includes the "lowest of the low" 
 Act 3: The protagonist needs to prove that they learned a lesson, and are enlightened character with the knowledge and resolve to solve the problem. 
 
-Our "Day 2" is the same as "Act 2" of a movie! The crappy, gut-wrenching, never-ending feeling of everything going wrong. But it is a prerequisite for step 3. You cannot solve the problem - you cannot find your enlightenment till you FEEL the need - REALLY FEEL THE NED - to fix it - to solve it. 
+Our "Day 2" is the same as "Act 2" of a movie! The crappy, gut-wrenching, never-ending feeling of everything going wrong. But it is a prerequisite for step 3. You cannot solve the problem - you cannot find your enlightenment till you FEEL the need - REALLY FEEL THE NEED - to fix it - to solve it. 
 
 
 The premise of rising strong - the three acts - are broken down into the following three processes: 
@@ -62,7 +62,7 @@ Curiosity is what leads to reckoning - but it is the core of life. Curiosity mak
 
 ## Rumble
 
-"Reckoning" is when we walk into our story, but "Rumble" is when we OWN it. To rubmble is when we are getting honest about the stories that we are telling ourselves and making up about our struggles. 
+"Reckoning" is when we walk into our story, but "Rumble" is when we OWN it. To rumble is when we are getting honest about the stories that we are telling ourselves and making up about our struggles. 
 
 Reckoning leads us to a place where we are face down on an arena floor. Rumble is when we are trying to figure out what the heck is happening. Our brains reward us with dopamine when we recognize and complete patterns - stories are those patterns. Even though the stories we make up are incomplete and incorrect - we still run with them for the dopamine reward. 
 
