@@ -5,6 +5,21 @@ title: Home
 
 {% if page.url == "/" %}
 
+<div class="text-center flex-wrap mt-4" role="group" aria-label="Categories">
+    <button id="anyCategory" class="categoryButton btn btn-outline-secondary btn-sm shadow-none mb-1 clicked" type="button" onclick="showAllCategories()">All</button>
+    {% assign filter_array = "" | split:"|" %}
+    {% for post in site.posts %}
+        {% for filt in post.filter %}
+            {% assign filter_array = filter_array | push: filt | uniq | sort:0 %}
+        {% endfor %}
+    {% endfor %}
+    {% assign filters = filter_array | sort %}
+    {% for filter in filters %}
+        <button id="categoryButton" class="categoryButton btn btn-outline-secondary btn-sm shadow-none mb-1" type="button" onclick="filerCategories(this.value)" value="{{ filter }}">{{ filter }}</button>
+    {% endfor %}
+</div>
+<hr />
+
 <!-- Featured
 ================================================== -->
     {% if post.featured == true %}
@@ -29,20 +44,17 @@ title: Home
 ================================================== -->
 <section class="recent-posts">
 
+    <!--
     <div class="section-title">
 
         <h2><span>All Stories</span></h2>
 
-    </div>
+    </div>-->
 
-    <div class="row listrecent">
-
+    <div id="posts" class="row listrecent mt-3">
         {% for post in paginator.posts %}
-
-        {% include postbox.html %}
-
+            {% include postbox.html %}
         {% endfor %}
-
     </div>
 
 </section>
