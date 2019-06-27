@@ -3,7 +3,7 @@ layout: post
 title: Are you a serious entrepreneur?
 categories: [ entrepreneurship, startups ]
 image: assets/images/entrepreneur.jpg
-filter: [Artificial Intelligence]
+filter: [Business]
 author: rutum
 ---
 

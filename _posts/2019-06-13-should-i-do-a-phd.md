@@ -3,7 +3,7 @@ layout: post
 title: Should I do a Ph.D.?
 description: A post about the reasons to do a PhD. Does a PhD lead to more money? Does a PhD lead to a better quality of life? Why do people actually do a PhD?
 categories: [PhD, higher education] 
-filter: [Artificial Intelligence]
+filter: [Life]
 author: rutum
 image: assets/images/phd.jpg
 ---
