@@ -8,6 +8,17 @@
 	display:inline;
 }
 
+.clicked {
+	background-color: #17A2B7;
+	color: white;
+	border-color:#17A2B7; 
+}
+
+.categoryButton:hover, #anyCategory:hover {
+	background-color: black;
+	color: white;
+}
+
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
 	"syntax",
