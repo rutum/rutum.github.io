@@ -20,16 +20,20 @@ I like having a dedicated place to go to to think and to take a break. So I have
 
 I have been writing for over decades now, and the themes that I particularly find myself writing about are - business ideas, notes from books that I have read, and introspection ideas. I do sometimes write my to-do lists and occasionally about daily events.
 
-Each of my entries are judgement free - if I write something, the future me doesnt get to judge the past me. Each entry is allowed to be messy - infact it is encouraged. Pressuring myself to keep neat journals totally defeats the purpose of having a journal sidekick in the first place. I need to outsource the clutter in my head, not to keep the clutter in my head and outsource the neat and pretty stuff in my head. 
+Each of my entries are judgment free - if I write something, the future me doesn't get to judge the past me. Each entry is allowed to be messy - in fact it is encouraged. 
+
+>Pressuring myself to keep neat journals totally defeats the purpose of having a journal sidekick in the first place. 
+
+I need to outsource the clutter in my head, not to keep the clutter in my head and outsource the neat and pretty stuff in my head. 
 
 # Stories from how writing has helped
-1) Learning R:
+1. Learning R:
 I have a CS background, but there is always something new that I want to learn. In fall of 2012 I taught myself R in my free time. I carried a pocket journal with me and wrote in it different syntax and notes that I wanted to remember. I listened to online lectures and read a few books, and declared victory in 2 months! It would have taken me forever to learn R without having my notes to go back to. 
 
-2) Starting a business
+2. Starting a business:
 I enjoy solving problems to a fault. I started making a journal of problems that I see and would like to see fixed. Taking the time to write down ideas instead of just thinking about them helped me to quickly eliminate the bad eggs. 
 
-3) Reading Books
+3. Reading Books:
 I read... a LOT! But what is the point of reading if you cannot remember what you read and learn from it? Writing small snippets for yourself to go back to is such a game changer. 
 
 # How to start writing
