@@ -10,7 +10,7 @@ layout: default
     {% if item.slug == page.slug %}
     <a class="btn btn-outline-info btn-sm active">{{ page.filter }}</a>
     {% else %}
-    <a href="/filters/{{ item.slug }}" class="btn btn-sm btn-outline-dark">{{ item.filter }}</a>
+    <a href="{{ site.baseurl }}/filters/{{ item.slug }}" class="btn btn-sm btn-outline-dark">{{ item.filter }}</a>
     {% endif %}
     {% endfor %}
 </div>
