@@ -1,7 +1,16 @@
 <!-- begin post --> 
 {% assign author = site.authors[post.author] %}
 
-<div class="col-lg-4 col-md-6 mb-30px card-group">
+{% assign filterIdentifier = "" %}
+{% for filt in post.filter %}
+    {% assign f = filt | replace:' ','' %}
+    {% assign filterIdentifier = filterIdentifier | append: f %}
+    {% unless forloop.last %}
+        {% assign filterIdentifier = filterIdentifier | append: '-' %}
+    {% endunless %}
+{% endfor %}
+
+<div class="col-lg-4 col-md-6 mb-30px card-group post" id="{{ filterIdentifier }}">
     <div class="card h-100">
         <div class="maxthumb">
             <a href="{{ site.baseurl }}{{ post.url }}">
@@ -18,9 +27,13 @@
         </div>
         <div class="card-body">
             <h2 class="card-title">
+                <!-- Reading time -->
+                <div class="mb-2 font-weight-normal primarycolor" style="font-size: 1rem;">
+                    {% include read-time.html content=post.content %}
+                </div>
                 <a class="text-dark" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
                 {% if post.rating %}
-                <div class="mb-2 mt-2 font-weight-normal">
+                <div class="mt-2 font-weight-normal">
                 {% include star_rating_postbox.html %}
                 </div>
                 {% endif %}
@@ -47,5 +60,5 @@
             </div>
         </div>
     </div>
-</div> 
-<!-- end post -->
+</div>
+<!-- end post --> 
