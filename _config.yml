@@ -3,7 +3,7 @@ name: "Dr. Rutu Mulkar"
 title: "Rutu Mulkar"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/root2.png'
-# baseurl: 
+# baseurl:
 url: 'https://rutumulkar.com'
 # webpage: rutumulkar.com
 google_analytics: 'UA-64523004-1'
@@ -31,20 +31,10 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-archives
-    
-# Archives
-jekyll-archives:
-  enabled:
-    - categories
-  layout: archive
-  permalinks:
-    category: '/category/:name/'
-    
-# Pagination 
+
+# Pagination
 paginate: 12
 paginate_path: /page:num/
-
 
 # Other
 markdown: kramdown
@@ -59,7 +49,13 @@ kramdown:
 
 redcarpet:
   extensions: [strikethrough, tables]
-  
+
+# Collection
+collections:
+  filters:
+    output: true
+    permalink: /filters/:slug/
+
 # Adsense (change to "enabled" to activate, also your client id and ad slot. Create a new ad unit from your Adsense account to get the slot.)
 adsense: "disabled"
 adsense-data-ad-client: "ca-pub-9977753901275849"

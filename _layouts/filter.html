@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<header class="post-header">
+    <h2 class="post-title">Filter by: {{ page.filter | camelcase }}</h2>
+</header>
+<div class="post-content">
+    <hr />
+    {% for item in site.filters %}
+    {% if item.slug == page.slug %}
+    <a class="btn btn-outline-info btn-sm active">{{ page.filter }}</a>
+    {% else %}
+    <a href="/filters/{{ item.slug }}" class="btn btn-sm btn-outline-dark">{{ item.filter }}</a>
+    {% endif %}
+    {% endfor %}
+</div>
+<hr />
+{% assign posts = site.posts | where:'filter', page.filter %}
+{% if posts %}
+<section class="recent-posts">
+    <div class="row listrecent">
+        {% for post in posts %}
+        {% include postbox.html %}
+        {% endfor %}
+    </div>
+</section>
+{% else %}
+There is no post in this filter.
+{% endif %}
