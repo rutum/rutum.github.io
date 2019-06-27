@@ -3,42 +3,106 @@ layout: page
 title: Reading List
 permalink: /book-list
 ---
+Here is a list of books that I encourage everyone to read (cover to cover, or a summary) at least once in their lives. 
 
-<a href="https://amzn.to/2XbEOgM">The Storytelling Animal: How Stories Make Us Human</a>, by Jonathan Gottschall
 
-<a href="https://amzn.to/2RDe5Ec">So Good They Cant Ignore You</a>, by Cal Newport
+## Philosophy Career and Growth
 
-<a href="https://amzn.to/2RzwbGY">Deep Work: Rules for Focused Success in a Distracted World</a>, by Cal Newport
+- **<a href="https://rutumulkar.com/blog/2019/the-subtle-art-of-not-giving-a-f-ck/">The Subtle Art of Not Giving a F*ck</a>, by Mark Manson**
+    
+    We need to be careful about what we give importance to in our lives. How do we pick and chose the right things to give our attention to, and let go of other things    
 
-<a href="https://amzn.to/2Nueaf1">Rising Strong</a>, by Brené Brown
+    <a class="btn btn-primary btn-sm" href="https://rutumulkar.com/blog/2019/the-subtle-art-of-not-giving-a-f-ck/">Summary</a>
+    <a class="btn btn-primary btn-sm" href="The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life">Buy</a>
 
-<a href="https://amzn.to/2xf5T3n">Braving the Wilderness</a>, by Brené Brown
+- **<a href="https://rutumulkar.com/blog/2019/rising-strong/">Rising Strong</a>, by Brené Brown**
 
-<a href="https://amzn.to/2XamdC6">Curious: The Desire to Know and Why Your Future Depends On It</a>, by Ian Leslie
+    In Rising Strong, Brené Brown talks about how we often fall when we try, and goes into great detail about how we can change the narratives in our mind, and the stories that we tell ourselves to be able to rise up again.
 
-<a href="https://amzn.to/2Xanskr">Influence - The Psychology of Persuasion</a>, by Robert B. Cialdini 
+    <a class="btn btn-primary btn-sm" href="https://rutumulkar.com/blog/2019/rising-strong/">Summary</a>
+    <a  class="btn btn-primary btn-sm" href="https://amzn.to/2Nueaf1">Buy</a>
 
-<a href="https://amzn.to/2RAyauF">Quiet - The Power of Introverts in a World That Can't Stop Talking</a>, by Susan Cain
+- **<a href="https://rutumulkar.com/blog/2019/braving-the-wilderness/">Braving the Wilderness</a>, by Brené Brown**
 
-<a href="https://amzn.to/2IQBpeJ">A Brief History of Time</a>, by Stephen Hawking
+    This book is about our struggle to try to “belong” to something, what the belonging means. This book inspires the reader to belong to themselves, and giving yourselves that place in the universe that you seek acceptance from. 
 
-<a href="https://amzn.to/2J7gv9Z">A Universe from Nothing</a>, by Lawrence M. Krauss
+    <a class="btn btn-primary btn-sm" href="https://rutumulkar.com/blog/2019/braving-the-wilderness/">Summary</a>
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2xf5T3n">Buy</a>
 
-<a href="https://amzn.to/2YcPY1f">Blink: The Power of Thinking Without Thinking</a>, by Malcolm Gladwell
+- **<a href="https://rutumulkar.com/blog/2019/Quiet/">Quiet - The Power of Introverts in a World That Can't Stop Talking</a>, by Susan Cain**
 
-<a href="https://amzn.to/2xf6bHv">I'm OK-You're OK</a>, by Thomas A. Harris, MD
+    The book is a study of quiet intensity - and a study of introvertism and extrovertism and how each of these play a part in moving mankind forward. starts by giving the example of Rosa Parks - the quiet person who spoke up against segregation - and who became the reason for Martin Luther King to speak out against segregation.
 
-<a href="https://amzn.to/2RB35qN">Rework</a>, by Jason Fried and David Heinemeier Hansson (DHH)
+    <a class="btn btn-primary btn-sm" href="https://rutumulkar.com/blog/2019/Quiet/">Summary</a>
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2RAyauF">Buy</a>
 
-<a href="https://amzn.to/2X7j2e8">Good to Great</a>, by Jim Colins
+- **<a href="https://rutumulkar.com/blog/2019/persuasion/">Influence - The Psychology of Persuasion</a>, by Robert B. Cialdini**
 
-<a href="https://amzn.to/2YfgzLn">Getting to Yes</a>, by Roger Fisher and William Ury
+    This book is about how our brain loves shortcuts, and other people can make us follow them by pushing our emotional buttons. These manipulators are everywhere in the industry, they’re compliance professionals, and their entire job is to influence you into doing what they want.
 
-<a href="https://amzn.to/2XawH45">Evil Plans</a>, by Hugh Macleod
+    <a class="btn btn-primary btn-sm" href="https://rutumulkar.com/blog/2019/persuasion/">Summary</a>
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2Xanskr">Buy</a>
 
-<a href="https://amzn.to/2INCNP8">How to Win Friends and Influence People</a>, by Dale Carnegie
+- **Blink: The Power of Thinking Without Thinking, by Malcolm Gladwell**
 
-<a href="https://amzn.to/2NdK6E9">Thinking Fast and Slow</a>, by Daniel Kahneman
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2YcPY1f">Buy</a>
 
-<a href="https://amzn.to/2xeiIen">The Power of Less: The Fine Art of Limiting Yourself to the Essential...in Business and in Life</a>, by Leo Babauta
+- **So Good They Cant Ignore You, by Cal Newport**
+
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2RDe5Ec">Buy</a>
+
+- **Deep Work: Rules for Focused Success in a Distracted World</a>, by Cal Newport**
+    
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2RzwbGY">Buy</a>
+
+- **Curious: The Desire to Know and Why Your Future Depends On It, by Ian Leslie**
+
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2XamdC6">Buy</a>
+
+- **The Storytelling Animal: How Stories Make Us Human, by Jonathan Gottschall**
+
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2XbEOgM">Buy</a>
+
+- **I'm OK - You're OK, by Thomas A. Harris, MD**
+
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2xf6bHv">Buy</a>
+
+- **Rework, by Jason Fried and David Heinemeier Hansson (DHH)**
+
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2RB35qN">Buy</a>
+
+- **Good to Great, by Jim Colins**
+
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2X7j2e8">Buy</a>
+
+- **Getting to Yes, by Roger Fisher and William Ury**
+
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2YfgzLn">Buy</a>
+
+- **Evil Plans, by Hugh Macleod**
+
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2XawH45">Buy</a>
+
+- **How to Win Friends and Influence People, by Dale Carnegie**
+
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2INCNP8">Buy</a>
+
+- **Thinking Fast and Slow, by Daniel Kahneman**
+
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2NdK6E9">Buy</a>
+
+- **The Power of Less: The Fine Art of Limiting Yourself to the Essential...in Business and in Life, by Leo Babauta**
+
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2xeiIen">Buy</a>
+
+## Time and Space
+
+- **A Brief History of Time, by Stephen Hawking**
+
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2IQBpeJ">Buy</a>
+
+- **A Universe from Nothing, by Lawrence M. Krauss**
+    
+    <a class="btn btn-primary btn-sm" href="https://amzn.to/2J7gv9Z">Buy</a>
+
 
