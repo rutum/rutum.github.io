@@ -16,7 +16,7 @@ layout: default
 </div>
 <hr />
 {% assign posts = site.posts | where:'filter', page.filter %}
-{% if posts %}
+{% if posts.size > 0 %}
 <section class="recent-posts">
     <div class="row listrecent">
         {% for post in posts %}
