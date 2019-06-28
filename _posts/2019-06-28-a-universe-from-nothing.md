@@ -1,0 +1,65 @@
+---
+layout: post
+title: A Universe from Nothing
+description: A book summary of A Universe from Nothing, by Lawrence M Krauss, PhD
+categories: [book summary]
+filter: [Books]
+image: assets/images/universe.jpg
+rating: 5
+author: rutum
+---
+
+Lawrence Krauss answers questions about the universe - where it came from, what was there before, what will the future bring, and if it all really came from nothing. 
+
+<a target="_blank"  href="https://www.amazon.com/gp/product/1451624468/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1451624468&linkCode=as2&tag=rammyghally-20&linkId=3d559faca5130a7128753d989a5591c4"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=1451624468&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=rammyghally-20" ></a><img src="//ir-na.amazon-adsystem.com/e/ir?t=rammyghally-20&l=am2&o=1&a=1451624468" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
+<a href="https://amzn.to/2xiNX8f">A Universe from Nothing: Why There Is Something Rather than Nothing</a> - by Lawrence M. Krauss
+
+### The Beginning
+
+When Einstein completed his new theory of gravity (which is known as the general theory of relativity) and tried to apply it to describe the universe, it became clear that this theory did not describe the universe in which he lived. At that time, the universe as considered static and eternal - consisting of a single galaxy. It was not until he applied the theory of relativity on the orbit of Mercury - and it explained the slight deviation of Mercury's orbit, did we discover that the universe is in fact - **not static**.
+
+Henrietta Swan Leavitt discovered that the brightness of stars goes down inversely with the square of the distance to the star. So if we are able to compute the brightness of the star, we can infer the distance to it! This helped discover that the universe isn't composed of just the Milky Way but billions of other galaxies. 
+
+"Absorption lines" (dark bands in the light spectrum) are observed when a ray of light is split into individual components using a prism. This means that something in the atmosphere is absorbing a certain spectrum of light. The absorption lines were wavelengths that were absorbed by known materials on Earth - including hydrogen, oxygen, iron, sodium etc. Each new absorption line discovered helped us discover a new element. e.g. Helium.
+
+Along similar lines was the term "Doppler effect" - waves coming at you from a moving source will be stretched when the source of moving away, and compressed when moving towards you. This same phenomenon is observed in light waves also. Using this phenomenon it was observed that absorption lines from spiral nebulae were almost all shifted towards longer wavelengths - which led to the conclusion that those objects are moving away from us at considerable velocities.
+
+> This led to the conclusion that our universe is expanding. 
+
+The Big Bang happened - during which nuclear reactions readily take place between protons and neutrons as they bind together and breaks apart. Following this the universe cools, and it can be predicted how frequently these nuclear constituents with bind to form nuclei of atoms. and it explains the presence of light elements. Hydrogen, Helium and Lithium were created during the Big Bang. The other heavier components - Carbon, Nitrogen, Oxygen, Iron were made in the fiery cores of stars and reach us when the star explodes. 
+
+If everything is moving apart right now at a tremendous rate, it probably was closer together in earlier times. The age of the universe is inferred to be 13 billion years. 
+
+### Weighing the Universe
+
+<a href="https://en.wikipedia.org/wiki/Vera_Rubin">Vera Rubin</a> observed that the stars and hot gas that are farther away from the center of the galaxy are moving much faster that they should have been if the gravitational force driving their movement was due to the mass of the observed objects within the galaxy. So we have computed the mass of the universe incorrectly basing it only on the matter that we can see. There is more mass that we cannot see - dark matter. 
+
+Einstein proposed a theory that space would curve in the presence of matter or energy. This lead us to believe that our universe can have three different geometries - open (continue to expand forever at a finite rate), closed (one day will re-collapse - reverse big bang) or flat (slowing down but never quite stopping).
+
+Determine the amount of dark matter will help us identify how the universe will end. 
+
+Einstein demonstrated that space acts like a lens - bending and magnifying light - just like lenses in reading glasses. This meant that if a bright object is located behind an intervening distribution of mass, light rays going out on various directions could bend around the intervening distribution and converge again - magnifying the original object and producing several copies of it - called lensing. 
+
+Fritz Zwicky took this theory and said it could be used for :
+1. Testing general relativity
+2. Use galaxies as a telescope to magnify more distant objects
+3. Resolving the mystery of why clusters appear to weigh more than accounted for in visible matter
+
+All experiment point to the universe being flat. 
+
+Dark matter must be made of something entirely new - something that we have not found on earth yet. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
