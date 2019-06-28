@@ -14,7 +14,7 @@ author: rutum
 
 To which I say - "you have to start somewhere. Just start with 100 data points that represent your data"
 
-Train a model with that small dataset - it will train in more seconds (unlike Terabytes of data which could potentially need days to train). 
+Train a model with that small dataset - it will train in mere seconds (unlike Terabytes of data which could potentially need days to train). 
 
 And.. voila .. you now have a baseline model to use to evaluate and test against your data. 
 
@@ -35,7 +35,7 @@ If your model produces the correct answer for category A, but incorrect answers 
 
 So now.. step 2 - you add more examples - increasing your training dataset from 100 data points to 1000 data points - woohoo. 
 
-What next? Train and test again. WHen you test go back and answer the same questions: 
+What next? Train and test again. When you test go back and answer the same questions: 
 
 1. Which cases can your model efficiently capture?
 2. Which cases does your model miss out on?

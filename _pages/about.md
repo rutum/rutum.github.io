@@ -7,7 +7,9 @@ permalink: /about
 <div class="row justify-content-between">
 <div class="col-md-10 pr-5">
 
-<p>I am the Founder of HUnchera. Previously I was the founder <a href="http://www.ticary.com">Ticary Solutions (sold to Sigmoidal.io) </a>, which is a Data Science consulting firm for problems pertaining to Natural Language Processing and Machine Learning. </p>
+<p>I am the Founder of Hunchera. Previously I was the founder <a href="http://www.ticary.com">Ticary Solutions</a> (a Natural Language Processing solutions provider) that I sold to Sigmoidal.io</p>
+
+<p> I have a Ph.D. in Artificial Intelligence from before AI was considered a hot topic. I was also a contributor to IBM Watson that defeated humans at Jeopardy!</p>
 
 <p>I love languages - both Natural Languages and Programming languages. I speak English, Hindi and Gujarati fluently and bits of Korean and Spanish.</p>
 
