@@ -3,7 +3,7 @@ layout: post
 title: 8 life skills that I learned from Grad school
 categories: [grad school, life skills, phd]
 image: assets/images/gradschool.jpg
-filter: [Life]
+filter: [Personal Growth]
 author: rutum
 ---
 I have spent a large chunk of my life in grad school - getting my masters and Ph.D. Looking back, I feel like grad school helped me learn things that were not even on the syllabus:

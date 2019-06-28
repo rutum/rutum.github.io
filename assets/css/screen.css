@@ -1,4 +1,3 @@
-
 .smtext {
     font-size:15px;
 }
@@ -6,8 +5,8 @@
 .float-right {
     float: right;
 }
-.blackbg {
-    background-color: #000000;
+.greybg {
+    background-color: #989898;
     color: #ffffff;
     border: 0;
 }

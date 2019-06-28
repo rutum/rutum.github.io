@@ -4,7 +4,7 @@ title: Bullet Journaling - The power of paper and a pen
 categories: [positivity, mindset, winning]
 image: assets/images/journal.jpg
 author: rutum
-filter: [Life]
+filter: [Personal Growth]
 ---
 
 That is a terrible title. Oh well.. I you have a better one I am all ears. 

@@ -9,7 +9,7 @@ rating: 5
 author: rutum
 ---
 
-This book is about our struggle to try to "belong" to something, what the belonging means, and the legitimacy of our desires to belong. 
+This book is about our struggle to try to “belong” to something, what the belonging means. This book inspires the reader to belong to themselves, and giving yourselves that place in the universe that you seek acceptance from.
 
 <a target="_blank"  href="https://www.amazon.com/gp/product/0812995848/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0812995848&linkCode=as2&tag=rammyghally-20&linkId=4a1ab4639f65300d586aa980ea259d6c"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=0812995848&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=rammyghally-20" ></a><img src="//ir-na.amazon-adsystem.com/e/ir?t=rammyghally-20&l=am2&o=1&a=0812995848" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 

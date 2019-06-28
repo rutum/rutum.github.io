@@ -9,15 +9,9 @@ author: rutum
 rating: 5
 ---
 
-Okay here are the main distilled points from Cialdini's book - "Influence" Timeless wisdom in it
-It's all about how others manipulate you by pushing your emotional buttons and how to defend against them
-This was @naval's recommendation on the topic of persuasion
+This book is about how our brain loves shortcuts, and other people can make us follow them by pushing our emotional buttons. These manipulators are everywhere in the industry, they’re compliance professionals, and their entire job is to influence you into doing what they want.
 
 <a href="https://amzn.to/2Fj5vFp">Influence: The Psychology of Persuasion</a>
-
-Our brain love shortcuts, and other people can make us follow them by pushing our emotional buttons.
-
-These manipulators are everywhere in the industry, they're compliance professionals, and their entire job is to influence you into doing what they want.
 
 <a target="_blank"  href="https://www.amazon.com/gp/product/006124189X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=006124189X&linkCode=as2&tag=rammyghally-20&linkId=b3d502c7b420e4e9e9fcebaac4f2913c"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=006124189X&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=rammyghally-20" ></a><img src="//ir-na.amazon-adsystem.com/e/ir?t=rammyghally-20&l=am2&o=1&a=006124189X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 

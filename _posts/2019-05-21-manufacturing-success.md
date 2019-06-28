@@ -4,7 +4,7 @@ title: Manufacuring success and the process of winning
 categories: [success, winning]
 image: assets/images/winning.jpg
 author: rutum
-filter: [Life]
+filter: [Personal Growth, Business]
 ---
 
 "The feeing of being a winner is MANUFACTURED!"
