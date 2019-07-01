@@ -37,7 +37,7 @@ If everything is moving apart right now at a tremendous rate, it probably was cl
 
 Einstein proposed a theory that space would curve in the presence of matter or energy. This lead us to believe that our universe can have three different geometries - open (continue to expand forever at a finite rate), closed (one day will re-collapse - reverse big bang) or flat (slowing down but never quite stopping).
 
-Determine the amount of dark matter will help us identify how the universe will end. 
+Determining the amount of dark matter will help us identify how the universe will end. 
 
 Einstein demonstrated that space acts like a lens - bending and magnifying light - just like lenses in reading glasses. This meant that if a bright object is located behind an intervening distribution of mass, light rays going out on various directions could bend around the intervening distribution and converge again - magnifying the original object and producing several copies of it - called lensing. 
 
@@ -49,6 +49,47 @@ Fritz Zwicky took this theory and said it could be used for :
 All experiment point to the universe being flat. 
 
 Dark matter must be made of something entirely new - something that we have not found on earth yet. 
+
+### Curvature of Universe
+
+Weighing the universe leads to inconsistencies in measurement, because we cannot measure what we cannot see, and we don't know what we cannot see in the universe. It would be better to measure the geometry of the whole universe. 
+
+How to observe curvature? The sum of the angles of a 3D surface is greater than 180. 
+
+Cosmic microwave background radiation - has been under our noses for decades, but was discovered by 2 scientists in New Jersey. As we look out at distant objects, we are looking back in time - because light takes longer for us to get from these objects. In theory, if we keep looking farther enough, we can look all the way to the big bang. However, in practice, there is a wall between us - not a physical wall, but more of an interference. 
+
+It is theorized that when the universe was 300,000 years old it was made of dense plasma of charged particles. However, plasma can be opaque to radiation. This means that the charged particles within the plasma absorb photons and reemit them so that radiation cannot easily pass through such a material uninterrupted. As a result, one cannot look back in time to see beyond this time when the universe was comprised of such plasma. This time then - is the last scattering surface. So - if we can take a picture of this last scattering surface, we can actually get a picture of the universe that is merely 300,000 years into its existence. 
+
+We used a hot air balloon and later a space probe to compute the hot and cold spots of microwave background radiation from the universe. Plotting them shows that the universe is flat. However, based on the computation of the weight of the universe, the universe still seems to way 3x less than what it should to be a flat universe. 
+
+### Inside atoms
+
+There is energy inside atoms. Each matter has its accompanying antimatter. Electron has positrons (-ve has positive counterparts)
+
+### Dark Energy
+
+There is something in "nothingness" of the universe. The empty space - blankness has energy - dark energy
+Universe is accelerating in its expansion.
+
+### Universe is NOTHING
+
+When a balloon is blown larger and larger, the curvature at its surface get smaller and smaller. Something similar happens for the universe whose size is expanding exponentially. 
+
+In a flat universe, and only in a flat universe, the total average Newtonian gravitational energy of each object moving with the expansion is precisely zero. 
+
+In such a universe, the positive energy of motion is exactly canceled by the negative energy of gravitational attraction. 
+
+### 
+
+Galaxies do not suddenly disappear. Rather, as their recession speed approaches the speed of light, the light from these objects gets even more red-shifted. Eventually all their visible light moves to infrared, microwave, radio wave, and so on, until the wavelength of light they emit ends up becoming larger than the size of the visible universe, at which point they officially become invisible. This will happen in about 150 billion years. 
+
+
+
+
+
+
+
+
 
 
 
