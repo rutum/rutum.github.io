@@ -51,7 +51,7 @@ Here is a list of books that I encourage everyone to read (cover to cover, or a 
 
     <a class="btn btn-primary btn-sm greybg" href="https://amzn.to/2RDe5Ec">Buy</a>
 
-- **Deep Work: Rules for Focused Success in a Distracted World</a>, by Cal Newport**
+- **Deep Work: Rules for Focused Success in a Distracted World, by Cal Newport**
     
     <a class="btn btn-primary btn-sm greybg" href="https://amzn.to/2XGNRG2">E-book</a>
     <a class="btn btn-primary btn-sm greybg" href="https://amzn.to/2RzwbGY">Hardcover</a>
