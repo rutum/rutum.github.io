@@ -14,13 +14,15 @@ Here is a list of books that I encourage everyone to read (cover to cover, or a 
 
     <a class="btn btn-primary btn-sm greybg" href="https://rutumulkar.com/blog/2019/the-subtle-art-of-not-giving-a-f-ck/">Summary</a>
     <a class="btn btn-primary btn-sm greybg" href="The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life">Buy</a>
+    <a class="btn btn-primary btn-sm greybg" href="https://rover.ebay.com/rover/1/711-53200-19255-0/1?mpre=https%3A%2F%2Fwww.ebay.com%2Fsch%2Fi.html%3F_from%3DR40%26_trksid%3Dp2380057.m570.l1311.R1.TR11.TRC1.A0.H0.Xthe%2Bsubtle%2B.TRS0%26_nkw%3Dthe%2Bsubtle%2Bart%2Bof%2Bnot%2Bgiving%26_sacat%3D0&campid=5338558721&toolid=20008">Find on ebay</a>
 
 - **<a href="https://rutumulkar.com/blog/2019/rising-strong/">Rising Strong</a>, by Brené Brown**
 
     In Rising Strong, Brené Brown talks about how we often fall when we try, and goes into great detail about how we can change the narratives in our mind, and the stories that we tell ourselves to be able to rise up again.
 
     <a class="btn btn-primary btn-sm greybg" href="https://rutumulkar.com/blog/2019/rising-strong/">Summary</a>
-    <a  class="btn btn-primary btn-sm greybg" href="https://amzn.to/2Nueaf1">Buy</a>
+    <a  class="btn btn-primary btn-sm greybg" href="https://amzn.to/2Nueaf1">Paperback</a>
+    <a class="btn btn-primary btn-sm greybg" href="https://rover.ebay.com/rover/1/711-53200-19255-0/1?mpre=https%3A%2F%2Fwww.ebay.com%2Fsch%2Fi.html%3F_from%3DR40%26_trksid%3Dp2334524.m570.l1313.TR2.TRC0.A0.H0.Xrising%2Bstrong.TRS0%26_nkw%3Drising%2Bstrong%26_sacat%3D0%26LH_TitleDesc%3D0%26_osacat%3D0%26_odkw%3Dthe%2Bsubtle%2Bart%2Bof%2Bnot%2Bgiving&campid=5338558721&toolid=20008">Find on ebay</a>
 
 - **<a href="https://rutumulkar.com/blog/2019/braving-the-wilderness/">Braving the Wilderness</a>, by Brené Brown**
 
