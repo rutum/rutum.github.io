@@ -79,7 +79,7 @@ In a flat universe, and only in a flat universe, the total average Newtonian gra
 
 In such a universe, the positive energy of motion is exactly canceled by the negative energy of gravitational attraction. 
 
-### 
+### Next Chapter
 
 Galaxies do not suddenly disappear. Rather, as their recession speed approaches the speed of light, the light from these objects gets even more red-shifted. Eventually all their visible light moves to infrared, microwave, radio wave, and so on, until the wavelength of light they emit ends up becoming larger than the size of the visible universe, at which point they officially become invisible. This will happen in about 150 billion years. 
 
