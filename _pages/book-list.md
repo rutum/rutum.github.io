@@ -53,7 +53,11 @@ Here is a list of books that I encourage everyone to read (cover to cover, or a 
 
 - **Deep Work: Rules for Focused Success in a Distracted World</a>, by Cal Newport**
     
-    <a class="btn btn-primary btn-sm greybg" href="https://amzn.to/2RzwbGY">Buy</a>
+    <a class="btn btn-primary btn-sm greybg" href="https://amzn.to/2XGNRG2">E-book</a>
+    <a class="btn btn-primary btn-sm greybg" href="https://amzn.to/2RzwbGY">Hardcover</a>
+    <a class="btn btn-primary btn-sm greybg" href="https://amzn.to/2XKQuqg">Paperback</a>
+    <a class="btn btn-primary btn-sm greybg" href="https://amzn.to/2xrqTUw">Audio Book</a>
+    <a class="btn btn-primary btn-sm greybg" href="https://rover.ebay.com/rover/1/711-53200-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338555583&mpre=https%3A%2F%2Fwww.ebay.com%2Fsch%2Fi.html%3F_from%3DR40%26_trksid%3Dp2495737.m570.l1312.R1.TR0.TRC1.A0.H0.TRS3%26_nkw%3DDeep%2BWork%253A%2BRules%2Bfor%2BFocused%2BSuccess%2Bin%2Ba%2BDistracted%2BWorld%26_sacat%3D0">Ebay</a>
 
 - **Curious: The Desire to Know and Why Your Future Depends On It, by Ian Leslie**
 
