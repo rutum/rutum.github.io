@@ -373,6 +373,10 @@ blockquote {
 .share {
     text-align: center;
 }
+.related-posts {
+    background-color: #efefef;
+    padding: 1em;
+}
 .related-posts,
 .share p {
     margin-bottom: 10px;
@@ -392,6 +396,11 @@ blockquote {
 .related-posts li {
     line-height: 1.1;
     font-size: 0.9em;
+}
+.related-posts,
+.related-posts a {
+    color: rgba(0, 0, 0, .44);
+    fill: rgba(0, 0, 0, .44);
 }
 .related-posts .active a {
     color: #000;
