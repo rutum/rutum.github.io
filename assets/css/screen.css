@@ -373,21 +373,30 @@ blockquote {
 .share {
     text-align: center;
 }
-
+.related-posts,
 .share p {
     margin-bottom: 10px;
     font-size: 0.95rem;
 }
-
+.related-posts ul li,
 .share ul li {
     display: inline-block;
     margin-bottom: 9px;
 }
 
+.related-posts ul,
 .share ul {
     padding-left: 0;
     margin-left: 0;
 }
+.related-posts li {
+    line-height: 1.1;
+    font-size: 0.9em;
+}
+.related-posts .active a {
+    color: #000;
+}
+
 
 .share ul li i.fa {
     border: 1px solid #ddd;
