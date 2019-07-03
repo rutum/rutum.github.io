@@ -5,20 +5,25 @@ archive: false
 post_class: post-template
 ---
 
+<!-- reading progress-bar -->
+<div class="progress_container">
+    <progress class="progress_read" id="myBar" value="0"></progress>
+</div>
+
 <!-- Begin Article
-================================================== -->
-<div class="container">
+    ================================================== -->
+    <div class="container">
     <div class="row">
 
         <!-- Post Share -->
-        <div class="col-md-2 pl-0">
+        <div class="col-md-1 pl-0">
             {% include share.html %}
         </div>
 
         <!-- Post -->
         {% assign author = site.authors[page.author] %}
 
-        <div class="col-md-9 flex-first flex-md-unordered">
+        <div class="col-md-8 flex-first flex-md-unordered">
             <div class="mainheading">
 
                 <!-- Author Box -->
@@ -131,12 +136,17 @@ post_class: post-template
             {% if page.next.url %}
             <a class="next d-block col-md-6 text-lg-right" href="{{ site.baseurl }}/{{page.next.url}}">{{page.next.title}} &raquo; </a>
             {% endif %}
-            <div class="clearfix"></div>
+            <div class="clearfix"></div> 
             </div> -->
             <!-- End Categories -->
 
         </div>
         <!-- End Post -->
+
+        <!-- Related posts list-->
+        <aside class="col-md-3 flex-md-unordered">
+            {% include related-posts.html %}
+        </aside>
 
     </div>
 </div>
@@ -182,3 +192,22 @@ https://search.google.com/structured-data/testing-tool/u/0/
 }
 </script>
 {% endif %}
+
+
+<script>
+    // Load document before calculating window height
+            var winHeight = $(window).height(),
+                docHeight = $(document).height(),
+                progressBar = $('#myBar'),
+                max, value;
+
+            /* Set the max scrollable area */
+            max = docHeight - winHeight;
+            //progressBar.attr('max', max);
+
+            $(document).on('scroll', function () {
+                value = $(window).scrollTop()/max;
+                console.log(value);
+                progressBar.attr('value', value);
+            });
+</script>
