@@ -6,6 +6,23 @@
 /* We need to add display:inline in order to align the '>>' of the 'read more' link */
 
 
+table {
+  border-collapse: collapse;
+  width: 100%
+}
+
+th {
+  height: 50px;
+  text-align: center;
+}
+
+td, td {
+    padding: 5px;
+}
+
+table, th, td {
+  border: 1px solid #17A2B7;
+}
 
 .post-excerpt p {
 	display:inline;
