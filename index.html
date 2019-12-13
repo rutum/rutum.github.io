@@ -1,70 +1,31 @@
 ---
-layout: default
-title: Home
+layout: page
+title: About me
 ---
 
-{% if page.url == "/" %}
+<div class="row justify-content-between">
+<div class="col-md-10 pr-5">
 
-<div class="text-center flex-wrap mt-4" role="group" aria-label="Categories">
-    <button id="anyCategory" class="categoryButton btn btn-outline-secondary btn-sm shadow-none mb-1 clicked" type="button" onclick="showAllCategories()">All</button>
-    {% assign filter_array = "" | split:"|" %}
-    {% for post in site.posts %}
-        {% for filt in post.filter %}
-            {% assign filter_array = filter_array | push: filt | uniq | sort:0 %}
-        {% endfor %}
-    {% endfor %}
-    {% assign filters = filter_array | sort %}
-    {% for filter in filters %}
-        <button id="categoryButton" class="categoryButton btn btn-outline-secondary btn-sm shadow-none mb-1" type="button" onclick="filerCategories(this.value)" value="{{ filter }}">{{ filter }}</button>
-    {% endfor %}
+<p>I am the Founder of Hunchera. Previously I was the founder <a href="http://www.ticary.com">Ticary Solutions</a> (a Natural Language Processing solutions provider) that I sold to Sigmoidal.io</p>
+
+<p> I have a Ph.D. in Artificial Intelligence from before AI was considered a hot topic. I was also a contributor to IBM Watson that defeated humans at Jeopardy!</p>
+
+<p>I love languages - both Natural Languages and Programming languages. I speak English, Hindi and Gujarati fluently and bits of Korean and Spanish.</p>
+
+<p>I started out as a Computer Engineer and later I got my Masters and Doctorate in Computer Science from <a href="usc.edu">University of Southern California (USC)</a>.  I was a Postdoctoral Research Fellow at the San Diego Supercomputer Center, at <a href="ucsd.edu">University of California, San Diego (UCSD)</a> before I switched over from working in academic to the corporate world.
+</p>
+
+
 </div>
-<hr />
 
-<!-- Featured
-================================================== -->
-    {% if post.featured == true %}
-        <section class="featured-posts">
-            <div class="section-title">
-                <h2><span>Featured</span></h2>
-            </div>
-            <div class="row">
+<div class="col-md-2">
 
-            {% for post in site.posts %}
-
-                {% include featuredbox.html %}
-
-            {% endfor %}
-
-            </div>
-        </section>
-    {% endif %}
-{% endif %}
-
-<!-- Posts Index
-================================================== -->
-<section class="recent-posts">
-
-    <!--
-    <div class="section-title">
-
-        <h2><span>All Stories</span></h2>
-
-    </div>-->
-
-    <div id="posts" class="row listrecent mt-3">
-        {% for post in paginator.posts %}
-            {% include postbox.html %}
-        {% endfor %}
+<div class="sticky-top sticky-top-80">
+    <div class="mx-auto">
+        <img src="/assets/images/avatar.png" class="rounded-circle"/>
+        <br><br>
+        <a href=""><img src="assets/images/linkedin.jpg" width="30px"/></a>
+        <a href=""><img src="assets/images/twitter.png" width="30px"/></a>
     </div>
-
-</section>
-
-<!-- Pagination
-================================================== -->
-<div class="bottompagination">
-<div class="pointerup"><i class="fa fa-caret-up"></i></div>
-<span class="navigation" role="navigation">
-    {% include pagination.html %}
-</span>
 </div>
-
+</div>

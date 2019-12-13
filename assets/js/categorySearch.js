@@ -1,4 +1,4 @@
-function filerCategories(val) {
+function filterCategories(val) {
     var posts = document.getElementsByClassName('post');
     for(var i = 0; i < posts.length; i++) {
         var postCats = posts[i].id;
