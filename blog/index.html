@@ -1,0 +1,69 @@
+---
+layout: default
+title: Blog
+---
+
+
+<div class="text-center flex-wrap mt-4" role="group" aria-label="Categories">
+    <button id="anyCategory" class="categoryButton btn btn-outline-secondary btn-sm shadow-none mb-1 clicked" type="button" onclick="showAllCategories()">All</button>
+    {% assign filter_array = "" | split:"|" %}
+    {% for post in site.posts %}
+        {% for filt in post.filter %}
+            {% assign filter_array = filter_array | push: filt | uniq | sort:0 %}
+        {% endfor %}
+    {% endfor %}
+    {% assign filters = filter_array | sort %}
+    {% for filter in filters %}
+        <button id="categoryButton" class="categoryButton btn btn-outline-secondary btn-sm shadow-none mb-1" type="button" onclick="filterCategories(this.value)" value="{{ filter }}">{{ filter }}</button>
+    {% endfor %}
+</div>
+<hr />
+
+<!-- Featured
+================================================== -->
+    {% if post.featured == true %}
+        <section class="featured-posts">
+            <div class="section-title">
+                <h2><span>Featured</span></h2>
+            </div>
+            <div class="row">
+
+            {% for post in site.posts %}
+
+                {% include featuredbox.html %}
+
+            {% endfor %}
+
+            </div>
+        </section>
+    {% endif %}
+
+
+<!-- Posts Index
+================================================== -->
+<section class="recent-posts">
+
+    <!--
+    <div class="section-title">
+
+        <h2><span>All Stories</span></h2>
+
+    </div>-->
+
+    <div id="posts" class="row listrecent mt-3">
+        {% for post in site.posts %}
+            {% include postbox.html %}
+        {% endfor %}
+    </div>
+
+</section>
+
+<!-- Pagination
+================================================== -->
+<div class="bottompagination">
+<div class="pointerup"><i class="fa fa-caret-up"></i></div>
+<span class="navigation" role="navigation">
+    {% include pagination.html %}
+</span>
+</div>
+
