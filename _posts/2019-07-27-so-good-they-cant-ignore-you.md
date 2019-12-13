@@ -5,7 +5,6 @@ description: A book summary of "So good they can't ignore you", by Cal Newport
 categories: [book summary]
 filter: [Books]
 image: assets/images/so-good.jpg
-rating: 5
 author: rutum
 ---
 

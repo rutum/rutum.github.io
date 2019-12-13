@@ -6,7 +6,6 @@ categories: [book summary]
 filter: [Books]
 image: assets/images/influence.jpg
 author: rutum
-rating: 5
 ---
 
 This book is about how our brain loves shortcuts, and other people can make us follow them by pushing our emotional buttons. These manipulators are everywhere in the industry, they’re compliance professionals, and their entire job is to influence you into doing what they want.

@@ -6,7 +6,6 @@ categories: [book summary, self help]
 author: rutum
 filter: [Books]
 image: assets/images/subtle_art.jpg
-rating: 5
 ---
 
 This book is about how we need to be careful about what we give importance to in our lives. How do we pick and chose the right things to give our attention to, and let go of other things.

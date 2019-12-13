@@ -5,7 +5,6 @@ description: A book summary of Rising Strong, by Brené Brown, PhD
 categories: [book summary, self help]
 filter: [Books]
 image: assets/images/rising.jpg
-rating: 4
 author: rutum
 ---
 

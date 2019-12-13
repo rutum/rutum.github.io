@@ -5,7 +5,6 @@ description: A book summary of A Universe from Nothing, by Lawrence M Krauss, Ph
 categories: [book summary]
 filter: [Books]
 image: assets/images/universe.jpg
-rating: 5
 author: rutum
 ---
 

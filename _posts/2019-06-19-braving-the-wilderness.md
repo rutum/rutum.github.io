@@ -5,7 +5,6 @@ description: A book summary of Braving the Wilderness, by Brené Brown, PhD
 categories: [book summary, self help]
 filter: [Books]
 image: assets/images/wilderness.jpg
-rating: 5
 author: rutum
 ---
 
