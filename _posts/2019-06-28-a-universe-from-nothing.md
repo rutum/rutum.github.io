@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Universe from Nothing
+title: A Universe from Nothing (book summary)
 description: A book summary of A Universe from Nothing, by Lawrence M Krauss, PhD
 categories: [book summary]
 filter: [Books]
@@ -10,10 +10,9 @@ author: rutum
 
 Lawrence Krauss answers questions about the universe - where it came from, what was there before, what will the future bring, and if it all really came from nothing. 
 
-<a target="_blank"  href="https://www.amazon.com/gp/product/1451624468/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1451624468&linkCode=as2&tag=rammyghally-20&linkId=3d559faca5130a7128753d989a5591c4"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=1451624468&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=rammyghally-20" ></a><img src="//ir-na.amazon-adsystem.com/e/ir?t=rammyghally-20&l=am2&o=1&a=1451624468" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+New York Times article about the book: <a href="https://www.nytimes.com/2012/03/25/books/review/a-universe-from-nothing-by-lawrence-m-krauss.html">A Universe from Nothing: Why There Is Something Rather than Nothing</a> - by Lawrence M. Krauss
 
-<a href="https://amzn.to/2xiNX8f">A Universe from Nothing: Why There Is Something Rather than Nothing</a> - by Lawrence M. Krauss
-
+<a href="https://www.npr.org/2012/01/13/145175263/lawrence-krauss-on-a-universe-from-nothing">NPR interview with Lawrence Krauss: A Universe from Nothering</a>
 ### The Beginning
 
 When Einstein completed his new theory of gravity (which is known as the general theory of relativity) and tried to apply it to describe the universe, it became clear that this theory did not describe the universe in which he lived. At that time, the universe as considered static and eternal - consisting of a single galaxy. It was not until he applied the theory of relativity on the orbit of Mercury - and it explained the slight deviation of Mercury's orbit, did we discover that the universe is in fact - **not static**.
@@ -57,7 +56,7 @@ How to observe curvature? The sum of the angles of a 3D surface is greater than 
 
 Cosmic microwave background radiation - has been under our noses for decades, but was discovered by 2 scientists in New Jersey. As we look out at distant objects, we are looking back in time - because light takes longer for us to get from these objects. In theory, if we keep looking farther enough, we can look all the way to the big bang. However, in practice, there is a wall between us - not a physical wall, but more of an interference. 
 
-It is theorized that when the universe was 300,000 years old it was made of dense plasma of charged particles. However, plasma can be opaque to radiation. This means that the charged particles within the plasma absorb photons and reemit them so that radiation cannot easily pass through such a material uninterrupted. As a result, one cannot look back in time to see beyond this time when the universe was comprised of such plasma. This time then - is the last scattering surface. So - if we can take a picture of this last scattering surface, we can actually get a picture of the universe that is merely 300,000 years into its existence. 
+It is theorized that when the universe was 300,000 years old it was made of dense plasma of charged particles. However, plasma can be opaque to radiation. This means that the charged particles within the plasma absorb photons and re-emit them so that radiation cannot easily pass through such a material uninterrupted. As a result, one cannot look back in time to see beyond this time when the universe was comprised of such plasma. This time then - is the last scattering surface. So - if we can take a picture of this last scattering surface, we can actually get a picture of the universe that is merely 300,000 years into its existence. 
 
 We used a hot air balloon and later a space probe to compute the hot and cold spots of microwave background radiation from the universe. Plotting them shows that the universe is flat. However, based on the computation of the weight of the universe, the universe still seems to way 3x less than what it should to be a flat universe. 
 

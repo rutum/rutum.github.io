@@ -10,9 +10,7 @@ author: rutum
 
 This book is about how our brain loves shortcuts, and other people can make us follow them by pushing our emotional buttons. These manipulators are everywhere in the industry, they’re compliance professionals, and their entire job is to influence you into doing what they want.
 
-<a href="https://amzn.to/2Fj5vFp">Influence: The Psychology of Persuasion</a>
-
-<a target="_blank"  href="https://www.amazon.com/gp/product/006124189X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=006124189X&linkCode=as2&tag=rammyghally-20&linkId=b3d502c7b420e4e9e9fcebaac4f2913c"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=006124189X&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=rammyghally-20" ></a><img src="//ir-na.amazon-adsystem.com/e/ir?t=rammyghally-20&l=am2&o=1&a=006124189X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+Author Page: <a href="https://en.wikipedia.org/wiki/Robert_Cialdini">Influence: The Psychology of Persuasion</a>
 
 The world is a complex place, where you can't process everything, and our brains evolved to use these shortcuts to make decisions.
 
@@ -72,10 +70,10 @@ Defense against Reciprocation tactics:
 ### 2. Scarcity exploitation - When something is hard to obtain, it makes us inclined to buy it our of fear of missing out (FOMO)
 
 
-effects contribute to scarcity exploitation:
+Contributors to scarcity exploitation:
 - Recency bias (When we perceive the availability of something to be recently decreased, we want it more)
 - Competitive nature (We hate losing to a rival)
-- Loss aversion (We like winning, but we hate losing out)
+- Loss aversion (We like winning, and we hate losing out)
 
 Examples of exploitation through scarcity:
 
@@ -149,7 +147,7 @@ See signaling effects:
 
 Ever wondered why laugh tracks are added in sitcoms. Because our brains short-circuit through imitation, and find stuff funny, which is not.
 
-See on youtube "laugh track removed" videos
+See on Youtube "laugh track removed" videos
 
 Other examples of copying behavior:
 - "salting" donation boxes with some initial money
@@ -158,14 +156,14 @@ Other examples of copying behavior:
 - everyone facing same way in elevators
 - bystander effects
 - evolution of fashion 
-- how suicides increase after celeb does it
+- how suicides increase after celebrity does it
 - fake endorsements
 
-The more similar we are to others, the more they influence us. Ingroup vs. outrgroup.
+The more similar we are to others, the more they influence us. 
+
+Ingroup vs. outgroup.
 
 Hence why salesmen try to always mention "I do that too" to get you to feel like you are part of the same tribe. Don't fall for it.
-
-Why do you think @naval is followed by so many male, Indian, in poor conditions demographic? Because of emulation and imitation, people wish to become like that, and they're looking for examples of people similar to them.
 
 How to defend against social proof manipulation:
 - Be alert for fake signals
@@ -236,5 +234,3 @@ Hope it makes you understand your mental shortcuts better, before others manipul
 
 And remember:
 "Do your best not to fool yourself, and know that you're the easiest person to fool"
-
-Read the original tweet thread <a href="https://twitter.com/loopuleasa/status/1140290649255751680?s=12">here</a>

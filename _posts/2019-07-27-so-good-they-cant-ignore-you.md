@@ -1,6 +1,6 @@
 ---
 layout: post
-title: So Good They Can't Ignore You
+title: So Good They Can't Ignore You (book summary)
 description: A book summary of "So good they can't ignore you", by Cal Newport
 categories: [book summary]
 filter: [Books]
@@ -8,7 +8,10 @@ image: assets/images/so-good.jpg
 author: rutum
 ---
 
-There was once a person who wanted to become a monk. He believed that once he becomes a monk and discovers his truth, he will feel peace and bliss. He discovers it - the feeling of being one with the world and the universe, but he still feels empty. He knows what he wanted to know, but he still is the same person, and it doesn't change who he is or what he does. Fulfilling his dream to become a full time zen practitioner did not magically make his life wonderful. 
+Author's profile and book description: <a href="https://www.calnewport.com/books/so-good/">So Good that they can't ignore you, by Cal Newport</a>
+
+
+There was once a person who wanted to become a monk. He believed that once he becomes a monk and discovers his truth, he will feel peace and bliss. He discovers it - the feeling of being one with the world and the universe, but he still feels empty. He knows what he wanted to know, but he still is the same person, and it doesn't change who he is or what he does. Fulfilling his dream to become a full time Zen practitioner did not magically make his life wonderful. 
 
 - In reality, career passions are rare. Most passions are related to art, sports and hobbies. It is wise to stay away from passions as they can be misleading. 
 - Passion takes time to develop. The more time you spend on something the better you will get at it and more passionate you will feel about it. ABout 10,000 hours is what is takes to master something. 
@@ -60,7 +63,7 @@ In order to master something and do deep work, you need to be mindful of where y
 1. Knowing what capital market you are in: There are 2 types of markets - winner-takes-all market where there is a single monopoly, and auction market - where there are several players in the market - each owning a part of the pie. e.g. blogging is a a winer takes all market, clean teach is an auction market. Knowing which market you are in helps you develop a strategy on how to work towards a solution, 
 2. Identify your capital type: Which skills are important to acquire in the market that you are in? Seek "open gates" which are opportunities to build you skills or market capital. 
 3. Define good - what is good enough for you? How good do you need to be? 
-4. Stretch and destroy - doing things we know how to fo well is enjoyable, and that is exactly the opposite of what deliberate practice demands. Deliberate practice is above all an effort of focus and concentration. That is what makes it "deliberate" as distinct from the mindless playing of scales or hitting of tennis balls that most people engage in. 
+4. Stretch and destroy - doing things we know how to do well is enjoyable, and that is exactly the opposite of what deliberate practice demands. Deliberate practice is above all an effort of focus and concentration. That is what makes it "deliberate" as distinct from the mindless playing of scales or hitting of tennis balls that most people engage in. 
 
 > Deliberate practice is often the opposite of enjoyable. If you are not uncomfortable then you are probably stuck at an acceptable level
 

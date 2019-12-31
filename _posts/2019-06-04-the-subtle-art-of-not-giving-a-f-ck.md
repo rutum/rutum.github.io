@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Subtle Art of Not Giving a F*ck
+title: The Subtle Art of Not Giving a F*ck (book summary)
 description: This is a book summary of the Subtle art of not giving a fuck. It provides insights about how to prioritize what to care about. 
 categories: [book summary, self help]
 author: rutum
@@ -10,12 +10,7 @@ image: assets/images/subtle_art.jpg
 
 This book is about how we need to be careful about what we give importance to in our lives. How do we pick and chose the right things to give our attention to, and let go of other things.
 
-I would recommend reading it cover to cover. It is a good read and you will be nodding your head and chucking at the analogies and jokes. I read this book while in labor with my second child (true story!) 
-
-<a target="_blank"  href="https://www.amazon.com/gp/product/0062457713/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0062457713&linkCode=as2&tag=rammyghally-20&linkId=109a53a0f0d0e29605be47784ec377ef"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=0062457713&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=rammyghally-20" ></a><img src="//ir-na.amazon-adsystem.com/e/ir?t=rammyghally-20&l=am2&o=1&a=0062457713" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> 
-
-
-<a href="https://amzn.to/2EU8X9c"> The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life</a>, by Mark Manson
+Author's summary of the book: <a href="https://markmanson.net/books/subtle-art"> The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life</a>, by Mark Manson
 
 ## Don't Try
 Stop trying to be happy, stop trying to fight your present and yearn for something that you believe you should "have" in order to be happy. 
@@ -51,11 +46,11 @@ We like the idea that ultimate happiness can be attained - but it cannot! Everyt
 Choose your struggle - if you really really want a boatload of money, be OK with spending less time with your family. If you really want that fit body, be OK with sweating it out at the gym. 
 
 ## No one is special
- Adversity and failure are necessary for developing strong minded and successful adults. "Feeling good about yourself doesn't mean anything unless you have a good reason to feel good about yourself". You need adversities to overcome to believe in yourself. 
+Adversity and failure are necessary for developing strong minded and successful adults. "Feeling good about yourself doesn't mean anything unless you have a good reason to feel good about yourself". You need adversities to overcome to believe in yourself. 
 
- The true meaning of self worth is not about how positively you feel about yourself, but how positively you feel about the negative aspects of your life. 
+The true meaning of self worth is not about how positively you feel about yourself, but how positively you feel about the negative aspects of your life. 
 
- Trying to feel good about yourself without earning it will make one feel entitled, and then one feels the need to feel good about themselves at the expense of others. It is very hard to break out of the self aggrandizing patterns. Entitlement is a failed strategy - just provides temporary highs - like alcohol or drugs. 
+Trying to feel good about yourself without earning it will make one feel entitled, and then one feels the need to feel good about themselves at the expense of others. It is very hard to break out of the self aggrandizing patterns. Entitlement is a failed strategy - just provides temporary highs - like alcohol or drugs. 
 
  Entitlement plays out in 2 ways:
  1. I am awesome and everyone else sucks, so I deserve special treatment
@@ -138,5 +133,3 @@ For any relationship to be healthy, both parties should be able to say no and he
 Saying no is very liberating - it creates other opportunities and opens doors that actually aligns better with our values and our chosen metrics.
 
 Life is short. In the end we all die. There is no point giving a f*ck about things that do not serve us, that do not align with our values. 
-
-Read more about the book <a href="https://amzn.to/2EU8X9c">here</a>.

@@ -10,9 +10,7 @@ author: rutum
 
 In Rising Strong, Brené Brown talks about how we often fall when we try, and goes into great detail about how we can change the narratives in our mind, and the stories that we tell ourselves to be able to rise up again. 
 
-<a target="_blank"  href="https://www.amazon.com/gp/product/081298580X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=081298580X&linkCode=as2&tag=rammyghally-20&linkId=5ccf9d06f84a5225edc7b5d9f844498a"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=081298580X&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=rammyghally-20" ></a><img src="//ir-na.amazon-adsystem.com/e/ir?t=rammyghally-20&l=am2&o=1&a=081298580X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-
-<a href="https://amzn.to/2Nueaf1">Rising Strong: How the Ability to Reset Transforms the Way We Live, Love, Parent, and Lead</a> - by Brené Brown
+Author Page: <a href="https://brenebrown.com/books-audio/">Rising Strong: How the Ability to Reset Transforms the Way We Live, Love, Parent, and Lead</a> - by Brené Brown
 
 ## The Physics of Vulnerability
 
@@ -21,14 +19,14 @@ Vulnerability is not winning or losing. It is having the courage to show up with
 A few rules of engagement for rising strong:
 1. If we are brave enough - often enough - we will fall. This is the physics of vulnerability. 
 2. Once we are in the service of being brave - it isn't possible to go back
-3. This journey belongs to you alone - no one can do it for you
+3. This journey belongs to you alone - no one can do it for you.
 4. We are wired for story - anything happens we make a story for it explaining it. 
-5. Creativity takes knowledge from our heads to our hearts through our hands
+5. Creativity takes knowledge from our heads to our hearts through our hands.
 6. Rising Strong can be applicable in professional or personal aspects of life
-7. comparing your suffering is caused due to fear and scarcity. Pain is pain - it is stupid to compare different peoples pain - just makes you deny your own pain or makes you feel bad for feeling pain when others are going through more. 
-8. Vulnerability and courage are unique and custom for each person. It isn't possible to engineer a one size fits all solution
+7. Comparing your suffering is caused due to fear and scarcity. Pain is pain - it is stupid to compare different peoples pain - just makes you deny your own pain or makes you feel bad for feeling pain when others are going through more. 
+8. Vulnerability and courage are unique and custom for each person. It isn't possible to engineer a one size fits all solution.
 9. Courage is contagious. When you observe courage and vulnerability, it transforms you. 
-10. Rising Strong is a spiritual practice
+10. Rising Strong is a spiritual practice.
 
 ## You can't skip day 2
 
@@ -53,7 +51,7 @@ The premise of rising strong - the three acts - are broken down into the followi
 
 "Reckoning" - is the process where we assess where we are at and what we are feeling. It isn't a simple process. Recognizing emotion means being aware of how we are thinking - the storing we are making up - the people we are finding to blame. 
 
-NO real transformation can happen unless we are able to assess, acknowledge and observe our current situation for what it is - without judgment of the situation or ourselves. 
+No real transformation can happen unless we are able to assess, acknowledge and observe our current situation for what it is - without judgment of the situation or ourselves. 
 
 We don't like to feel difficult emotions, and we don't know what to do with discomfort and vulnerability. Our instinct tells us to run from pain. But despite our fears, a part of us wants to engage in emotions - because they are also the juice of life. When we suppress and diminish our emotions, we feel deprived. But then we watch reality shows like - fear factor - seeking emotional intensity - which is only a simulation and does not teach us anything about ourselves. 
 
@@ -69,7 +67,7 @@ E.g. when a husband is rude to his wife, her first thought is - "he is a bad man
 
 There is growing evidence that healthy, ordinary people are strikingly prone to "confabulate" in every day situations. These are stories - lies - that are told honestly. E.g. when shoppers were asked to pick socks from 10 different pairs and answer why - they gave elaborate and unique reasons for picking what they did, even though the socks were all identical. (The reasons are the stories that we make up for ourselves)
 
-To capture these "first stories" are learn from them - we need to use our creativity. The most effective way is to write your SFD (shitty first draft) - of your thoughts and emotions. This is equivalent to a child's draft - n  one is going to see it and you can shape it later. It allows this childlike part of you to channel whatever voices and visions some though and onto the page. 
+To capture these "first stories" are learn from them - we need to use our creativity. The most effective way is to write your SFD (shitty first draft) - of your thoughts and emotions. This is equivalent to a child's draft - no one is going to see it and you can shape it later. It allows this childlike part of you to channel whatever voices and visions some though and onto the page. 
 
 Delta - is the difference between what we make up about our experiences and the actual truth that we discover through our rumbling. Deltas are also where rivers meet the sea - they are marshy, full of sediment, rich, fertile areas of growth, and forever changing. 
 
@@ -93,5 +91,3 @@ Rumble: on ideas and strategies, misunderstandings
 Rally: together to own our decisions, learnings
 Recover: with family friends
 Reach out: To each other with love and empathy
-
-Read more about the book <a href="https://amzn.to/2Nueaf1">here</a>.
