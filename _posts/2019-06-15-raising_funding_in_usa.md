@@ -21,4 +21,4 @@ A couple of days ago I shared a post about the amount of money that has been rai
 
 Those tiny slivers of colors that you see at the top of each bar? Yeah... those are companies like you and me who raise money! It kind of takes me back to those solar system and universe pictures that show us how insignificant we are in the grand scheme of things. More analysis coming soon. As always - any questions are welcome!
 
-![Funding breakdown by type of institution](assets/images/total_funding_by_type.jpg)
+![Funding breakdown by type of institution](https://rutumulkar.com/assets/images/total_funding_by_type.jpg)
