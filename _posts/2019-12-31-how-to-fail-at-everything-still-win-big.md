@@ -8,7 +8,7 @@ image: assets/images/fail_win_big.jpg
 author: rutum
 ---
 
-This [book](https://en.wikipedia.org/wiki/How_To_Fail_at_Almost_Everything_and_Still_Win_Big) draws is by Scott Adams - the Author of Dilbert comics. Adams does a phenomenal job of break down the psychology behind losing and winning, and simple techniques to implement them in your own life. 
+This [book](https://en.wikipedia.org/wiki/How_To_Fail_at_Almost_Everything_and_Still_Win_Big) is by Scott Adams - the Author of Dilbert comics. Adams does a phenomenal job of break down the psychology behind failing and winning, and simple techniques to implement them in your own life. 
 
 ### Overview of the concepts of the book
 - Goals are for losers - if you are setting goals for yourselves you are losing
