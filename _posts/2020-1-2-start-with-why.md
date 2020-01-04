@@ -37,7 +37,7 @@ As an alternative to manipulation Sinek suggests inspiring rather than manipulat
 **Golden Circle**
 <img src="https://rutumulkar.com/assets/images/golder_circle.jpg"/>
 
-Sinek introduces the concept of <a href="https://rutumulkar.com/assets/images/golder_circle.jpg">Golden Circle</a>
+Sinek introduces the concept of <a href="https://rutumulkar.com/assets/images/golden_circle.jpg">Golden Circle</a>
 
 WHAT: Every company knows what they do and can describe the service they provide
 HOW: Some companies know HOW they do WHAT they provide. This is often known as the differentiator
