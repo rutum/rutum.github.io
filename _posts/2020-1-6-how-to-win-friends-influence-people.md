@@ -77,7 +77,7 @@ Being a good listener is also a good way of becoming a good conversationalist. T
 
 If your recipient is interested in books, starting a conversation with that interest is a great ice-breaker, and establishes a wonderful common ground to setup a communication pattern/style. 
 
-**6. Make the other person feel important - and do it sincerely **
+**6. Make the other person feel important - and do it sincerely**
 
 Doing this will make people like you instantaneously. Everyone has admirable qualities, and finding those and highlighting them - without having an agenda to sell to them - but only focusing on making them happy - will bring you a long way in building a personal connection with them. 
 This approach could be used with someone you have just met, or others who you have known for years. 
