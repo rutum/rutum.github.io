@@ -35,7 +35,7 @@ Manipulations work, but they are not sustainable and do not drive loyalty. There
 As an alternative to manipulation Sinek suggests inspiring rather than manipulating. In order to inspire one needs to know their purpose. 
 
 **Golden Circle**
-<img src="https://rutumulkar.com/assets/images/golder_circle.jpg"/>
+<img src="https://rutumulkar.com/assets/images/golden_circle.jpg"/>
 
 Sinek introduces the concept of <a href="https://rutumulkar.com/assets/images/golden_circle.jpg">Golden Circle</a>
 
