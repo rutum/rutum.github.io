@@ -112,7 +112,15 @@ Humility and acceptance of being wrong is a huge virtue. It readily disarms the 
 
 **4. Begin in a friendly way**
 
+Starting any conversation with anger or antagonism will only make the recipient feel a similar level of anger. Beginning a tough conversation in a friendly way prompts the recipient to match your disposition, making it much more conducive to reach an agreement quickly. 
+
 **5. Get the other person saying "yes" immediately**
+
+When talking to people, begin with topics and things that you know you agree on. Keep emphasizing that you both have the same goals, and the same destination, and just a slight difference in method to get to the goal. 
+
+Getting listeners to a "yes" quickly gets their psychological process moving in the affirmative direction. 
+
+It takes a lot of energy and effort to convert a "no" into a "yes" (even if it is about different topics). But starting with "yes" and agreeing on topics makes it easier to agree on other topics. 
 
 **6. Let the other person do a great deal of the talking**
 
@@ -120,12 +128,61 @@ Listen first. Give your opponents a chance to talk through. Do NOT interrupt as 
 
 Ask people where they feel the problems are. Ask for their opinions on how best to proceed. Ask lots of questions instead of stating commands.
 
-7. Let the other person feel that the idea is his or hers
-8. Try honestly to see things from the other person's perspective
-9. Be sympathetic with the other person's ideas and desires
-10. Appeal to the nobler motives
-11. Dramatize your ideas
-12. Throw down a challenge
+When people are talking, they can often talk themselves out of the negatives, and focus on the positives. 
+
+Letting others talk always leads to a more favorable outcome as compared to forcing them to listen to you and follow your direction. 
+
+**7. Let the other person feel that the idea is his or hers**
+
+A manager of an automobile company asked his sales people what qualities they expected out of him, and wrote them out. He then asked them what qualities he ought to expect out of them - to which they readily listed qualities they should have. The manager made the sales people come up with their own goals for qualities they should possess - which made them want to achieve it because it was their own idea. 
+
+Similarly, an artist used to create sketches for buyers and was going through a rough spell with acceptance of his work. So he took some half finished sketches to the buyer and asked the buyer how they expected the sketches to be completed. With the buyers feedback the artist was able to make all the sketches to the buyers liking and get back into the grove of selling all of his sketches. 
+
+To get results, one needs to lead the recipient into thinking in your way, and then get them to reach your thought process/idea on their own accord. 
+
+It is very effective to execute an idea when the stakeholders believe that they have come to the ideas on their own accord. 
+
+**8. Try honestly to see things from the other person's perspective**
+
+A woman was 6 weeks behind in her car payments, and received a call from the man who was handling her account. Accepting the worst, she thought of the situation from his perspective rather than her own, and admitted to being late on her payment - and possible a very challenging customer for the man - and thereby apologizing. Her empathy to his situation softened him a little and he worked with her to come up with a better way to deal with the car payments. 
+
+Looking at things from another persons perspective sheds new light on the situation - which is always a good position to be in when problem solving. 
+
+**9. Be sympathetic with the other person's ideas and desires**
+
+There is a magic phrase to stop arguments, eliminate ill feeling, create good will and make the other person listen attentively: 
+
+"I don't blame you one bit for feeling the way you do. If I were you I would probably be feeling the same way."
+
+Using a phrase like this can soften the most antagonistic, defensive or cantankerous people. 
+
+Three-fourths of the people that one meets are hungry for sympathy, and if you give it to them - they will love you. 
+
+Responding to anger or insult with kindness is another way of accepting the opposite persons viewpoint and agreeing with it - a pretty effective way to shut down a bully. 
+
+**10. Appeal to the nobler motives**
+
+J. Pierpont Morgan observed that a person usually has 2 reasons for doing a thing: One that sounds good, and a real one. 
+
+In order to change people - appeal to the nobler motive. 
+
+E.g. is someone is trying to break a lease (against the lease agreement), appeal to their nobler virtue of being a person of their word, about morals and ethics, as opposed to creating a scene and being angry about the possibility of legal action. 
+
+When you don't know anything about someone, assume that they are sincere, honest and truthful and proceed conversations from that perspective. 
+
+**11. Dramatize your ideas**
+
+This is the day of dramatization. Merely stating a truth isn't enough. The truth has to be made vivid, interesting, dramatic. You have to use showmanship. The movies do it, TV does it, and you have to do it if you want attention. 
+
+"You are losing pennies to the dollar"  he said as he dramatically dropped several pennies to the grown. The dramatization had a much bigger impact as compared to simply mentioning the statement. 
+
+**12. Throw down a challenge**
+
+Charles Schwab said - "the way to get things done, is to simulate competition. Not in a sordid money-getting way, but in the desire to excel. "
+
+Simulating the desire to excel enables create healthy competition to be better - than ourselves, than our competition. 
+
+Frederic Herzberg (behavioral scientist) discovered through his work that the most important motivator for people was the actual work - not benefits, not working conditions, and not fringe benefits - but the actual work. 
 
 ### Be a Leader: How to Change People Without Giving Offense or Arousing Resentment
 A leaders job often includes changing your people's attitudes and behavior. Some suggestions to accomplish this: 
