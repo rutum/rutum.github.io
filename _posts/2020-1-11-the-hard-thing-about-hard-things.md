@@ -19,9 +19,21 @@ Some tidbits of learning:
 - The best things about startups is that you only ever experience two emotions - euphoria and terror, and the lack of sleep enhances them both. 
 - You need 2 kinds of friends in your life - the one you can call when things are great and who can be happy for you, and one you can call when things are going bad and who is your lifeline in that bad time. 
 - Have mentors who have gone though some horrible and devastating circumstances so that they can advice you how to avoid them
-- 
+- Startup CEOs should not play the odds. WHen you are building a company, you must believe that there is an answer and you cannot pay attention to your odds of finding it. 
 
 ### When things fall apart
+
+The secret to being a successful CEO is the ability to focus and make the best move when there are no good moves. 
+
+Struggle in your company is not failure - but it often causes failure - if you are not strong enough to endure it. 
+
+How to deal with struggle: 
+- Divide and conquer - seek help, don't put it all on your own shoulders
+- Don't underestimate the complexity - this is chess not checkers. 
+- Play long enough and you might get lucky
+- Do not take it personally
+
+
 
 ### Take care of the people, the products and the profits - in that order
 
