@@ -33,7 +33,13 @@ How to deal with struggle:
 - Play long enough and you might get lucky
 - Do not take it personally
 
+CEOs should tell it like it is
+- ignoring the negatives does not pain a realistic picture and makes you appear less trustworthy
+- If there is a problem, it is better for the team to find a solution together, rather that the CEO to shelter the team from it
 
+If you ever need to fire your employees, executives, or demote a friend - do it the right way. 
+
+When you are in a trouble, nobody really cares - not employees, customers, media or investors. Your time is best spent on figuring out a solution, thank worrying about what anyone thinks of you. 
 
 ### Take care of the people, the products and the profits - in that order
 
