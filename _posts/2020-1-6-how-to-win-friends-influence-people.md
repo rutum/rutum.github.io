@@ -186,12 +186,57 @@ Frederic Herzberg (behavioral scientist) discovered through his work that the mo
 
 ### Be a Leader: How to Change People Without Giving Offense or Arousing Resentment
 A leaders job often includes changing your people's attitudes and behavior. Some suggestions to accomplish this: 
-1. Begin with praise and honest appreciation
-2. Call attention to people's mistakes indirectly.
-3. Talk about your own mistakes before criticizing the other person. 
-4. Ask questions instead of giving direct orders. 
-5. Let the other person save face. 
-6. Praise the slightest improvement and praise every improvement. Be "hearty in your approbation and lavish in your praise"
-7. Give the other person a fine reputation to live up to. 
-8. Use encouragement. Make the fault seem easy to correct. 
-9. Make the other person happy about doing the things you suggest. 
+
+**1. Begin with praise and honest appreciation**
+
+It is always listen to unpleasant things after we have heard some praise about our good points. So if any feedback needs to be given, start with good points of the recipient, and how great they are, and then follow up with criticisms. People are more likely to make improvements when information is presented to them in a kind manner. 
+
+**2. Call attention to people's mistakes indirectly**
+
+This is an effective way to criticize, and yet not be hated for it. Charles Schwab was passing through one of his steel mills when he noticed some of his employees smoking right below the "no smoking" sign. Instead of calling them out on this, he used an alternate technique. He gave each one of his employees a cigar and then said - "I'll appreciate it, boys, if you smoke this on the outside." He was able to get his message through and simultaneously made his employees feel important. It is hard not to love a person like that. 
+
+Using the word "but" after giving praise totally negates the praises, and makes them feel like empty statements. E.g. "We are proud of you for your grades this semester, but you could have gotten better grades if you worked harder in Algebra" vs "We are proud of you for your grades this semester, and you can get even better grades if you continue working this way."
+
+The second approach is way more effective than the first one. 
+
+**3. Talk about your own mistakes before criticizing the other person**
+
+It isn't nearly as difficult to listen to your own faults, when the person telling you your faults is admitting that he too is far from impeccable. 
+
+E.g. Dale Carnegie needed to criticize his secretary for something, but before he said anything, he took a step back to consider the situation from her perspective and point of you and age, and realized that when he was that age, he made many more mistakes than her. He started off his criticisms by mentioning that fact, and then gently suggesting the request he had of her - it was readily accepted. 
+
+**4. Ask questions instead of giving direct orders**
+
+Asking questions makes the order more palatable, and often simulates the creativity of the persons whom you ask. People are more likely to accept an order if they have had a part in the decision that caused the order to be issued. 
+
+E.g. "what do you think of this?", "Do you think this would work?"
+
+It might be more time consuming in the short term, but much more effective in the long term. 
+
+**5. Let the other person save face**
+
+We bulldoze over the feelings of others, getting our own way, finding faults, issuing threats, criticizing a child or an employee in front of others, without even considering the hurt to the other persons pride. 
+
+A Fresh aviation pioneer once said = "I have no right to do or say anything that diminishes a man in his own eyes. What matters is not what I think of him, but what he thinks of himself. Hurting a man in his dignity is a crime. "
+
+**6. Praise the slightest improvement and praise every improvement. Be "hearty in your approbation and lavish in your praise"**
+
+When you praise someone, instead of finding faults, people start capitalizing on their praise and improving what they are already good at. People appreciate it when they are called out on their positive qualities. 
+
+**7. Give the other person a fine reputation to live up to**
+
+If you want to improve a person in a certain respect, act as though that particular trait were already one of this or her outstanding characteristics. 
+
+E.g. You are a phenomenal mechanic, and you have done great work in the past few years. Off late things are not the same way, and maybe we can come up with a solution for it? 
+
+Making the recipient realize their own qualities helps them build their own self esteem and set up a target for them to reach - all by their own initiative. 
+
+**8. Use encouragement. Make the fault seem easy to correct**
+
+It is way easier to climb a molehill instead of a mountain. If the fault is describe as the magnitude of a molehill, instead of a mountain, a person is more likely to readily work on it to fix it. 
+
+**9. Make the other person happy about doing the things you suggest**
+
+E.g. if you cannot do a speaking engagement, suggest alternatives who are more likely to accept. It gives the recipient the chance to focus on next steps rather than being disappointed about your refusal. 
+
+Think about what the other person wants, and try to help the best you can to mitigate their own problems and satisfy their wants - while you make your suggestions. 
