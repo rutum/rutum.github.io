@@ -61,7 +61,7 @@ When you are in a trouble, nobody really cares - not employees, customers, media
 | Take written positions on important issues| Use verbal communication|
 | Focus the team on revenue and customers| Focus the team on how many features the competitors are building|
 | Decompose problems into segments | Combine all problems into one|
-| Think about the story they want to be written in the press | THink about covering every feature and being technically accurate with the press |
+| Think about the story they want to be written in the press | Think about covering every feature and being technically accurate with the press |
 | Articulate simply and clearly| Never explain the obvious |
 | Disciplined execution of status reports| Don't value discipline|
     
