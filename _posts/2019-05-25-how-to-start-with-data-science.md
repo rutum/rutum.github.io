@@ -2,8 +2,7 @@
 layout: post
 title: How to Start with Data Science
 description: Basic principles on how to start with a data science project. 
-categories: [Data Science] 
-filter: [Artificial Intelligence]
+filter: [blog]
 image: assets/images/data-science.jpg
 author: rutum
 ---

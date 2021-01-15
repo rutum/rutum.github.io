@@ -1,8 +1,7 @@
 ---
 layout: post
 title: What is Natural Language Processing (NLP)?
-categories: [Machine Learning, NLProc]
-filter: [Artificial Intelligence]
+filter: [blog]
 image: assets/images/nlp.jpg
 author: rutum
 ---

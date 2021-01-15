@@ -2,7 +2,6 @@
 layout: post
 title: Influence - The Psychology of Persuasion
 description: A post about the psychology of persuasion
-categories: [book summary] 
 filter: [Books]
 image: assets/images/influence.jpg
 author: rutum

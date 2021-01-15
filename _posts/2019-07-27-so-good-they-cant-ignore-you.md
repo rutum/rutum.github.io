@@ -1,8 +1,7 @@
 ---
 layout: post
-title: So Good They Can't Ignore You (book summary)
+title: So Good They Can't Ignore You
 description: A book summary of "So good they can't ignore you", by Cal Newport
-categories: [book summary]
 filter: [Books]
 image: assets/images/so-good.jpg
 author: rutum

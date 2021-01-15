@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Willpower (book summary)
+title: Willpower
 description: A book summary of "Willpower", by Roy Baumeister and John Tierney
 categories: [book summary]
 filter: [Books]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to Win Friends and Influence People (book summary)
+title: How to Win Friends and Influence People
 description: A book summary of "How to Win Friends and Influence People", by Dale Carnegie
 categories: [book summary]
 filter: [Books]

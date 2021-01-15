@@ -2,7 +2,6 @@
 layout: post
 title: Trends of Raising Money in the USA
 description: A post about raising capital - VC, Angel or other types of funding in USA. 
-categories: [startups, funding] 
 image: assets/images/usa_funding.jpg
 ---
 

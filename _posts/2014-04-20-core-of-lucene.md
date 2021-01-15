@@ -1,10 +1,10 @@
 ---
 layout: post
 title: The Math behind Lucene
-categories: [tfidf, cosine similarity, lucene, elastic search]
-filter: [Artificial Intelligence]
+filter: [blog]
 image: assets/images/math.jpg
 author: rutum
+featured: true
 ---
 [Lucene](https://lucene.apache.org/) is an open source search engine, that one can use on top of custom data and create your own search engine - like your own personal google. In this post, we will go over the basic math behind Lucene, and how it ranks documents to the input search query.
 

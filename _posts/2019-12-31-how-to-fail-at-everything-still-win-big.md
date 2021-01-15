@@ -1,11 +1,12 @@
 ---
 layout: post
-title: How to Fail at Almost Everything and Still Win Big (book summary)
+title: How to Fail at Almost Everything and Still Win Big
 description: A book summary of "How to Fail at Almost Everything and Still Win Big", by Scott Adams
 categories: [book summary]
 filter: [Books]
 image: assets/images/fail_win_big.jpg
 author: rutum
+featured: true
 ---
 
 This [book](https://en.wikipedia.org/wiki/How_To_Fail_at_Almost_Everything_and_Still_Win_Big) is by Scott Adams - the Author of Dilbert comics. Adams does a phenomenal job of break down the psychology behind failing and winning, and simple techniques to implement them in your own life. 

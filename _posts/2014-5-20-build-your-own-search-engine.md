@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Build your own search Engine
-categories: [elastic search, lucene, tfidf]
-filter: [Artificial Intelligence]
+filter: [blog]
 image: assets/images/search.jpg
 author: rutum
 ---

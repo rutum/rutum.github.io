@@ -2,7 +2,6 @@
 layout: post
 title: Rising Strong
 description: A book summary of Rising Strong, by Brené Brown, PhD
-categories: [book summary, self help]
 filter: [Books]
 image: assets/images/rising.jpg
 author: rutum

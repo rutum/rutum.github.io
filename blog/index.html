@@ -1,23 +1,12 @@
 ---
 layout: default
-title: Blog
+title: Syntax and Semantics
 ---
 
-
-<div class="text-center flex-wrap mt-4" role="group" aria-label="Categories">
-    <button id="anyCategory" class="categoryButton btn btn-outline-secondary btn-sm shadow-none mb-1 clicked" type="button" onclick="showAllCategories()">All</button>
-    {% assign filter_array = "" | split:"|" %}
-    {% for post in site.posts %}
-        {% for filt in post.filter %}
-            {% assign filter_array = filter_array | push: filt | uniq | sort:0 %}
-        {% endfor %}
-    {% endfor %}
-    {% assign filters = filter_array | sort %}
-    {% for filter in filters %}
-        <button id="categoryButton" class="categoryButton btn btn-outline-secondary btn-sm shadow-none mb-1" type="button" onclick="filterCategories(this.value)" value="{{ filter }}">{{ filter }}</button>
-    {% endfor %}
+<div class="section-title">
+    <h2><span>{{ page.title }}</span></h2>
 </div>
-<hr />
+
 
 <!-- Featured
 ================================================== -->
@@ -29,9 +18,9 @@ title: Blog
             <div class="row">
 
             {% for post in site.posts %}
-
-                {% include featuredbox.html %}
-
+                {% if post.featured == true %}
+                    {% include featuredbox.html %}
+                {% endif %}
             {% endfor %}
 
             </div>
@@ -50,9 +39,11 @@ title: Blog
 
     </div>-->
 
-    <div id="posts" class="row listrecent mt-3">
+    <div id="posts" class="row listrecent mt-2">
         {% for post in site.posts %}
-            {% include postbox.html %}
+            {% if post.filter contains 'blog' %}
+                {% include postbox_nlp.html %}
+            {% endif %}
         {% endfor %}
     </div>
 

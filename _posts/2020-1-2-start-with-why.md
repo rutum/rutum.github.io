@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Start with Why (book summary)
+title: Start with Why
 description: A book summary of "Start with Why", by Simon Sinek
 categories: [book summary]
 filter: [Books]

@@ -34,16 +34,16 @@ plugins:
   - jekyll-archives
     
 # Archives
-jekyll-archives:
-  enabled:
-    - categories
-  layout: archive
-  permalinks:
-    category: '/category/:name/'
+# jekyll-archives:
+  # enabled:
+  #   - categories
+  # layout: archive
+  # permalinks:
+  #   category: '/category/:name/'
     
 # Pagination 
-paginate: 20
-paginate_path: /page:num/
+# paginate: 20
+# paginate_path: /page:num/
 
 
 # Other
