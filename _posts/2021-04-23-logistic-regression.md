@@ -2,6 +2,7 @@
 layout: post
 title: The comprehensive guide to Logistic Regression
 filter: [blog]
+tags: nlp classification
 author: rutum
 ---
 

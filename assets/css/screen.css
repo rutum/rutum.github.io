@@ -271,6 +271,14 @@ span.post-read-more a:hover {
     color: rgba(0, 0, 0, .8);
 }
 
+span.tag {
+    border-radius: 5px;
+    border: 1px solid #828282;
+    color: #828282;
+    padding: 1px 5px;
+    margin-left: 5px;
+}
+
 .dot:after {
     content: "·";
     margin-left: 3px;

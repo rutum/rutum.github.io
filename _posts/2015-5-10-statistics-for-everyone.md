@@ -3,11 +3,20 @@ layout: post
 title: Understanding your Data - Basic Statistics
 image: assets/images/stats.jpg
 filter: [blog]
+tags: statistics
 author: rutum
 ---
 
 
 Have you ever had to deal with a lot of data, and don't know where to start? If yes, then this post is for you. In this post I will try to guide you through some basic approaches and operations you can perform to analyze your data, make some basic sense of it, and decide on your approach for deeper analysis of it. I will use [python](https://www.python.org/downloads/) and a [small subset of  data](https://raw.githubusercontent.com/rutum/basic-statistics/master/bikesharing.csv) from the [Kaggle Bikesharing Challenge](https://www.kaggle.com/c/bike-sharing-demand) to illustrate my examples. The code for this work can be found at [this location](https://github.com/rutum/basic-statistics). Please take a minute to download [python](https://www.python.org/downloads/) and the [sample data](https://raw.githubusercontent.com/rutum/basic-statistics/master/bikesharing.csv) before we proceed.
+
+Below are the topics that I discuss in this post:
+- [DESCRIPTION OF DATASET](#description-of-dataset)
+- [MIN MAX AND MEAN](#min-max-and-mean)
+- [VARIABILITY IN DATA](#variability-in-data)
+- [VARIANCE](#variance)
+- [STANDARD DEVIATION](#standard-deviation)
+- [STANDARD ERROR OF THE MEAN (SEM)](#standard-error-of-the-mean-sem)
 
 ## DESCRIPTION OF DATASET
 

@@ -3,6 +3,7 @@ layout: post
 title: What is Natural Language Processing (NLP)?
 filter: [blog]
 image: assets/images/nlp.jpg
+tags: nlp introduction
 author: rutum
 ---
 

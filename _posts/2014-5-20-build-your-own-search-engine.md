@@ -3,6 +3,7 @@ layout: post
 title: Build your own search Engine
 filter: [blog]
 image: assets/images/search.jpg
+tags: information_retrieval lucene
 author: rutum
 ---
 
