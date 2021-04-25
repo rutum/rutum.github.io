@@ -398,7 +398,7 @@ blockquote {
 }
 .related-posts p {
     margin-bottom: 10px;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     color:#2B0EF1;
 }
 .related-posts ul li,
@@ -424,7 +424,8 @@ blockquote {
 .related-posts .active a {
     color: #000;
 }
-
+.image-label {
+    color: rgba(0, 0, 0, .44);
 
 .share ul li i.fa {
     border: 1px solid #ddd;
