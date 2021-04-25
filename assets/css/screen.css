@@ -247,12 +247,12 @@ span.post-name,
 span.post-date,
 span.author-meta {
     display: inline-block;
-    font-size: 00.95rem;
+    font-size: 0.91rem;
 }
 
 span.post-date,
 span.post-read {
-    color: #2B0EF1;
+    color: #828282;
 }
 
 span.post-read-more {
