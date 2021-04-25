@@ -12,7 +12,13 @@
 }
 
 .primarycolor {
-    color: #17A2B7;
+    color: #0B18F4;
+}
+.greencolor{
+    color: #0BF473;
+}
+.bluecolor{
+    color: #2B0EF1;
 }
 
 .primarybg {
@@ -21,7 +27,7 @@
 }
 
 @media screen and (min-width:1500px) {
-    html { font-size:18px; } /* Increase the font size on higher resolutions */
+    html { font-size:15px; } /* Increase the font size on higher resolutions */
     .container {max-width:80%;}
 }
 .mainheading {
@@ -29,12 +35,12 @@
 }
 
 a {
-    color: #17A2B7;
+    color:#EC131D;
     transition: all 0.2s;
 }
 
 a:hover {
-    color: #8ee4f1;
+    color: #2B0EF1;
     text-decoration: none;
 }
 
@@ -116,8 +122,8 @@ section.recent-posts {
 
 @media (min-width:992px) {
     .navbar-expand-lg .navbar-nav .nav-link {
-        padding-right: 0.8rem;
-        padding-left: 0.8rem;
+        padding-right: 1.8rem;
+        padding-left: 1.8rem;
     }
 }
 
@@ -159,15 +165,15 @@ section.recent-posts {
 
 .listfeaturedtag h2.card-title,
 .listrecent h2.card-title {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.25;
 }
 
 .listfeaturedtag h4.card-text,
 .listrecent h4.card-text {
-    color: rgba(0, 0, 0, .44);
-    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.653);
+    font-size: 1.1rem;
     line-height: 1.6;
     font-weight: 400;
 }
@@ -241,11 +247,12 @@ span.post-name,
 span.post-date,
 span.author-meta {
     display: inline-block;
+    font-size: 00.95rem;
 }
 
 span.post-date,
 span.post-read {
-    color: rgba(0, 0, 0, .44);
+    color: #2B0EF1;
 }
 
 span.post-read-more {
@@ -354,12 +361,18 @@ span.post-read-more a:hover {
 }
 
 blockquote {
-    border-left: 4px solid #17A2B7;
+    border-left: 4px solid #F6EB09;
     padding: 0 20px;
     font-style: italic;
-    color: rgba(0, 0, 0, .5);
+    color: rgba(0, 0, 0, 0.605);
 }
 
+.article-post a {
+    color: #EC131D;
+}
+.article-post a:hover{
+    color: #2B0EF1;
+}
 .article-post p,
 .article-post blockquote {
     margin: 0 0 1.5rem 0;
@@ -376,11 +389,17 @@ blockquote {
 .related-posts {
     background-color: #efefef;
     padding: 1em;
+    border-radius: 7px;
 }
 .related-posts,
-.share p {
+.share {
     margin-bottom: 10px;
-    font-size: 0.95rem;
+    font-size: 1.2rem;
+}
+.related-posts p {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color:#2B0EF1;
 }
 .related-posts ul li,
 .share ul li {
@@ -394,7 +413,7 @@ blockquote {
     margin-left: 0;
 }
 .related-posts li {
-    line-height: 1.1;
+    line-height: 1.2;
     font-size: 0.9em;
 }
 .related-posts,
@@ -509,7 +528,7 @@ blockquote {
 
 .share,
 .share a {
-    color: rgba(0, 0, 0, .44);
+    color: #888888;
     fill: rgba(0, 0, 0, .44);
 }
 
@@ -534,6 +553,7 @@ ul.tags li {
     display: inline-block;
     font-size: 0.9rem;
 }
+
 
 ul.tags li a {
     background: rgba(0, 0, 0, .05);
@@ -735,8 +755,9 @@ h6 {
 .article-post h4,
 .article-post h5,
 .article-post h6 {
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+    /* font-weight: 700; */
+    margin-bottom: 2rem;
+    color:#000000;
 }
 
 .article-post img.shadow {
@@ -757,6 +778,7 @@ h6 {
 img {
     max-width: 100%;
 }
+
 
 .bottompagination span.navigation {
     display: block;

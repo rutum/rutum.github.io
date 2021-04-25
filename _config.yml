@@ -1,7 +1,8 @@
 # Site
-name: "Dr. Rutu Mulkar"
+name: "Rutu Mulkar"
 title: "Rutu Mulkar"
 logo: 'assets/images/logo.png'
+header: 'assets/images/rutumulkar.png'
 favicon: 'assets/images/root2.png'
 # baseurl: 
 url: 'https://rutumulkar.com'
