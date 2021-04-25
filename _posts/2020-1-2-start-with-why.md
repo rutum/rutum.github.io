@@ -2,7 +2,6 @@
 layout: post
 title: Start with Why
 description: A book summary of "Start with Why", by Simon Sinek
-categories: [book summary]
 filter: [Books]
 image: assets/images/start_with_why.jpg
 author: rutum

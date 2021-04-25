@@ -3,6 +3,7 @@ layout: post
 title: What is Byte-Pair Encoding for Tokenization?
 filter: [blog]
 tags: tokenization
+categories: [tokenization]
 author: rutum
 ---
 

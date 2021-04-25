@@ -1,8 +1,9 @@
 ---
 layout: post
-title: The comprehensive guide to Logistic Regression
+title: The Comprehensive Guide to Logistic Regression
 filter: [blog]
 tags: nlp classification
+categories: [nlp, classification]
 author: rutum
 ---
 
@@ -343,5 +344,5 @@ We can continue this process for $k$ number of steps and iterate through the exa
 # Further Reading
 
 - [On discriminative vs. generative classifiers: a comparison of logistic regression and naive Bayes](https://papers.nips.cc/paper/2001/file/7b7a53e239400a13bd6be6c91c4f6c4e-Paper.pdf) NIPS'01: Proceedings of the 14th International Conference on Neural Information Processing Systems: Natural and Synthetic, January 2001 Pages 841–848
-- [Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition](https://web.stanford.edu/~jurafsky/slp3/5.pdf) by Daniel Jurafsky, James H. Martin
+- [Chapter 5, Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition](https://web.stanford.edu/~jurafsky/slp3/5.pdf) by Daniel Jurafsky, James H. Martin
 - [Introduction to Latent Dirichlet Allocation](https://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/), by Edwin Chen

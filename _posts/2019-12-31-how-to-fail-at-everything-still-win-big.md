@@ -2,7 +2,6 @@
 layout: post
 title: How to Fail at Almost Everything and Still Win Big
 description: A book summary of "How to Fail at Almost Everything and Still Win Big", by Scott Adams
-categories: [book summary]
 filter: [Books]
 image: assets/images/fail_win_big.jpg
 author: rutum

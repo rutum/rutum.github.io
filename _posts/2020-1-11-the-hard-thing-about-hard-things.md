@@ -2,7 +2,6 @@
 layout: post
 title: The Hard Thing about Hard Things
 description: A book summary of "The Hard Thing about Hard Things", by Ben Horowitz
-categories: [book summary]
 filter: [Books]
 image: assets/images/hard_things.jpg
 author: rutum

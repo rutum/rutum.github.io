@@ -2,7 +2,6 @@
 layout: post
 title: Willpower
 description: A book summary of "Willpower", by Roy Baumeister and John Tierney
-categories: [book summary]
 filter: [Books]
 image: assets/images/willpower.jpg
 author: rutum

@@ -2,7 +2,6 @@
 layout: post
 title: A Universe from Nothing
 description: A book summary of A Universe from Nothing, by Lawrence M Krauss, PhD
-categories: [book summary]
 filter: [Books]
 image: assets/images/universe.jpg
 author: rutum
