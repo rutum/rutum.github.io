@@ -4,8 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link rel="icon" href="{{ site.url }}/assets/images/root2.png">
-
+<link rel="icon" href="{{ site.url }}/assets/images/lightning-border.png">
 <title>{{ page.title }} | {{site.name}}</title>
 
 {% seo %}
@@ -55,7 +54,7 @@ change your GA id in _config.yml
 
     <!-- Begin Logo -->
     <a class="navbar-brand" href="{{ site.url }}/"> 
-        <h1>Rutu Mulkar</h1>
+        <h1> <img class="d-inline-block align-text-top" src="{{ site.url}}/assets/images/lightning.png"/> Rutu Mulkar</h1>
     </a>
     <!-- End Logo -->
 
@@ -69,19 +68,16 @@ change your GA id in _config.yml
 
             <ul class="navbar-nav ml-auto">
 
-                {% if page.url == "/" %}
+                <!-- {% if page.url == "/" %}
                 <li class="nav-item active">
                 {% else %}
                 <li class="nav-item">
-                {% endif %}
-                <a class="nav-link" href="{{ site.baseurl }}/index.html">Home</a>
-                </li>
-
-                <!-- <li class="nav-item"> -->
-                <!-- <a class="nav-link" href="{{ site.baseurl }}/publications">Publications</a> -->
-                <!-- </li> -->
+                {% endif %} -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ site.baseurl }}/books/index.html">Book Summaries</a>
+                <a class="nav-link" href="{{ site.baseurl }}/index.html"> Syntax and Semantics</a>
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link" href="{{ site.baseurl }}/books/index.html"> Book Summaries</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ site.baseurl }}/_pages/about/index.html">About</a>
@@ -89,7 +85,7 @@ change your GA id in _config.yml
 
 
 
-                <!-- {% include search-lunr.html %} -->
+                <li class="nav-item">{% include search-lunr.html %}</li>
 
             </ul>
 
@@ -161,8 +157,9 @@ change your GA id in _config.yml
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-6 text-center text-lg-left">
-                Copyright © {{ site.time | date: "%Y" }} {{ site.name }} 
+            <div class="col-md-12 col-sm-12 text-center text-lg-center">
+                Copyright © {{ site.time | date: "%Y" }} {{ site.name }}. All Rights Reserved.
+                <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
             </div>
         </div>
     </div>

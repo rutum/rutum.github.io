@@ -1,3 +1,13 @@
+
+nav .navbar-nav li a{
+    color: rgba(0, 0, 0, 0.769) !important;
+}
+
+.nav-item a:hover{
+    color:#0B18F4 !important;
+    
+}
+
 .smtext {
     font-size:15px;
 }
@@ -21,6 +31,7 @@
     color: #2B0EF1;
 }
 
+
 .primarybg {
     background-color: #17A2B7;
     border: 0;
@@ -36,7 +47,7 @@
 
 a {
     color:#EC131D;
-    transition: all 0.2s;
+    /* transition: all 0.2s; */
 }
 
 a:hover {
@@ -122,8 +133,8 @@ section.recent-posts {
 
 @media (min-width:992px) {
     .navbar-expand-lg .navbar-nav .nav-link {
-        padding-right: 1.8rem;
-        padding-left: 1.8rem;
+        padding-right: 1.2rem;
+        padding-left: 1.2srem;
     }
 }
 
@@ -350,8 +361,8 @@ span.tag:hover{
 }
 
 .mediumnavigation .navbar-brand img {
-    max-height: 30px;
-    margin-right: 5px;
+    max-height: 50px;
+    margin-right: 10px;
 }
 
 .mainheading h1.sitetitle {
@@ -584,7 +595,7 @@ ul.tags li {
 
 ul.tags li a {
     background: rgba(0, 0, 0, .05);
-    color: rgba(0, 0, 0, .6);
+    color: rgba(0, 0, 0, .);
     border-radius: 3px;
     padding: 5px 10px;
 }
