@@ -1,9 +1,9 @@
 ---
 layout: post
 title: An Introduction to Probability
-image: assets/images/bayes.jpg
 filter: [blog]
 tags: probability introduction
+categories: [probability, introduction]
 author: rutum
 ---
 

@@ -254,7 +254,10 @@ span.post-date,
 span.post-read {
     color: #828282;
 }
-
+span.post-update,
+span.post-read {
+    color: #0B18F4;
+}
 span.post-read-more {
     align-items: center;
     display: inline-block;
@@ -273,10 +276,25 @@ span.post-read-more a:hover {
 
 span.tag {
     border-radius: 5px;
-    border: 1px solid #828282;
-    color: #828282;
+    background-color: #F6EB09;
+    border: 1px solid #fff;
     padding: 1px 5px;
     margin-left: 5px;
+}
+span.tag a{
+    color: #333;
+    
+}
+
+span.tag a:hover{
+    color: #828282;
+}
+
+span.tag:hover{
+
+    border: 1px solid #828282;
+    color: #828282;
+    background-color: #fff;
 }
 
 .dot:after {

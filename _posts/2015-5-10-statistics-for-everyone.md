@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Understanding your Data - Basic Statistics
-image: assets/images/stats.jpg
 filter: [blog]
 tags: statistics
+categories: [statistics]
 author: rutum
 ---
 

@@ -5,6 +5,8 @@ filter: [blog]
 tags: nlp classification
 categories: [nlp, classification]
 author: rutum
+date: 2021-04-23
+last_modified_at: 2021-04-25
 ---
 
 In [Natural Language Processing](https://algorithmia.com/blog/introduction-natural-language-processing-nlp) (NLP) [Logistic Regression](https://en.wikipedia.org/wiki/Logistic_regression) is the baseline supervised ML algorithm for [classification](https://en.wikipedia.org/wiki/Classification). It also has a very close relationship with [neural networks](https://en.wikipedia.org/wiki/Neural_network) (If you are new to neural networks, start with Logistic Regression to understand the basics.)
