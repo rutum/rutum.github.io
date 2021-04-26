@@ -22,7 +22,7 @@
                     <div class="wrapfooter">
                         <span class="post-date">{{ post.date | date_to_string: "ordinal", "US" }}</span>
                         {% for category in post.categories %}
-                        <span class="tag"><a href="{{ site.url }}/categories#{{ category }}">{{ category }}</a></span>
+                        <span class="tag"><a href="{{ site.url }}/categories#{{ category | replace: " ","-" }}">{{ category }}</a></span>
                         {% endfor %} 
                         <div class="clearfix"></div>
                     </div>

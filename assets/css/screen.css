@@ -329,7 +329,7 @@ span.tag:hover{
 }
 
 .mediumnavigation .navbar-brand {
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .mediumnavigation .dropdown-menu {
@@ -339,7 +339,7 @@ span.tag:hover{
 
 .mediumnavigation .nav-item,
 .dropdown-menu {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 }
 
 .mediumnavigation .search-icon {
@@ -355,12 +355,12 @@ span.tag:hover{
 }
 
 .mainheading h1.sitetitle {
-    font-family: 'Lato', sans-serif;
+    font-family:  'Lato', sans-serif;
 }
 
 .mainheading h1.posttitle {
-    font-weight: 700;
-    margin-bottom: 1rem;
+    /* font-weight: 700; */
+    margin-bottom: 2rem;
 }
 
 .footer {

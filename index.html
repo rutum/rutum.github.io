@@ -4,30 +4,10 @@ title: Syntax and Semantics
 ---
 
 <div class="section-title">
-    <h2><span>{{ page.title }}</span></h2>
+    <h1><span>{{ page.title }}</span></h1>
 </div>
 
-
-<!-- Featured
-================================================== -->
-    {% if post.featured == true %}
-        <section class="featured-posts">
-            <div class="section-title">
-                <h2><span>Featured</span></h2>
-            </div>
-            <div class="row">
-
-            {% for post in site.posts %}
-                {% if post.featured == true %}
-                    {% include featuredbox.html %}
-                {% endif %}
-            {% endfor %}
-
-            </div>
-        </section>
-    {% endif %}
-
-
+<br>
 <!-- Posts Index
 ================================================== -->
 <section class="recent-posts">

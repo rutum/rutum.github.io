@@ -35,7 +35,7 @@ post_class: post-template
             <p>
                 <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string: "ordinal", "US" }}</time> by {{ page.author }} </span>            
                 {% for category in page.categories %}
-                    <span class="tag"><a href="{{ site.url }}/categories#{{ category }}"> {{ category }}</a></span>
+                    <span class="tag"><a href="{{ site.url }}/categories#{{ category[0] | replace: " ","-" }}"> {{ category }}</a></span>
                 {% endfor %} 
 
             </p>
