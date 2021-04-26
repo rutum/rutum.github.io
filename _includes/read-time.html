@@ -1,8 +1,8 @@
 <span class="bluecolor smtext" title="Estimated read time">
     {% assign words = include.content | number_of_words %}
     {% if words < 275 %}
-        read time: 1 min
+        Approximate time to read: 1 min
     {% else %}
-        read time: {{ words | divided_by:180 }} min
+        Approximate time to read: {{ words | divided_by:180 }} min
     {% endif %}
 </span>
