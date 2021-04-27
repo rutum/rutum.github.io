@@ -21,14 +21,16 @@
                     </div>
                     <div class="wrapfooter">
                         <span class="post-date">{{ post.date | date_to_string: "ordinal", "US" }}</span>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="wrapfooter">
                         {% for category in post.categories %}
                         <span class="tag"><a href="{{ site.url }}/categories#{{ category | replace: " ","-" }}">{{ category }}</a></span>
                         {% endfor %} 
-                        <div class="clearfix"></div>
                     </div>
-                    
                 </div>
-                <a class="text-dark" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                <a class="blogindex text-dark" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
                 {% if post.rating %}
                 <div class="mt-2 font-weight-normal">
                 {% include star_rating_postbox.html %}

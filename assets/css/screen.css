@@ -259,6 +259,7 @@ span.post-date,
 span.author-meta {
     display: inline-block;
     font-size: 0.91rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 span.post-date,
@@ -288,9 +289,10 @@ span.post-read-more a:hover {
 span.tag {
     border-radius: 5px;
     background-color: #F6EB09;
-    border: 1px solid #fff;
-    padding: 1px 5px;
-    margin-left: 5px;
+    border: 1px solid #333;
+    padding: 2px 5px;
+    margin-right: 5px;
+    font-size: 0.7rem;
 }
 span.tag a{
     color: #333;
@@ -350,7 +352,7 @@ span.tag:hover{
 
 .mediumnavigation .nav-item,
 .dropdown-menu {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .mediumnavigation .search-icon {
@@ -365,12 +367,17 @@ span.tag:hover{
     margin-right: 10px;
 }
 
-.mainheading h1.sitetitle {
-    font-family:  'Lato', sans-serif;
+.mediumnavigation .navbar-brand h1 {
+    font-family: 'Mukta', sans-serif;
 }
 
+/* .mainheading h1.sitetitle {
+    font-family:  'Lato', sans-serif;
+    
+} */
+
 .mainheading h1.posttitle {
-    /* font-weight: 700; */
+    font-weight: 500;
     margin-bottom: 2rem;
 }
 
@@ -391,7 +398,6 @@ span.tag:hover{
 }
 
 .article-post {
-    font-family: 'Lato', sans-serif;
     font-size: 1.1rem;
     line-height: 1.84;
     color: rgba(0, 0, 0, .8);
@@ -427,11 +433,13 @@ blockquote {
     background-color: #efefef;
     padding: 1em;
     border-radius: 7px;
+    
 }
 .related-posts,
 .share {
     margin-bottom: 10px;
-    font-size: 1.2rem;
+    font-size: 0.96rem;
+    font-family: 'Roboto', sans-serif;
 }
 .related-posts p {
     margin-bottom: 10px;
@@ -457,6 +465,10 @@ blockquote {
 .related-posts a {
     color: rgba(0, 0, 0, .44);
     fill: rgba(0, 0, 0, .44);
+}
+.related-posts a:hover {
+    color: rgb(211, 22, 22);
+    /* fill: rgba(0, 0, 0, .44); */
 }
 .related-posts .active a {
     color: #000;
@@ -778,7 +790,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Mukta', sans-serif;
 }
 
 .article-post .h1,
@@ -805,7 +817,7 @@ h6 {
 }
 
 .layout-page .article-post {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 1rem;
 }
 
