@@ -169,8 +169,16 @@ Although Laplace smoothing isn't the best type of smoothing as it gives away a l
 
 $$P(w_n|w_{n-1}) = \frac{C(w_{n-1} w_n)}{C(w_{n-1})} $$
 
+Using Laplace Smoothing, this becomes: 
+
+$$p^*_{Laplace}(w_n|w_{n-1}) = \frac{C(w_{n-1} w_n) + 1}{\sum_w C(w_{n-1}w) + V}$$
+
 ### Add-k smoothing
-TBD
+Add-K smoothing is an alternative to add $1$ smoothing, where we move a bit less of the probability mass from the seen events to the unseen events. 
+
+$$p^*_{add-k}(w_n|w_{n-1}) = \frac{C(w_{n-1} w_n) + k}{\sum_w C(w_{n-1}w) + kV}$$
+
+Add-K requires us to have a method for chosing our k (0.5? 0.1? 0.05?) e.g. one can optimize over a dev set or some other data source. 
 
 ### Backoff and Interpolation
 TBD
