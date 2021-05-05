@@ -175,7 +175,7 @@ Add-K smoothing is an alternative to add $1$ smoothing, where we move a bit less
 
 $$p^*_{add-k}(w_n|w_{n-1}) = \frac{C(w_{n-1} w_n) + k}{\sum_w C(w_{n-1}w) + kV}$$
 
-Add-K requires us to have a method for chosing our k (0.5? 0.1? 0.05?) e.g. one can optimize over a dev set or some other data source. 
+Add-K requires us to have a method for choosing our k (0.5? 0.1? 0.05?) e.g. one can optimize over a dev set or some other data source. 
 
 ### Backoff and Interpolation
 [Backoff](https://en.wikipedia.org/wiki/Katz%27s_back-off_model) is an approach for smoothing using which we only backoff to a lower order n-gram when we have zero evidence for a higher level n-gram. 
@@ -233,7 +233,7 @@ Intrinsic improvement in perplexity does not guarantee an extrinsic improvement 
 
 
 ## N-Gram Efficiency considerations
-When a language model uses large sets of n-grams, it is important to store the efficiently. Below are some ways to store LMs effifiently: 
+When a language model uses large sets of n-grams, it is important to store the efficiently. Below are some ways to store LMs efficiently: 
 
 - Words: storing words in 64 bit hash representations, and the actual words are stored on disc as string
 - Probabilities: 4-8 bits instead of 8 byte float
@@ -248,4 +248,7 @@ When a language model uses large sets of n-grams, it is important to store the e
 
 ## References
 - [Chapter 3, Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition](https://web.stanford.edu/~jurafsky/slp3/3.pdf) by Daniel Jurafsky, James H. Martin
-- 
+- [Language Models](https://en.wikipedia.org/wiki/Language_model), Wikipedia
+- [Lecture 2, Language Models](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1086/handouts/cs224n-lecture2-language-models-slides.pdf), CS224n Stanford NLP
+- [NLP Lunch Tutorial: Smoothing](https://nlp.stanford.edu/~wcmac/papers/20050421-smoothing-tutorial.pdf), Bill MacCartney, Stanford NLP
+- [Relative Frequency](https://www.mathsisfun.com/data/relative-frequency.html), mathisfun.com
