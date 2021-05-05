@@ -21,18 +21,15 @@ In this post I am going to discuss the following concepts:
   - [Working Example](#working-example)
   - [Practical Issues](#practical-issues)
 - [Problems with language Models](#problems-with-language-models)
-  - [Sparsity](#sparsity)
-  - [Unknown Words](#unknown-words)
 - [Smoothing](#smoothing)
   - [Laplace Smoothing](#laplace-smoothing)
   - [Add-k smoothing](#add-k-smoothing)
   - [Backoff and Interpolation](#backoff-and-interpolation)
 - [Evaluating Language Models](#evaluating-language-models)
   - [Intrinsic Evaluation](#intrinsic-evaluation)
-    - [Perplexity](#perplexity)
   - [Extrinsic Evaluation](#extrinsic-evaluation)
-- [Perplexity and Entropy](#perplexity-and-entropy)
-- [Summary](#summary)
+    - [Perplexity](#perplexity)
+- [N-Gram Efficiency considerations](#n-gram-efficiency-considerations)
 - [References](#references)
 
 ## N-Grams
@@ -132,17 +129,17 @@ We can compute the join probability of the tokens of this sentence from the cond
 - We often won't find instances of joint probability in our corpus, and we need to account for that. E.g. in the above example we do not have an instance of 'sam like', and so the conditional probability of $P(Sam\|like)$ will be $0$.
 
 ## Problems with language Models
-### Sparsity
-TBD
-### Unknown Words
-TBD
+Language Models face the issue of [sparsity](https://en.wikipedia.org/wiki/Language_model) - which means that the training corpus is limited and some perfectly acceptable English word sequences are bound to be missing from it. This means that it is possible to have several n-grams with a probability of $0$, but should actually have a non-zero probability. 
+
+Another issue with language models is that the vocabulary the the language model is trained on might not have seen words from the test dataset - introducing the issue of unknown words or [out of vocabulary words(OOV)](https://groups.csail.mit.edu/sls/publications/2000/03105.pdf). One way to deal with OOV words is to replace all words with a frequency below a certain threshold by 'UNK'. Other ways to deal with this is to use smoothing and discounting techniques. 
 
 ## Smoothing
-There will always be unknown words in the test dataset that the language model will have to work with that sparsity. To keep the language model from assigning zero probabilities to unseen events, we will shave off some probability mass from some more frequent events and give it to the events that we have never seen. This process is called [smoothing]() or [discounting]().
+There will always be unknown words in the test dataset that the language model will have to work with that sparsity. To keep the language model from assigning zero probabilities to unseen events, we will shave off some probability mass from some more frequent events and give it to the events that we have never seen. This process is called [smoothing](https://nlp.stanford.edu/~wcmac/papers/20050421-smoothing-tutorial.pdf) or [discounting](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1086/handouts/cs224n-lecture2-language-models-slides.pdf).
 
 A few types of smoothing are: 
-- add-1 smoothing (or [Laplace smoothing]())
+- add-1 smoothing (or [Laplace smoothing](****))
 - add-k smoothing
+- backoff and interpolation
 - stupid backoff
 - Kneser ney smoothing
 
@@ -181,7 +178,19 @@ $$p^*_{add-k}(w_n|w_{n-1}) = \frac{C(w_{n-1} w_n) + k}{\sum_w C(w_{n-1}w) + kV}$
 Add-K requires us to have a method for chosing our k (0.5? 0.1? 0.05?) e.g. one can optimize over a dev set or some other data source. 
 
 ### Backoff and Interpolation
-TBD
+[Backoff](https://en.wikipedia.org/wiki/Katz%27s_back-off_model) is an approach for smoothing using which we only backoff to a lower order n-gram when we have zero evidence for a higher level n-gram. 
+
+So, we use a trigram if the evidence is sufficient, but if such a trigram does not exist, we backoff to a bigram, and if the bigram does not exist, we backoff to a unigram. 
+
+[Interpolation](https://nlp.stanford.edu/~wcmac/papers/20050421-smoothing-tutorial.pdf) is an approach is using a mixture of probability estimates from all the n-gram estimators. For instance, if we are looking at trigrams, we would compute its probability by combining the trigram, bigram and unigram counts. 
+
+Interpolation for a trigram can be defined by the following formula: 
+
+$$\hat{p}(w_n|w_{n-2}w_{n-1}) = \lambda_1 p(w_n|w_{n-2}w_{n-1}) + \lambda_2 p(w_n|w_{n-1}) + \lambda_3 p(w_n)$$
+
+where $\sum_i \lambda_i = 1$
+
+The values of $\lambda$ can be computed by optimizing over a heldout dataset. [EM Algorithm (Expectation Maximization Algorithm)](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm) is an iterative learning algorithm that converges on locally optimal $\lambda$s 
 
 ## Evaluating Language Models
 There are 2 ways to evaluate language models: 
@@ -193,7 +202,12 @@ For intrinsic evaluation of a language model we need to have:
 - training dataset
 - test dataset
 - held out dataset
-  
+
+We use the language model to compute scores on the test dataset, and use the heldout and training dataset to optimize out language model. 
+
+### Extrinsic Evaluation
+To compute extrinsic evaluation of a language model, we compute the effect of a new language model on the final end to end product that it is integrated with. Good scores during intrinsic evaluation does not always mean better scores during extrinsic evaluation, which is why both the types of evaluation are important. 
+
 #### Perplexity
 [Perplexity](https://en.wikipedia.org/wiki/Perplexity) is the measure of computation of the probabilities learned from the training dataset and applied on the test dataset. Perplexity is represented as $PP$ and is measured as the inverse probability of the test set, normalized by the number of words. 
 
@@ -217,14 +231,21 @@ Another way to think about perplexity is to think of it as the weighted average 
 
 Intrinsic improvement in perplexity does not guarantee an extrinsic improvement in the performance of the language processing task. 
 
-### Extrinsic Evaluation
-TBD
 
-## Perplexity and Entropy
-TBD
+## N-Gram Efficiency considerations
+When a language model uses large sets of n-grams, it is important to store the efficiently. Below are some ways to store LMs effifiently: 
 
-## Summary
-TBD
+- Words: storing words in 64 bit hash representations, and the actual words are stored on disc as string
+- Probabilities: 4-8 bits instead of 8 byte float
+- n-grams: Stored in reverse [tries](https://en.wikipedia.org/wiki/Trie)
+- Approximate language models can be created using techniques such as [bloom filters](https://en.wikipedia.org/wiki/Bloom_filter)
+- n-grams can be shrunk by pruning i.e. only storing n-grams with counts greater than some threshold. 
+- Efficient Language Models such as [KenLM](https://github.com/kpu/kenlm)
+  - Use sorted Arrays
+  - Efficiently combined probabilities and backoffs into a single value
+  - Use merge sorts to efficiently build probability tables in a minimal number of passes through a large corpus
+
 
 ## References
 - [Chapter 3, Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition](https://web.stanford.edu/~jurafsky/slp3/3.pdf) by Daniel Jurafsky, James H. Martin
+- 
