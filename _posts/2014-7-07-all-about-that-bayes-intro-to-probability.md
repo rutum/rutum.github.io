@@ -3,28 +3,29 @@ layout: post
 title: An Introduction to Probability
 filter: [blog]
 tags: probability introduction
-categories: [probability, introduction]
+categories: [probability]
 author: rutum
+last_modified_at: 2021-05-08
 ---
 
 This post is an introduction to probability theory. Probability theory is the backbone of AI, and the this post attempts to cover these fundamentals, and bring us to [Naive Bayes](https://en.wikipedia.org/wiki/Naive_Bayes_classifier), which is a simple generative classification algorithm for text classification. In this post we will cover the following: 
 
-- [RANDOM VARIABLES](#random-variables)
-- [SIMPLE PROBABILITY](#simple-probability)
-- [PROBABILITY OF 2 EVENTS](#probability-of-2-events)
-- [CONDITIONAL PROBABILITY](#conditional-probability)
-- [DIFFERENCE BETWEEN CONDITIONAL AND JOINT PROBABILITY](#difference-between-conditional-and-joint-probability)
-- [BAYES RULE](#bayes-rule)
-- [NAIVE BAYES](#naive-bayes)
-- [**References:**](#references)
+- [Random Variables](#random-variables)
+- [Simple Probability](#simple-probability)
+- [Probability of 2 Events](#probability-of-2-events)
+- [Conditional Probability](#conditional-probability)
+- [Difference between conditional and joint probability](#difference-between-conditional-and-joint-probability)
+- [Bayes Rule](#bayes-rule)
+- [Naive Bayes](#naive-bayes)
+- [Further Reading](#further-reading)
 
 
-# RANDOM VARIABLES
+# Random Variables
 
 In this world things keep happening around us. Each event occurring is a Random Variable. A Random Variable is an event, like elections, snow or hail. Random variables have an outcome attached them - the value of which is between 0 and 1. This is the likelihood of that event happening. We hear the outcomes of random variables all the time - There is a 50% chance or precipitation, The Seattle Seahawks have a 90% chance of winning the game.
 
 
-# SIMPLE PROBABILITY
+# Simple Probability
 
 Where do we get these numbers from? From past data.
 
@@ -37,7 +38,7 @@ p(Rain=Rainy) = \frac{\sum(Rain=Rainy)}{\sum(Rain=Rainy) + \sum(Rain=Dry)} = \fr
 $$p(Rain=Dry) = \frac{\sum(Rain=Dry)}{\sum(Rain=Rainy) + \sum(Rain=Dry)} = \frac{3}{8}
 $$
 
-# PROBABILITY OF 2 EVENTS
+# Probability of 2 Events
 
 What is the probability that event A and Event B happening together? Consider the following table, with data about the *Rain* and *Sun* received by Seattle for the past few years.
 
@@ -109,7 +110,7 @@ We can extend this table further include **Marginalization**. *Marginalization* 
 
 Why are margins helpful? They remove the effects of one of the two events in the table. So, if we want to know the probability that it will rain (irrespective of other events), we can find it from the marginal table as 0.625. From Table 1, we can confirm this by computing all the individual instances that it rains - 5/8 = 0.625
 
-# CONDITIONAL PROBABILITY
+# Conditional Probability
 
 What do we do when one of the outcomes is already given to us? On this new day in 2016, it is very sunny, but what is the probability that it will rain?
 
@@ -129,7 +130,7 @@ Probability of Rain and Sun = 0.375
 
 Probability of Rain given Sun = 0.375/0.625 = 0.6
 
-# DIFFERENCE BETWEEN CONDITIONAL AND JOINT PROBABILITY
+# Difference between conditional and joint probability
 
 Conditional and Joint probability are often mistaken for each other because of the similarity in their naming convention. So what is the difference between: $ P(AB) $ and $ P(A \mid B) $
 
@@ -140,7 +141,7 @@ Joint probability computes the probability of 2 events happening together. In th
 
 Conditional probability is similar, but with one difference - We already know that one of the events (e.g. Event B) did happen. So we are looking for the probability of Event A, when we know the Event B already happened or that the probability of Event B is 1. This is a subtle but a significantly different way of looking at things.
 
-# BAYES RULE
+# Bayes Rule
 
 $$P(A B) = P(A) \, P(B \mid A)$$
 
@@ -248,7 +249,7 @@ This is the reason why doctors are hesitant to order expensive tests if it is un
 
 ---
 
-# NAIVE BAYES
+# Naive Bayes
 
 When someone applies *Naive Bayes* to a problem, they are assuming *conditional independence* of all the events. This means:
 
@@ -267,10 +268,10 @@ $$ = \alpha \times P(B\mid A ) \, P(C \mid A) P(D \mid A) ... P(A)$$
 
 What we have done here, is assumed that the events A, B, C etc. are not dependent on each other, thereby reducing a very high dimensional table into several low dimensional tables. If we have 100 features, and each feature can take 2 values, then we would have a table of size $2^{100}$. However, assuming independence of events we reduce this to one hundred 4 element tables.
 
-Naive bayes is rarely ever true, but it often works because we are not interested in the right probability, but the fact that the correct class has the highest probability.
+> Naive Bayes is rarely ever true, but it often works because we are not interested in the right probability, but the fact that the correct class has the highest probability.
 
 
-# **References:**
+# Further Reading
 
 1. <a href = "http://www.usna.edu/Users/cs/crabbe/SI420/current/classes/naivebayes/naivebayes.pdf"> A gentle review of Basic Probability</a>
 
