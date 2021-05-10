@@ -39,7 +39,6 @@ In this post I will discuss the following:
   - [Likelihood Ratio](#likelihood-ratio)
 - [Derivation](#derivation)
 - [Bayes Optimal Decision](#bayes-optimal-decision)
-- [Further Reading](#further-reading)
 
 ---
 
@@ -232,8 +231,3 @@ Computing the partial derivative WRT $\mu$ and then setting the equation to $0$ 
 
 # Bayes Optimal Decision
 When we pick the best decision theory out of all the available theories that could explain the data, we make the Bayes Optimal Decision. 
-
-# Further Reading
-
-- [Chapter 7, Neural Networks and Neural Language Models](https://web.stanford.edu/~jurafsky/slp3/7.pdf) Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition, by Daniel Jurafsky, James H. Martin
-- [Introduction to Latent Dirichlet Allocation](https://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/), by Edwin Chen
