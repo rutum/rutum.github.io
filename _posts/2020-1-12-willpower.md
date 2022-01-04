@@ -15,7 +15,7 @@ Most major problems center in self control - e.g. compulsive spending, impulsive
 
 People spend about a quarter of their waking hours resisting desires - at least 4 hours per day. And that doesn't include the instances in which willpower is exercised. 
 
-Every successful person has the quality of self-control, but it is rarely ever mentioned as a reason for success (It is almost always mentioned as the reason fro failure). 
+Every successful person has the quality of self-control, but it is rarely ever mentioned as a reason for success (It is almost always mentioned as the reason for failure). 
 
 In this book Baumeister and Tierney talk about how people who have mastered self control are more successful, in all aspects of their life as compared to their counterparts. 
 
@@ -36,7 +36,6 @@ We can divide the uses of willpower into 4 broad categories:
 - control of emotions: controlling feeings - e.g. trying to escape bad moods
 - impulse control: the ability to resist temptations like alcohol, tobacco, Cinnabons and cocktail waitresses
 - performance control: Focusing your energy on the task at hand
-### A brief history of the todo list, from God to Drew Carey
 
 If you are trying to make a big change in your life that requires willpower - make sure to focus only on that change. The limited willpower that one has is used for all aspects of their life - no matter how unrelated. e.g. quitting alcohol, saying good things about bullys - both share the same willpower resources. 
 
@@ -52,24 +51,4 @@ Don't try to skimp on calories when working on serious problems (more serious th
 
 To get your glucose, go for the "slow burn" - i.e. food that takes a while to digest (low glycemic index) and can sustain you got a longer time. 
 
-Sleep also affect how effective th body is to create glucose. Which is why having a good nights sleep is beneficial for willpower. 
-
-### A brief history of the todo list, from God to Drew Carey
-
-### Decision Fatigue
-
-### Where have all the dollars gone? The quantified self knows
-
-### Can willpower be strengthened? (Preferably without feeling David Blains pain)
-
-### Outsmarting yourself in the heart of darkness
-
-### Did a higher power help Eric Clapton an Mary Karr stop drinking?
-
-### Raising strong children: Self Esteem vs Self Control
-
-### The perfect storm of dieting
-
-### Conclusion
-
-
+Sleep also affect how effective the body is to create glucose. Which is why having a good nights sleep is beneficial for willpower. 
