@@ -14,7 +14,7 @@ title: About me
 			</div>
 			<div class="col-md-8 pr-10">
 
-			<p> I am a scientist at <a href="http://docugami.com">Docugami</a>, working on problems related to document analysis and document engineering. Previously, I was the Founder of Hunchera and the founder of Ticary Solutions (acquired in the summer of 2019).</p>
+			<p> My name is Rutu Mulkar and I am a Sr. Manager in Applied Science at Amazon. Previously, I was the Founder of Hunchera and the founder of Ticary Solutions (acquired in the summer of 2019).</p>
 
 			<p> I have a Ph.D. in Natural Language Processing, during which I contributed to IBM Watson that defeated humans at Jeopardy! (<a href="https://www.prnewswire.com/news-releases/ibm-announces-eight-universities-contributing-to-the-watson-computing-systems-development-115892914.html">news story</a>).</p>
 

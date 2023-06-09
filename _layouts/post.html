@@ -33,15 +33,16 @@ post_class: post-template
             </div>
             <!-- Post Date -->
             <p>
-                <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string: "ordinal", "US" }}</time> by {{ page.author }} </span>            
-                {% for category in page.categories %}
+                <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string: "ordinal", "US" }}</time> </span>            
+                <br>
+                <span>{% for category in page.categories %}
                     <span class="tag"><a href="{{ site.url }}/categories#{{ category[0] | replace: " ","-" }}"> {{ category }}</a></span>
-                {% endfor %} 
+                {% endfor %}</span> 
 
             </p>
             
             {% if page.last_modified_at %}
-            <p><span class="post-update">[Updated on {{ page.update }} on <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>]</span></p>
+            <p><span class="post-update">[Updated {{ page.update }} on <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>]</span></p>
             {% endif %}
 
             <!-- Rating -->
