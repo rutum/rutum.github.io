@@ -9,7 +9,10 @@ nav .navbar-nav li a{
     color:#3066be !important;
     
 }
-
+a {
+    color:#3066be;
+    /* transition: all 0.2s; */
+}
 .smtext {
     font-size:15px;
 }
@@ -18,11 +21,15 @@ nav .navbar-nav li a{
     float: right;
 }
 .greybg {
-    background-color: #3c3744;
-    color: #fbfff1;
-    border: 0;
+    background-color: #fbfff1;
+    /* color: #fbfff1; */
+    border: 0.5;
 }
-
+a.greybg:hover {
+    background-color: #b4c5e4;
+    /* color: #fbfff1; */
+    border: 0.5;
+}
 /* .primarycolor {
     color: #090c9b;
 }
@@ -47,10 +54,7 @@ nav .navbar-nav li a{
     padding: 1rem 0rem;
 }
 
-a {
-    color:#3066be;
-    /* transition: all 0.2s; */
-}
+
 
 a:hover {
     color: #3066be;
