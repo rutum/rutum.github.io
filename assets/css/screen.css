@@ -182,17 +182,17 @@ section.recent-posts {
 
 .listfeaturedtag h2.card-title,
 .listrecent h2.card-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.25;
+    font-size: 1.2rem;
+    font-weight: 500;
+    /* line-height: 1.25; */
 }
 
 .listfeaturedtag h4.card-text,
 .listrecent h4.card-text {
     color: rgba(0, 0, 0, 0.653);
     font-size: 1.1rem;
-    line-height: 1.6;
-    font-weight: 400;
+    /* line-height: 1.6; */
+    /* font-weight: 400; */
 }
 
 .featured-box-img-cover {
@@ -407,8 +407,8 @@ span.tag:hover {
 
 .article-post {
     font-size: 1.1rem;
-    line-height: 1.84;
-    color: rgba(0, 0, 0, .8);
+    /* line-height: 1.84; */
+    color: #3c3744;
 }
 
 blockquote {
