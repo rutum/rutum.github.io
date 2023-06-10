@@ -35,10 +35,10 @@ a.greybg:hover {
 }
 .greencolor{
     color: #0BF473;
-}
+}*/
 .bluecolor{
-    color: #003459;
-} */
+    color: #3066be;
+}
 
 
 /* .primarybg {
@@ -190,7 +190,7 @@ section.recent-posts {
 .listfeaturedtag h4.card-text,
 .listrecent h4.card-text {
     color: rgba(0, 0, 0, 0.653);
-    font-size: 1.1rem;
+    font-size: 1rem;
     /* line-height: 1.6; */
     /* font-weight: 400; */
 }
