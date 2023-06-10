@@ -4,16 +4,22 @@ title: NLP Bytes
 permalink: /nlp-bytes
 ---
 
-## Vector Semantics and Embeddings
+#### Large Language Models (LLMs)
+- Knowledge Distillation
+- Transformer Architecture
+- Decoder Only Models
+- Multimodal LLM
+- Text to Image
 
-### General Relevant Concepts:
+#### Vector Semantics and Embeddings
+
 - Distributional hypothesis
 - Vector Semantics
 - Contextualized Word Representations
 - Self-supervised Learning
 - Lexical Semantics
 
-### Lexical Semantics
+#### Lexical Semantics
 - Lemma
 - Word Forms
 - Word Sense
@@ -29,7 +35,7 @@ permalink: /nlp-bytes
 - Semantic Frames and Roles
 - Connotations
  
-### Vectors
+#### Vectors
 - Vector semantics
 - Co-occurrence Matrix
 - Term Document Matrix
@@ -43,13 +49,13 @@ permalink: /nlp-bytes
 - PPMI (Positive Pointwise Mutual Information)
 - Laplace Smoothing
   
-### Cosine Similarity
+#### Cosine Similarity
 - What is Cosine similarity
 - Issues with raw dot product
 - Normalized Dot Product
 - Unit Vector
 
-### Embeddings
+#### Embeddings
 - Sparse vs Dense vectors
 - Word2Vec and Logistic Regression
 - Word2Vec (Skip Gram with Negative Sampling SGNS)
@@ -59,7 +65,7 @@ permalink: /nlp-bytes
   - First Order Co-Occurrence - Syntagmatic Association
   - Second Order Co-occurrence - Paradigmatic Association
   
-### Relevant Concepts
+#### Relevant Concepts
 - GloVe Embeddings - method based on ratios of word co-occurrence probabilities
 - Fasttext - computing word embeddings on bag or character (or subwords)
 - LSI (Latent Semantic Indexing)
