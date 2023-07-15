@@ -1,67 +1,235 @@
-# Mediumish Jekyll Theme - Change Log
+# Change Log
 
-## 2019-05-16, v1.0.36
-- docker-composer.yml
-- better responsiveness for 1920x1080 resolution
+## 2.2.6 (2019-02-02)
 
-## 2019-04-02, v1.0.35
-- Fixed Github pages issue with ratings under 1
-- Added support for local avatars
+### Enhancements
 
-## 2019-03-22, v1.0.34
-- Deferred font awesome and google fonts
+- Add [commit linter](https://commitlint.js.org/)
+- Add [EditorConfig](https://editorconfig.org/)
+- Update npm packages
 
-## 2019-03-22, v1.0.33
-- Added image lazy load (config.yml - lazyimages: "enabled/disabled")
-- Added object cover images instead of background images for home featured cards
-- Removed disqus count from homepage for better performance
+### Bug Fixes
 
-## 2019-03-20, v1.0.32
-- Centered avatar image on smaller devices
-- Removed .html endings in cats/tags
-- Added Linkedin share 
-- Added Table of Contents (toc:true)
-- Added Paragraph before TOC (beforetoc: "My short description here")
+- Fix some spelling errors in documents
+- Fix some errors in configs
 
+## 2.2.5 (2019-12-08)
 
-## 2019-03-20, v1.0.31
-- Added adsense support (activate via _config.yml)
-- Fixed share for large headers
+### Enhancements
 
-## 2019-03-20, v1.0.30
-- Added Tags support
-- Removed Google + sharing, no longer needed
+- Update to Jekyll 4.0
+- Add custom snippets for main/top, main/bottom, article/top,  article/bottom, etc
+- Add Medium, Zhihu social icons
+- Add Google Custom Search support
+- Add Korean locale (@ssosso)
+- Add French locale (@ctrl-q)
+- Add Docker support
 
-## 2019-03-01, v1.0.29
-- Fixed Jumbotron categories link
+## 2.2.4 (2018-12-10)
 
-## 2019-03-01, v1.0.28
-- Added blurred text on spoilers
-- Added half stars for ratings
+### Enhancements
 
-## 2019-03-01, v1.0.27
-- Reveal hidden spoilers on click
-- Syntax line numbers
-- Post rating stars
-- Fixed category links with more than 1 word
+- Swiper component support mouse move
+- Add lightbox (modal image gallery)
+- Add Valine comment system (@Lloyar)
 
-## 2019-02-14
-- Fixed Feed site title not showing
-- Added 404 page
+### Bug Fixes
 
-## 2019-02-10
-- Fixed CSS Jumbotron categories
+- Fix some spelling errors in documents (@Krinkle)
 
-## 2019-02-09
-- Fixed Category links are now compatible with Github pages. Archive still available for non Github pages.
-- Added Search
-- Added SEO
+## 2.2.3 (2018-11-11)
 
-## 2018-11-08
-- Fixed reponsive footer jumbotron for tags
+### Enhancements
 
-## 2018-11-07
-- Added external image support
+- Add Swiper component
+- Add AddThis sharing service (@liao961120)
+- Add extensions for demos (CodePen)
+- Add special stylesheets for print
 
-## 2018-09-12
-- Added option to disable comments in a specific post with `comments: false` in YAML front matter
+## 2.2.2 (2018-10-21)
+
+### Enhancements
+
+- Add extensions for audios (SoundCloud, Netease Cloud Music), videos (YouTube, TED, bilibili) and slide(SlideShare)
+- Add AddToAny sharing service
+
+## 2.2.1 (2018-10-02)
+
+### Enhancements
+
+- Update screenshots
+- Landing layout `data.sections` item's `image` add `full_width` setting
+- Remove `header.type` and add `header.background` setting
+- Page layout sidebar use document scroll when viewport width < 1024px, this enhance the user experience on a phone or a pad
+- Telegram social icon (@WangQiru)
+- Search panel use dark background
+
+## 2.2.0 (2018-09-16)
+
+### Enhancements
+
+- `article_header` setting for page layout
+- Articles layout
+- New grid system
+- Image, card, item and hero components
+- Tag additional style
+- chart.js update to 2.7.2, mathjax update to 2.7.4 and mermaid update to 8.0.0-rc.8
+
+### Bug Fixes
+
+- Replace Lenna test image
+
+## 2.1.0 (2018-08-26)
+
+### Enhancements
+
+- Search panel (Click search icon in the header or press `s` or `/` key to search)
+- Npm social icon (@WangQiru)
+
+### Bug Fixes
+
+- Google analytics may not work, use gtag.js
+
+## 2.0.2 (2018-07-29)
+
+### Enhancements
+
+- Highlight theme
+- Articles whit `sidebar.toc` support section navigator (previous and next navigator)
+- Aside Toc show immediately after page get ready (no more delay)
+
+### Bug Fixes
+
+- Aside Toc may display error when scroll to bottom
+
+## 2.0.1 (2018-07-07)
+
+> “All elements that respond to press should have a visual feedback when touched.”
+>
+> —TouchableWithoutFeedback in *React Native Docs*
+
+### Enhancements
+
+- Some interaction details optimize: button and link add feedback when clicked, cancel button of input in archive layout, button focus style, etc
+
+### Bug Fixes
+
+- `mathjax` and `mermaid` setting may not work
+
+## 2.0.0 (2018-07-01)
+
+Breaking changes, please check [Update from 1.x to 2.x](https://kitian616.github.io/jekyll-TeXt-theme/docs/en/update-from-1-to-2) for details
+
+### Enhancements
+
+- Authors
+- License
+- New layouts (page, article, landing, etc)
+
+## 1.5.0 (2018-03-18)
+
+### Enhancements
+
+- `text_color_theme` setting
+- Long pagination
+- Additional styles (Alert, Image)
+- Mathjax `autoNumber` setting (@liao961120)
+- Article heading anchor
+- Previous and next post
+- Search
+
+## 1.4.3 (2018-01-13)
+
+### Enhancements
+
+- New TOC style
+- Gitalk support (@WangQiru)
+- Mermaid support
+- `site.paths` and `site.nav_lists` configs support absolute URL
+
+## 1.4.2 (2017-12-10)
+
+### Enhancements
+
+- Use new liquid syntax `{%-` `-%}` to avoid unnecessary output whitespace
+- Add `paths.base` setting
+
+## 1.4.1 (2017-12-05)
+
+### Enhancements
+
+- New color themes(Chocolate, Orange)
+
+### Bug Fixes
+
+- Issues 9: the _posts file can't recorded by git
+
+## 1.4.0 (2017-11-19)
+
+### Enhancements
+
+- Internationalization
+
+### Bug Fixes
+
+- Table overflow-x smooth on iOS
+
+## 1.3.0 (2017-11-11)
+
+### Enhancements
+
+- Article tag supports special characters
+- Excerpts type (HTML | TEXT)
+- Titles on the phone become smaller
+- Change styles for table, code and blockquote
+
+## 1.2.2 (2017-11-04)
+
+### Enhancements
+
+- MathJax Support
+- Add “Read more” link at the end of article excerpt
+- 404 page
+
+### Bug Fixes
+
+- Fix Email link URL error
+- Fix Site Title link URL error
+- Fix table responsive style error
+
+## 1.2.1 (2017-10-27)
+
+### Enhancements
+
+- Optimize Article TOC
+
+### Bug Fixes
+
+- Pageview display error when the post key include `-` (@yuxianda)
+- Email url error
+
+## 1.2.0 (2017-10-22)
+
+### Enhancements
+
+- Article excerpt no more than 200 words
+- If `leancloud` is not set, 0 view won't display
+
+### Bug Fixes
+
+- Fix article TOC’s display error at proper situation
+- Fix footer social buttons not in the center bug
+
+## 1.1.0 (2017-10-19)
+
+### Enhancements
+
+- Color variables
+- More color themes (dark, forest, ocean)
+
+## 1.0.0 (2017-10-17)
+
+### Enhancements
+
+- Better article directories
+- Dark color theme
