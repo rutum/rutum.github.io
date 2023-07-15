@@ -43,7 +43,7 @@ plugins:
   #   category: '/category/:name/'
     
 # Pagination 
-# paginate: 20
+# paginate: 9
 # paginate_path: /page:num/
 
 
