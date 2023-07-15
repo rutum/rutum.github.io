@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="http://localhost:4000/assets/images/lightning-border.png">
+<title>What is Natural Language Processing (NLP)? | Rutu Mulkar</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>What is Natural Language Processing (NLP)? | Rutu Mulkar</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="What is Natural Language Processing (NLP)?" />
+<meta name="author" content="rutum" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Last year I wrote a highly popular blog post about Natural Language Processing, Machine Learning, and Deep Learning." />
+<meta property="og:description" content="Last year I wrote a highly popular blog post about Natural Language Processing, Machine Learning, and Deep Learning." />
+<link rel="canonical" href="http://localhost:4000/blog/2017/what-is-nlp/" />
+<meta property="og:url" content="http://localhost:4000/blog/2017/what-is-nlp/" />
+<meta property="og:site_name" content="Rutu Mulkar" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-12T00:00:00-08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="What is Natural Language Processing (NLP)?" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"rutum"},"description":"Last year I wrote a highly popular blog post about Natural Language Processing, Machine Learning, and Deep Learning.","@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"},"name":"rutum"},"headline":"What is Natural Language Processing (NLP)?","dateModified":"2017-12-12T00:00:00-08:00","datePublished":"2017-12-12T00:00:00-08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2017/what-is-nlp/"},"url":"http://localhost:4000/blog/2017/what-is-nlp/","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;&family=Mukta:wght@300;500&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+
+<!-- Google analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-31232401-1', 'auto');
+ga('send', 'pageview');
+</script>
+<style>
+    ::-moz-selection { /* Code for Firefox */
+        color: #fbfff1;
+        background: #3066be;
+    }
+    
+    ::selection {
+        color: #fbfff1;
+        background: #3066be;
+    }
+    </style>
+
+</head>
+
+<!--  -->
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<!-- <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet"> -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="http://localhost:4000/"> 
+        <h2> <img class="d-inline-block align-text-center" src="http://localhost:4000/assets/images/lightning.png"/></h2>
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+        <!-- Begin Menu -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="/index.html">Syntax and Semantics</a>
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link" href="/books/index.html"> Book Summaries</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/_pages/about/index.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search f-dlex" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<!-- <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form> -->
+  
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+                </li>
+            </ul>
+        <!-- End Menu -->
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+
+<div class="site-content">
+
+    <div class="container">
+
+        <!-- Site Title
+        ================================================== -->
+        <div class="mainheading">
+        <!--     <h1 class="sitetitle">Rutu Mulkar</h1>
+            <p class="lead">
+                
+            </p> -->
+        </div>
+        <!-- Content
+        ================================================== -->
+
+        <div class="main-content">
+            <!-- reading progress-bar -->
+<div class="progress_container">
+    <progress class="progress_read" id="myBar" value="0"></progress>
+</div>
+
+<!-- Begin Article
+    ================================================== -->
+    <div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-1 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=What is Natural Language Processing (NLP)?&url=http://localhost:4000/blog/2017/what-is-nlp/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/blog/2017/what-is-nlp/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/blog/2017/what-is-nlp/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        <!--  -->
+
+        <div class="col-md-8 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Post Title -->
+                <h1 class="posttitle">What is Natural Language Processing (NLP)?</h1>
+                <!-- Reading time -->
+                <!-- <span class="bluecolor smtext" title="Estimated read time">
+    
+    
+        Approximate time to read: 7 min
+    
+</span> -->
+            </div>
+            <!-- Post Date -->
+            <p>
+                <span class="post-date"><time class="post-date" datetime="2017-12-12">Dec 12th, 2017</time> </span>            
+                <br>
+                <span>
+                    <span class="tag"><a href="http://localhost:4000/categories#"> nlp introduction</a></span>
+                </span> 
+
+            </p>
+            
+            
+
+            <!-- Rating -->
+            <!--  -->
+            
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>Last year <a href="http://rutumulkar.com/blog/2016/NLP-ML">I wrote a highly popular blog post about Natural Language Processing, Machine Learning, and Deep Learning</a>.</p>
+
+<p>In this post, we will break down NLP further and talk about Rule-Based and Statistical NLP. I will discuss why everyone needs to know about NLP and AI (Artificial Intelligence), how Machine Learning (ML) fits into the NLP space (it is indispensable actually) and how we are using it in our daily life even without knowing about it.</p>
+
+<h4 id="introduction-to-nlp">Introduction to NLP</h4>
+
+<p>Natural Language Processing or NLP is a phrase that is formed from 3 components - <em>natural</em> - as exists in nature, <em>language</em> - that we use to communicate with each other, <em>processing</em> - something that is done automatically. Putting these words together, we get <em>Natural Language Processing</em> or <em>NLP</em> - which stands for the approaches to “process” natural language or human language.</p>
+
+<p>This is a very generic term. What does this “processing” even mean?</p>
+
+<p>As a human, I understand English when someone talks to me, is that NLP? Yes! When done automatically, it is called <a href="https://en.wikipedia.org/wiki/Natural_language_understanding">Natural Language Understanding (NLU)</a>.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="http://www.stuartduncan.name/wp-content/uploads/2012/05/understanding-1024x834.jpg" alt="Human Understanding. Image Credit: http://www.stuartduncan.name" class="img-responsive center-image" style="width: 400px;" /></td>
+    </tr>
+    <tr>
+      <td>Human Understanding. Image Credit: http://www.stuartduncan.name</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>I translated some Hindi to English for my friend, is that NLP? Yes, it is called <a href="https://en.wikipedia.org/wiki/Machine_translation">Machine Translation (MT)</a> when done automatically.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://cloud.google.com/images/products/artwork/hello-lead.png" class="img-responsive center-image" width="200px" /></td>
+    </tr>
+    <tr>
+      <td>Machine Translation. Image Credit: Google Cloud</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As humans, we perform Natural Language Processing pretty well but we are not perfect; misunderstandings are pretty common among humans, and we often interpret the same language differently. So, language processing isn’t <a href="https://en.wikipedia.org/wiki/Deterministic_system">deterministic</a> (which means that the same language doesn’t have the same interpretation, unlike math where 1 + 1 is deterministic and always equals 2) and something that might be funny to me, might not be funny to you.</p>
+
+<p>This inherent <a href="https://en.wikipedia.org/wiki/Nondeterministic_algorithm">non-deterministic</a> nature of the field of Natural Language Processing makes it an interesting and an <a href="https://en.wikipedia.org/wiki/NP-hardness">NP-hard problem</a>. In this sense, understanding NLP is like creating a new form of intelligence in an artificial manner that can understand how humans understand language; which is why NLP is a subfield of <a href="https://en.wikipedia.org/wiki/Artificial_intelligence">Artificial Intelligence</a>. NLP experts say that if humans don’t agree 100% on NLP tasks (like language understanding, or language translation), it isn’t possible to model a machine to perform these tasks without some degree of error. Side note - if an NLP consultant ever tells you that they can create a model that is more precise than a human, be very wary of them. More about that in my post about <a href="">7 questions to ask before you hire your Data Science consultant</a>.</p>
+
+<h4 id="rule-based-nlp-vs-statistical-nlp">Rule-Based NLP vs Statistical NLP</h4>
+<p>NLP separated into two different sets of ideologies and approaches.</p>
+
+<p>One set of scientists believe that it is impossible to completely do NLP without some inherent background knowledge that we take for granted in our daily lives such as <em>freezing temperatures cause hypothermia</em>, <em>hot coffee will burn my skin</em> and so on. This set of knowledge is collectively known as <em>commonsense knowledge</em> and has brought about the field of <em>Commonsense Reasoning</em> and very many <a href="http://commonsensereasoning.org/">conferences</a> and companies (a special mention to <a href="https://en.wikipedia.org/wiki/Cyc">Cyc</a>).</p>
+
+<p>Encoding commonsense knowledge is a very time intensive and manual effort driven process as is considered to be in the space of <a href="https://en.wikipedia.org/wiki/Rule-based_system">Rules-Based NLP</a>. It is hard because commonsense knowledge isn’t found in the written text (discourse), and we don’t know how many rules we need to create, before the work for encoding knowledge is complete. Here is an example: as humans, we inherently understand the concepts of <em>death</em> and you will rarely find documents that describe it by explaining the existence and nonexistence of hydrocarbons. Similarly are the concepts of <em>moving</em> and <em>dancing</em> which usually do not require any explanation to a human, but a computer model requires the breakdown of <em>moving</em> into the <em>origin</em>, <em>destination</em>, and the concept of not being at the origin after the move has happened. Dancing, on the other hand, is also a type of moving, but it is obviously very different from a traditional move, and requires more explanation because you can move a lot and still end up in your original location, so what is the point of a <em>dance move</em>?</p>
+
+<p>Another set of scientists have taken a different (<a href="https://www.quora.com/Why-are-rule-based-methods-becoming-unpopular-in-NLP-Are-rule-based-methods-still-in-use-If-yes-where-should-I-look-for-them">now deceptively mainstream</a>) approach to NLP. Instead of creating commonsense data that is missing in textual discourse, their idea is to leverage large amounts of already existing data for NLP tasks. This approach is statistical and inductive in nature and the idea is that if we can find enough number of examples of a given problem, we could potentially solve it using the power of <a href="https://en.wikipedia.org/wiki/Mathematical_induction">induction</a>. Statistical NLP makes heavy use of <em>Machine Learning</em> for developing models and deriving insights from a labeled text.</p>
+
+<p>Rule-Based NLP and Statistical NLP use different approaches for solving the same problems. Here are a couple of examples:</p>
+
+<h5 id="parsing">Parsing:</h5>
+
+<ul>
+  <li>Rules-Based uses Linguistic rules and patterns. E.g English has the structure of SVO (Subject Verb Object), Hindi has SOV (Subject Object Verb).</li>
+  <li>Statistical NLP induces linguistic rules from the text (so our models are only as good as our text), along with lots of labeling of the text to predict the most likely parse tree of a new data source.</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="http://www.cs.cornell.edu/courses/cs2112/2014fa/lectures/lec_parsing/simple-sentence.png" class="img-responsive center-image" width="300px" /></td>
+    </tr>
+    <tr>
+      <td>Natural Language Parsing. Image Credit: cs.cornell.edu</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="synonym-extraction">Synonym extraction</h5>
+
+<ul>
+  <li>Rules-Based approaches use thesaurus and lists. Data sources such as <a href="https://wordnet.princeton.edu/">Wordnet</a> are very useful for deterministic rule-based approaches</li>
+  <li>Statistical NLP approaches use statistics to induce thesaurus based on <a href="https://code.google.com/archive/p/word2vec/">how similar words have similar contexts</a></li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://camo.githubusercontent.com/bc16ea3ea66a7f696fa17d656288d07c8dcd1254/687474703a2f2f692e696d6775722e636f6d2f4443466367784e2e706e67" class="img-responsive center-image" width="800px" /></td>
+    </tr>
+    <tr>
+      <td><em>Synonyms using Word2Vec. Image Credit: oscii-lab</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="sentiment-analysis">Sentiment Analysis</h5>
+
+<ul>
+  <li>Rules-based approaches look for linguistic terms such as “love”, and “hate”, “like” and “dislike” etc. and deterministically classify text as positive and negative</li>
+  <li>Statistical NLP approaches use Machine Learning and do some feature engineering to provide weights to linguistic terms to determine the positive and negative nature of texts.</li>
+</ul>
+
+<p>Which approach is better? Both the approaches have their advantages. Rules-based approaches mimic the human mind and present highly precise results, however, they are limited by what we provide as rules. Statistical approaches are less precise, but they have a much higher coverage than rules-based systems as they are able to account for cases that are not explicitly specified in the rules.</p>
+
+<p>Most institutions prefer to use a hybrid approach to NLP, using Rule-Based along with Statistical Systems.</p>
+
+<h4 id="solving-nlp-problems">Solving NLP Problems</h4>
+
+<p>We use NLP every day when we do a google search. Search engines use <a href="https://nlp.stanford.edu/IR-book/html/htmledition/irbook.html">Information Retrieval</a> in their backend, which is one of the subfields of NLP.</p>
+
+<p>NLP had earned its popularity because of several mainstream types of language-based problems - such as <a href="https://en.wikipedia.org/wiki/Automatic_summarization">text summarization</a>, <a href="https://en.wikipedia.org/wiki/Sentiment_analysis">sentiment analysis</a>, <a href="https://en.wikipedia.org/wiki/Keyword_extraction">keyword extraction</a>, <a href="https://en.wikipedia.org/wiki/Question_answering">question answering</a>, <a href="https://en.wikipedia.org/wiki/Chatbot">conversational interfaces and chatbots</a>, <a href="https://en.wikipedia.org/wiki/Machine_translation">machine translation</a>, to name a few.</p>
+
+<h4 id="conclusion">Conclusion</h4>
+
+<p>Today NLP is largely statistical because of the availability of massive amounts of data. We can use tools like <a href="https://code.google.com/archive/p/word2vec/">Word2Vec</a> to get us similarly occurring concepts, and search engines like <a href="https://www.elastic.co/">Elastic Search</a> to organize our text to make it searchable. We are able to use off the shelf tools like <a href="https://stanfordnlp.github.io/CoreNLP/">Stanford Core NLP</a> to parse our data for us and other algorithms like <a href="http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/">Latent Dirichlet Allocation (LDA)</a> to discover clusters and topics in the text.</p>
+
+<p>As a consumer, we use NLP every day - from your first google search of the day, to your curated daily news articles delivered to you, your online shopping experience and reading reviews, and your conversational assistants such as <a href="http://ok-google.io/">OK Google</a>, <a href="https://developer.amazon.com/alexa">Alexa</a>, and <a href="https://en.wikipedia.org/wiki/Siri">Siri</a>.</p>
+
+<p>NLP is embedded in our everyday lives, and we use it even without realizing it. The latest wave of <a href="https://en.wikipedia.org/wiki/Chatbot">conversational interfaces or chatbots</a> are adding a human component to conversation, and we are finally blending the 2 approaches to NLP - Rule-Based and Statistical NLP.</p>
+
+<p>Where do we go from here? I am excited for the future of NLP, and although we are <a href="https://hbr.org/2016/11/what-artificial-intelligence-can-and-cant-do-right-now">very far from NLP/AI taking over the world</a> I am optimistic about computational power being more ingrained in our lives to make the world a better and easier place for us.</p>
+
+<p>To learn more about NLP and for additional NLP resources <a href="https://blog.algorithmia.com/introduction-natural-language-processing-nlp/">check out this cool blog post from Algorithmia</a>.</p>
+
+            </div>
+        </div>
+        <!-- End Post -->
+
+        <!-- Related posts list-->
+        <aside class="col-md-3 flex-md-unordered">
+            <div class="related-posts sticky-top sticky-top-offset">
+    <p class="related">Related posts:</p>
+    <ul>
+        
+            
+                
+                    <li><a href="/blog/2023/ml-to-llm/">Machine Learning, Deep Learning and Large Language Models</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2023/Important-books-for-AI/">Important books to read for AI</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/probability-theory/">Probability Theory for Natural Language Processing</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/language-models/">The Foundations of Language Models</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/logistic-regression/">The Comprehensive Guide to Logistic Regression</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/byte-pair-encoding/">What is Byte-Pair Encoding for Tokenization?</a></li>
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+                    <li><a href="/blog/2019/manageml/">Managing Machine Learning Experiments</a></li>
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+                    <li class="active"><a href="/blog/2017/what-is-nlp/">What is Natural Language Processing (NLP)?</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2016/NLP-ML/">Natural Language Processing vs. Machine Learning vs. Deep Learning</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2015/word2vec/">Online Word2Vec for Gensim</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2015/statistics-for-everyone/">Understanding your Data - Basic Statistics</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2014/all-about-that-bayes-intro-to-probability/">An Introduction to Probability</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2014/build-your-own-search-engine/">Build your own search Engine</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2014/core-of-lucene/">The Math behind Lucene</a></li>
+                
+            
+        
+    </ul>
+</div>
+        </aside>
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'datasciencetoolbox'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+
+
+<script>
+    // Load document before calculating window height
+            var winHeight = $(window).height(),
+                docHeight = $(document).height(),
+                progressBar = $('#myBar'),
+                max, value;
+
+            /* Set the max scrollable area */
+            max = docHeight - winHeight;
+            //progressBar.attr('max', max);
+
+            $(document).on('scroll', function () {
+                value = $(window).scrollTop()/max;
+                console.log(value);
+                progressBar.attr('value', value);
+            });
+</script>
+        </div>
+    </div>
+
+    <!-- Begin Footer
+    ================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center text-lg-center">
+                    Copyright © 2023 Rutu Mulkar. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer
+    ================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//datasciencetoolbox.disqus.com/count.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: 
+        {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: false,
+        }
+        
+    });
+</script>
+
+  
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    CommonHTML: { linebreaks: { automatic: true } },
+    "HTML-CSS": { scale: 100, linebreaks: { automatic: true } },
+    TeX: { equationNumbers: {autoNumber: "all"} } });
+</script>
+
+<!-- Category filter -->
+<script src="/assets/js/categorySearch.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<div class="related-posts sticky-top sticky-top-offset">
+    <p class="related">Related posts:</p>
+    <ul>
+        {% for post in site.posts %}
+            {% if post.filter == page.filter %}
+                {% if post.url == page.url %}
+                    <li class="active"><a href="{{post.url}}">{{post.title}}</a></li>
+                {% else  %}
+                    <li><a href="{{post.url}}">{{post.title}}</a></li>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

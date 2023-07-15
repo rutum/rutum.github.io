@@ -1,0 +1,149 @@
+---
+layout: default
+disqus: false
+archive: false
+post_class: post-template
+---
+
+<!-- reading progress-bar -->
+<div class="progress_container">
+    <progress class="progress_read" id="myBar" value="0"></progress>
+</div>
+
+<!-- Begin Article
+    ================================================== -->
+    <div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-1 pl-0">
+            {% include share.html %}
+        </div>
+
+        <!-- Post -->
+        <!-- {% assign author = site.authors[page.author] %} -->
+
+        <div class="col-md-8 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Post Title -->
+                <h1 class="posttitle">{{ page.title }}</h1>
+                <!-- Reading time -->
+                <!-- {% include read-time.html content=content %} -->
+            </div>
+            <!-- Post Date -->
+            <p>
+                <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string: "ordinal", "US" }}</time> </span>            
+                <br>
+                <span>{% for category in page.categories %}
+                    <span class="tag"><a href="{{ site.url }}/categories#{{ category[0] | replace: " ","-" }}"> {{ category }}</a></span>
+                {% endfor %}</span> 
+
+            </p>
+            
+            {% if page.last_modified_at %}
+            <p><span class="post-update">[Updated {{ page.update }} on <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>]</span></p>
+            {% endif %}
+
+            <!-- Rating -->
+            <!-- {% if page.rating %}
+                <div class="rating mb-4 d-flex align-items-center">
+                    <strong class="mr-1">Rating:</strong> {% include star_rating.html %}
+                </div>
+            {% endif %} -->
+            
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            {% if site.adsense == "enabled" %}
+                {% include adsense-under-header.html %}
+            {% endif %}
+            <!-- End Adsense -->
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                {% if page.toc %}
+                    {% if page.beforetoc %}
+                        <p><em>{{page.beforetoc}}</em></p>
+                    {% endif %}
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        {% include toc.html html=content %}
+                    </div>
+                {% endif %}
+                <!-- End Toc -->
+                {{content}}
+            </div>
+        </div>
+        <!-- End Post -->
+
+        <!-- Related posts list-->
+        <aside class="col-md-3 flex-md-unordered">
+            {% include related-posts.html %}
+        </aside>
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+{% if page.comments != false %}
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                {% include disqus.html %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+{% if page.rating %}
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "Thing",
+    "name": "{{ page.title }}"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "{{ author.display_name }}"
+  },
+  "datePublished": "{{ page.date | date:"%Y-%m-%d" }}",
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "{{ page.rating }}",
+    "bestRating": "5"
+  }
+}
+</script>
+{% endif %}
+
+
+<script>
+    // Load document before calculating window height
+            var winHeight = $(window).height(),
+                docHeight = $(document).height(),
+                progressBar = $('#myBar'),
+                max, value;
+
+            /* Set the max scrollable area */
+            max = docHeight - winHeight;
+            //progressBar.attr('max', max);
+
+            $(document).on('scroll', function () {
+                value = $(window).scrollTop()/max;
+                console.log(value);
+                progressBar.attr('value', value);
+            });
+</script>

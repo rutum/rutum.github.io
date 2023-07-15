@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Build your own search Engine
 filter: [blog]
 tags: information_retrieval lucene

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="http://localhost:4000/assets/images/lightning-border.png">
+<title>Online Word2Vec for Gensim | Rutu Mulkar</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Online Word2Vec for Gensim | Rutu Mulkar</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Online Word2Vec for Gensim" />
+<meta name="author" content="rutum" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Word2Vec [1] is a technique for creating vectors of word representations to capture the syntax and semantics of words. The vectors used to represent the words have several interesting features, here are a few:" />
+<meta property="og:description" content="Word2Vec [1] is a technique for creating vectors of word representations to capture the syntax and semantics of words. The vectors used to represent the words have several interesting features, here are a few:" />
+<link rel="canonical" href="http://localhost:4000/blog/2015/word2vec/" />
+<meta property="og:url" content="http://localhost:4000/blog/2015/word2vec/" />
+<meta property="og:site_name" content="Rutu Mulkar" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-08-22T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Online Word2Vec for Gensim" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"rutum"},"description":"Word2Vec [1] is a technique for creating vectors of word representations to capture the syntax and semantics of words. The vectors used to represent the words have several interesting features, here are a few:","@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"},"name":"rutum"},"headline":"Online Word2Vec for Gensim","dateModified":"2015-08-22T00:00:00-07:00","datePublished":"2015-08-22T00:00:00-07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2015/word2vec/"},"url":"http://localhost:4000/blog/2015/word2vec/","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;&family=Mukta:wght@300;500&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+
+<!-- Google analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-31232401-1', 'auto');
+ga('send', 'pageview');
+</script>
+<style>
+    ::-moz-selection { /* Code for Firefox */
+        color: #fbfff1;
+        background: #3066be;
+    }
+    
+    ::selection {
+        color: #fbfff1;
+        background: #3066be;
+    }
+    </style>
+
+</head>
+
+<!--  -->
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<!-- <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet"> -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="http://localhost:4000/"> 
+        <h2> <img class="d-inline-block align-text-center" src="http://localhost:4000/assets/images/lightning.png"/></h2>
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+        <!-- Begin Menu -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="/index.html">Syntax and Semantics</a>
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link" href="/books/index.html"> Book Summaries</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/_pages/about/index.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search f-dlex" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<!-- <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form> -->
+  
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+                </li>
+            </ul>
+        <!-- End Menu -->
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+
+<div class="site-content">
+
+    <div class="container">
+
+        <!-- Site Title
+        ================================================== -->
+        <div class="mainheading">
+        <!--     <h1 class="sitetitle">Rutu Mulkar</h1>
+            <p class="lead">
+                
+            </p> -->
+        </div>
+        <!-- Content
+        ================================================== -->
+
+        <div class="main-content">
+            <!-- reading progress-bar -->
+<div class="progress_container">
+    <progress class="progress_read" id="myBar" value="0"></progress>
+</div>
+
+<!-- Begin Article
+    ================================================== -->
+    <div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-1 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Online Word2Vec for Gensim&url=http://localhost:4000/blog/2015/word2vec/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/blog/2015/word2vec/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/blog/2015/word2vec/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        <!--  -->
+
+        <div class="col-md-8 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Online Word2Vec for Gensim</h1>
+                <!-- Reading time -->
+                <!-- <span class="bluecolor smtext" title="Estimated read time">
+    
+    
+        Approximate time to read: 14 min
+    
+</span> -->
+            </div>
+            <!-- Post Date -->
+            <p>
+                <span class="post-date"><time class="post-date" datetime="2015-08-22">Aug 22nd, 2015</time> </span>            
+                <br>
+                <span>
+                    <span class="tag"><a href="http://localhost:4000/categories#"> word2vec</a></span>
+                
+                    <span class="tag"><a href="http://localhost:4000/categories#"> representation learning</a></span>
+                </span> 
+
+            </p>
+            
+            
+
+            <!-- Rating -->
+            <!--  -->
+            
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>Word2Vec [1] is a technique for creating vectors of word representations to capture the syntax and semantics of words. The vectors used to represent the words have several interesting features, here are a few:</p>
+
+<ul>
+  <li>
+    <p>Addition and subtraction of vectors show how word semantics are captured:
+ e.g. \(king - man + woman = queen\)
+This example captures the fact that the semantics of $king$ and $queen$ are nicely captured by the word vectors</p>
+  </li>
+  <li>
+    <p>Similar words have similar word vectors: E.g. $king$ is most similar to - $queen$, $duke$, $duchess$</p>
+  </li>
+</ul>
+
+<p>Here is the description of <a href="http://radimrehurek.com/gensim/">Gensim</a> Word2Vec, and a few blogs that describe how to use it: <a href="https://radimrehurek.com/gensim/models/word2vec.html">Deep Learning with Word2Vec</a>, <a href="http://rare-technologies.com/deep-learning-with-word2vec-and-gensim/">Deep learning with word2vec and gensim</a>, <a href="http://rare-technologies.com/word2vec-tutorial/">Word2Vec Tutorial</a>, <a href="http://rare-technologies.com/word2vec-in-python-part-two-optimizing/">Word2vec in Python, Part Two: Optimizing</a>, <a href="https://www.kaggle.com/c/word2vec-nlp-tutorial/details/part-2-word-vectors">Bag of Words Meets Bags of Popcorn</a>.</p>
+
+<p>One of the issues of the Word2Vec algorithm is that it is not able to add more words to vocabulary after an initial training. This approach to ‘freeze vocabulary’ might not work for several situations where we need to train the model in an <em>online manner</em>, by adding and training on new words as they are encountered. Here is a quick description of an <a href="https://en.wikipedia.org/wiki/Online_algorithm">online algorithm</a></p>
+
+<p>In this post, I will discuss an <a href="https://github.com/rutum/gensim">online word2vec</a> implementation that I have developed and how to use it to update the vocabulary and learn new word vectors in an online manner. I maintain the code here: <a href="https://github.com/rutum/gensim">https://github.com/rutum/gensim</a></p>
+
+<p>How to use online word2vec:</p>
+
+<p>1) Download the source code from here: <a href="https://github.com/rutum/gensim">https://github.com/rutum/gensim</a></p>
+
+<p>2) On your local machine, browse to the location of the downloaded code, and install it by typing:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1">#clean already existing install
+</span><span class="n">sudo</span> <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">build</span> <span class="n">dist</span> <span class="n">gensim</span><span class="o">/*</span><span class="p">.</span><span class="n">pyc</span>
+
+<span class="c1">#installation
+</span><span class="n">sudo</span> <span class="n">python</span> <span class="n">setup</span><span class="p">.</span><span class="n">py</span> <span class="n">install</span></code></pre></figure>
+
+<p>3) Now run the following lines of code from ipython or a seperate python file:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="n">gensim.models</span>
+
+<span class="c1"># setup logging
+</span><span class="kn">import</span> <span class="n">logging</span>
+<span class="n">logging</span><span class="p">.</span><span class="nf">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="sh">'</span><span class="s">%(asctime)s : %(levelname)s : %(message)s</span><span class="sh">'</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="p">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="c1"># train the basic model with text8-rest, which is all the sentences
+# without the word - queen
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">gensim</span><span class="p">.</span><span class="n">models</span><span class="p">.</span><span class="nc">Word2Vec</span><span class="p">()</span>
+<span class="n">sentences</span> <span class="o">=</span> <span class="n">gensim</span><span class="p">.</span><span class="n">models</span><span class="p">.</span><span class="n">word2vec</span><span class="p">.</span><span class="nc">LineSentence</span><span class="p">(</span><span class="sh">"</span><span class="s">text8-rest</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">build_vocab</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">train</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+
+<span class="c1"># Evaluation
+</span><span class="o">&gt;</span> <span class="n">model</span><span class="p">.</span><span class="nf">n_similarity</span><span class="p">([</span><span class="sh">"</span><span class="s">king</span><span class="sh">"</span><span class="p">],</span> <span class="p">[</span><span class="sh">"</span><span class="s">duke</span><span class="sh">"</span><span class="p">])</span>
+<span class="o">&gt;</span> <span class="mf">0.68208604377750204</span>
+<span class="o">&gt;</span> <span class="n">model</span><span class="p">.</span><span class="nf">n_similarity</span><span class="p">([</span><span class="sh">"</span><span class="s">king</span><span class="sh">"</span><span class="p">],</span> <span class="p">[</span><span class="sh">"</span><span class="s">queen</span><span class="sh">"</span><span class="p">])</span>
+<span class="o">&gt;</span> <span class="nb">KeyError</span><span class="p">:</span> <span class="sh">'</span><span class="s">queen</span><span class="sh">'</span>
+
+<span class="c1"># text8-rest:
+</span><span class="o">&gt;</span> <span class="n">model</span><span class="p">.</span><span class="nf">accuracy</span><span class="p">(</span><span class="sh">"</span><span class="s">questions-words.txt</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mi">49</span><span class="p">,</span><span class="mi">781</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">precomputing</span> <span class="n">L2</span><span class="o">-</span><span class="n">norms</span> <span class="n">of</span> <span class="n">word</span> <span class="n">weight</span> <span class="n">vectors</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mi">56</span><span class="p">,</span><span class="mi">346</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">capital</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">countries</span><span class="p">:</span> <span class="mf">33.2</span><span class="o">%</span> <span class="p">(</span><span class="mi">168</span><span class="o">/</span><span class="mi">506</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="mi">728</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">capital</span><span class="o">-</span><span class="n">world</span><span class="p">:</span> <span class="mf">17.5</span><span class="o">%</span> <span class="p">(</span><span class="mi">254</span><span class="o">/</span><span class="mi">1452</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="mi">807</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">currency</span><span class="p">:</span> <span class="mf">6.0</span><span class="o">%</span> <span class="p">(</span><span class="mi">16</span><span class="o">/</span><span class="mi">268</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">32</span><span class="p">,</span><span class="mi">402</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">city</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">state</span><span class="p">:</span> <span class="mf">15.0</span><span class="o">%</span> <span class="p">(</span><span class="mi">235</span><span class="o">/</span><span class="mi">1571</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">35</span><span class="p">,</span><span class="mi">197</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">family</span><span class="p">:</span> <span class="mf">50.0</span><span class="o">%</span> <span class="p">(</span><span class="mi">136</span><span class="o">/</span><span class="mi">272</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">43</span><span class="p">,</span><span class="mi">378</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram1</span><span class="o">-</span><span class="n">adjective</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">adverb</span><span class="p">:</span> <span class="mf">6.0</span><span class="o">%</span> <span class="p">(</span><span class="mi">45</span><span class="o">/</span><span class="mi">756</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">46</span><span class="p">,</span><span class="mi">406</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram2</span><span class="o">-</span><span class="n">opposite</span><span class="p">:</span> <span class="mf">12.4</span><span class="o">%</span> <span class="p">(</span><span class="mi">38</span><span class="o">/</span><span class="mi">306</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">59</span><span class="p">,</span><span class="mi">972</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram3</span><span class="o">-</span><span class="n">comparative</span><span class="p">:</span> <span class="mf">34.6</span><span class="o">%</span> <span class="p">(</span><span class="mi">436</span><span class="o">/</span><span class="mi">1260</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">05</span><span class="p">,</span><span class="mi">865</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram4</span><span class="o">-</span><span class="n">superlative</span><span class="p">:</span> <span class="mf">13.2</span><span class="o">%</span> <span class="p">(</span><span class="mi">67</span><span class="o">/</span><span class="mi">506</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">17</span><span class="p">,</span><span class="mi">331</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram5</span><span class="o">-</span><span class="n">present</span><span class="o">-</span><span class="n">participle</span><span class="p">:</span> <span class="mf">18.2</span><span class="o">%</span> <span class="p">(</span><span class="mi">181</span><span class="o">/</span><span class="mi">992</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">31</span><span class="p">,</span><span class="mi">446</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram6</span><span class="o">-</span><span class="n">nationality</span><span class="o">-</span><span class="n">adjective</span><span class="p">:</span> <span class="mf">37.5</span><span class="o">%</span> <span class="p">(</span><span class="mi">514</span><span class="o">/</span><span class="mi">1371</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">45</span><span class="p">,</span><span class="mi">533</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram7</span><span class="o">-</span><span class="n">past</span><span class="o">-</span><span class="n">tense</span><span class="p">:</span> <span class="mf">18.3</span><span class="o">%</span> <span class="p">(</span><span class="mi">244</span><span class="o">/</span><span class="mi">1332</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">55</span><span class="p">,</span><span class="mi">660</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram8</span><span class="o">-</span><span class="n">plural</span><span class="p">:</span> <span class="mf">30.2</span><span class="o">%</span> <span class="p">(</span><span class="mi">300</span><span class="o">/</span><span class="mi">992</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">59</span><span class="p">:</span><span class="mi">02</span><span class="p">,</span><span class="mi">508</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram9</span><span class="o">-</span><span class="n">plural</span><span class="o">-</span><span class="n">verbs</span><span class="p">:</span> <span class="mf">20.3</span><span class="o">%</span> <span class="p">(</span><span class="mi">132</span><span class="o">/</span><span class="mi">650</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">10</span><span class="p">:</span><span class="mi">59</span><span class="p">:</span><span class="mi">02</span><span class="p">,</span><span class="mi">509</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">total</span><span class="p">:</span> <span class="mf">22.6</span><span class="o">%</span> <span class="p">(</span><span class="mi">2766</span><span class="o">/</span><span class="mi">12234</span><span class="p">)</span></code></pre></figure>
+
+<p>OK. So far so good.</p>
+
+<p>You will notice that I did some more evaluation on this data, by testing it against the same dataset that Google released, to compute the sysntactic and semantic relationships between words. As text8 is a small dataset, we don’t expect it to achieve very high levels of accuracy on this task, however, it will help us discern the difference in learning words in an online manner, vs learning it all in one sitting. You can download the script that I ran from <a href="http://rutumulkar.com/data/onlinew2v/word2vec_wrapper.py">here</a></p>
+
+<p>Now lets update the model with all the sentences containing queen and see if the vector for $queen$ is similar to that of $king$ and $duke$. Notice that the <code class="language-plaintext highlighter-rouge">build_vocab</code> function now has an additional argument <code class="language-plaintext highlighter-rouge">update=True</code> that add more words to the existing vocabulary.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">sentences2</span> <span class="o">=</span> <span class="n">gensim</span><span class="p">.</span><span class="n">models</span><span class="p">.</span><span class="n">word2vec</span><span class="p">.</span><span class="nc">LineSentence</span><span class="p">(</span><span class="sh">"</span><span class="s">text8-queen</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">build_vocab</span><span class="p">(</span><span class="n">sentences2</span><span class="p">,</span> <span class="n">update</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">train</span><span class="p">(</span><span class="n">sentences2</span><span class="p">)</span>
+
+<span class="c1"># Evaluation
+</span><span class="o">&gt;</span> <span class="n">model</span><span class="p">.</span><span class="nf">n_similarity</span><span class="p">([</span><span class="sh">"</span><span class="s">king</span><span class="sh">"</span><span class="p">],</span> <span class="p">[</span><span class="sh">"</span><span class="s">duke</span><span class="sh">"</span><span class="p">])</span>
+<span class="o">&gt;</span> <span class="mf">0.47693305301957223</span>
+<span class="o">&gt;</span> <span class="n">model</span><span class="p">.</span><span class="nf">n_similarity</span><span class="p">([</span><span class="sh">"</span><span class="s">king</span><span class="sh">"</span><span class="p">],</span> <span class="p">[</span><span class="sh">"</span><span class="s">queen</span><span class="sh">"</span><span class="p">])</span>
+<span class="o">&gt;</span> <span class="mf">0.68197327708244115</span>
+
+<span class="c1"># text8-rest + text8-queen (using update model)
+</span><span class="o">&gt;</span> <span class="n">model</span><span class="p">.</span><span class="nf">accuracy</span><span class="p">(</span><span class="sh">"</span><span class="s">questions-words.txt</span><span class="sh">"</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="mi">571</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">precomputing</span> <span class="n">L2</span><span class="o">-</span><span class="n">norms</span> <span class="n">of</span> <span class="n">word</span> <span class="n">weight</span> <span class="n">vectors</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">47</span><span class="p">,</span><span class="mi">892</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">capital</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">countries</span><span class="p">:</span> <span class="mf">23.3</span><span class="o">%</span> <span class="p">(</span><span class="mi">118</span><span class="o">/</span><span class="mi">506</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">02</span><span class="p">,</span><span class="mi">583</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">capital</span><span class="o">-</span><span class="n">world</span><span class="p">:</span> <span class="mf">14.1</span><span class="o">%</span> <span class="p">(</span><span class="mi">205</span><span class="o">/</span><span class="mi">1452</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">05</span><span class="p">,</span><span class="mi">521</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">currency</span><span class="p">:</span> <span class="mf">4.5</span><span class="o">%</span> <span class="p">(</span><span class="mi">12</span><span class="o">/</span><span class="mi">268</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">21</span><span class="p">,</span><span class="mi">348</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">city</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">state</span><span class="p">:</span> <span class="mf">13.2</span><span class="o">%</span> <span class="p">(</span><span class="mi">208</span><span class="o">/</span><span class="mi">1571</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span><span class="mi">349</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">family</span><span class="p">:</span> <span class="mf">46.4</span><span class="o">%</span> <span class="p">(</span><span class="mi">142</span><span class="o">/</span><span class="mi">306</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">31</span><span class="p">,</span><span class="mi">891</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram1</span><span class="o">-</span><span class="n">adjective</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">adverb</span><span class="p">:</span> <span class="mf">6.2</span><span class="o">%</span> <span class="p">(</span><span class="mi">47</span><span class="o">/</span><span class="mi">756</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span><span class="mi">925</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram2</span><span class="o">-</span><span class="n">opposite</span><span class="p">:</span> <span class="mf">13.4</span><span class="o">%</span> <span class="p">(</span><span class="mi">41</span><span class="o">/</span><span class="mi">306</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">47</span><span class="p">,</span><span class="mi">631</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram3</span><span class="o">-</span><span class="n">comparative</span><span class="p">:</span> <span class="mf">32.4</span><span class="o">%</span> <span class="p">(</span><span class="mi">408</span><span class="o">/</span><span class="mi">1260</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">52</span><span class="p">,</span><span class="mi">768</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram4</span><span class="o">-</span><span class="n">superlative</span><span class="p">:</span> <span class="mf">11.7</span><span class="o">%</span> <span class="p">(</span><span class="mi">59</span><span class="o">/</span><span class="mi">506</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">02</span><span class="p">,</span><span class="mi">831</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram5</span><span class="o">-</span><span class="n">present</span><span class="o">-</span><span class="n">participle</span><span class="p">:</span> <span class="mf">18.0</span><span class="o">%</span> <span class="p">(</span><span class="mi">179</span><span class="o">/</span><span class="mi">992</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="mi">823</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram6</span><span class="o">-</span><span class="n">nationality</span><span class="o">-</span><span class="n">adjective</span><span class="p">:</span> <span class="mf">35.2</span><span class="o">%</span> <span class="p">(</span><span class="mi">483</span><span class="o">/</span><span class="mi">1371</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">31</span><span class="p">,</span><span class="mi">937</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram7</span><span class="o">-</span><span class="n">past</span><span class="o">-</span><span class="n">tense</span><span class="p">:</span> <span class="mf">17.1</span><span class="o">%</span> <span class="p">(</span><span class="mi">228</span><span class="o">/</span><span class="mi">1332</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="mi">960</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram8</span><span class="o">-</span><span class="n">plural</span><span class="p">:</span> <span class="mf">26.8</span><span class="o">%</span> <span class="p">(</span><span class="mi">266</span><span class="o">/</span><span class="mi">992</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">49</span><span class="p">,</span><span class="mi">822</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram9</span><span class="o">-</span><span class="n">plural</span><span class="o">-</span><span class="n">verbs</span><span class="p">:</span> <span class="mf">19.2</span><span class="o">%</span> <span class="p">(</span><span class="mi">125</span><span class="o">/</span><span class="mi">650</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">49</span><span class="p">,</span><span class="mi">823</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">total</span><span class="p">:</span> <span class="mf">20.5</span><span class="o">%</span> <span class="p">(</span><span class="mi">2521</span><span class="o">/</span><span class="mi">12268</span><span class="p">)</span></code></pre></figure>
+
+<p>BINGO! Looks like it learned the weights of the vector $queen$ quite well.</p>
+
+<p>NOTE: <em>text8-rest</em>, and <em>text8-queen</em>, and <em>text8-all</em> can be downloaded here: <a href="http://rutumulkar.com/data/onlinew2v/text8-files.zip">http://rutumulkar.com/data/onlinew2v/text8-files.zip</a>.</p>
+
+<p>Here is how the files are divided: All sentences from text8 that have <em>queen</em> in them are in <em>text8-queen</em>, and the remaining sentences are in <em>text8-rest</em>. The file <em>text8-all</em>, is a concatenation of <em>text8-rest</em> and <em>text8-queen</em>.</p>
+
+<p>Here are the output accuracies that were achieve if we were to train the entire model in one go, as opposed to piecemeal in an online manner. Note that as the amount of data we are using is very little, the accuracy will vary a little due to the initialization parameters.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">sentences</span> <span class="o">=</span> <span class="n">gensim</span><span class="p">.</span><span class="n">models</span><span class="p">.</span><span class="n">word2vec</span><span class="p">.</span><span class="nc">LineSentence</span><span class="p">(</span><span class="sh">"</span><span class="s">text8-all</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">build_vocab</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">train</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+
+<span class="c1"># text8-all
+</span><span class="o">&gt;</span> <span class="n">model</span><span class="p">.</span><span class="nf">accuracy</span><span class="p">(</span><span class="sh">"</span><span class="s">questions-words.txt</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">53</span><span class="p">,</span><span class="mi">811</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">precomputing</span> <span class="n">L2</span><span class="o">-</span><span class="n">norms</span> <span class="n">of</span> <span class="n">word</span> <span class="n">weight</span> <span class="n">vectors</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">58</span><span class="p">,</span><span class="mi">595</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">capital</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">countries</span><span class="p">:</span> <span class="mf">36.0</span><span class="o">%</span> <span class="p">(</span><span class="mi">182</span><span class="o">/</span><span class="mi">506</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="mi">343</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">capital</span><span class="o">-</span><span class="n">world</span><span class="p">:</span> <span class="mf">18.9</span><span class="o">%</span> <span class="p">(</span><span class="mi">275</span><span class="o">/</span><span class="mi">1452</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="mi">757</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">currency</span><span class="p">:</span> <span class="mf">4.9</span><span class="o">%</span> <span class="p">(</span><span class="mi">13</span><span class="o">/</span><span class="mi">268</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">28</span><span class="p">,</span><span class="mi">813</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">city</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">state</span><span class="p">:</span> <span class="mf">16.4</span><span class="o">%</span> <span class="p">(</span><span class="mi">257</span><span class="o">/</span><span class="mi">1571</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">31</span><span class="p">,</span><span class="mi">542</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">family</span><span class="p">:</span> <span class="mf">48.4</span><span class="o">%</span> <span class="p">(</span><span class="mi">148</span><span class="o">/</span><span class="mi">306</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">38</span><span class="p">,</span><span class="mi">486</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram1</span><span class="o">-</span><span class="n">adjective</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">adverb</span><span class="p">:</span> <span class="mf">6.9</span><span class="o">%</span> <span class="p">(</span><span class="mi">52</span><span class="o">/</span><span class="mi">756</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">41</span><span class="p">,</span><span class="mi">268</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram2</span><span class="o">-</span><span class="n">opposite</span><span class="p">:</span> <span class="mf">16.7</span><span class="o">%</span> <span class="p">(</span><span class="mi">51</span><span class="o">/</span><span class="mi">306</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">52</span><span class="p">,</span><span class="mi">507</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram3</span><span class="o">-</span><span class="n">comparative</span><span class="p">:</span> <span class="mf">34.4</span><span class="o">%</span> <span class="p">(</span><span class="mi">434</span><span class="o">/</span><span class="mi">1260</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">57</span><span class="p">,</span><span class="mi">148</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram4</span><span class="o">-</span><span class="n">superlative</span><span class="p">:</span> <span class="mf">12.8</span><span class="o">%</span> <span class="p">(</span><span class="mi">65</span><span class="o">/</span><span class="mi">506</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">06</span><span class="p">,</span><span class="mi">475</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram5</span><span class="o">-</span><span class="n">present</span><span class="o">-</span><span class="n">participle</span><span class="p">:</span> <span class="mf">19.1</span><span class="o">%</span> <span class="p">(</span><span class="mi">189</span><span class="o">/</span><span class="mi">992</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="mi">681</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram6</span><span class="o">-</span><span class="n">nationality</span><span class="o">-</span><span class="n">adjective</span><span class="p">:</span> <span class="mf">40.0</span><span class="o">%</span> <span class="p">(</span><span class="mi">548</span><span class="o">/</span><span class="mi">1371</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span><span class="mi">722</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram7</span><span class="o">-</span><span class="n">past</span><span class="o">-</span><span class="n">tense</span><span class="p">:</span> <span class="mf">18.2</span><span class="o">%</span> <span class="p">(</span><span class="mi">243</span><span class="o">/</span><span class="mi">1332</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">39</span><span class="p">,</span><span class="mi">516</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram8</span><span class="o">-</span><span class="n">plural</span><span class="p">:</span> <span class="mf">32.7</span><span class="o">%</span> <span class="p">(</span><span class="mi">324</span><span class="o">/</span><span class="mi">992</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">45</span><span class="p">,</span><span class="mi">498</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">gram9</span><span class="o">-</span><span class="n">plural</span><span class="o">-</span><span class="n">verbs</span><span class="p">:</span> <span class="mf">17.1</span><span class="o">%</span> <span class="p">(</span><span class="mi">111</span><span class="o">/</span><span class="mi">650</span><span class="p">)</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">21</span> <span class="mi">11</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">45</span><span class="p">,</span><span class="mi">499</span> <span class="p">:</span> <span class="n">INFO</span> <span class="p">:</span> <span class="n">total</span><span class="p">:</span> <span class="mf">23.6</span><span class="o">%</span> <span class="p">(</span><span class="mi">2892</span><span class="o">/</span><span class="mi">12268</span><span class="p">)</span></code></pre></figure>
+
+<p>As you can see, the output score does drop a little, when the model is updated in an online manner, as opposed to training everything in one go. The PR for my code can be found here: <a href="https://github.com/piskvorky/gensim/pull/435">https://github.com/piskvorky/gensim/pull/435</a></p>
+
+<p>###References:###
+[1] Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. <a href="http://arxiv.org/pdf/1301.3781v3.pdf">Efficient Estimation of Word Representations in Vector Space</a></p>
+
+            </div>
+        </div>
+        <!-- End Post -->
+
+        <!-- Related posts list-->
+        <aside class="col-md-3 flex-md-unordered">
+            <div class="related-posts sticky-top sticky-top-offset">
+    <p class="related">Related posts:</p>
+    <ul>
+        
+            
+                
+                    <li><a href="/blog/2023/ml-to-llm/">Machine Learning, Deep Learning and Large Language Models</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2023/Important-books-for-AI/">Important books to read for AI</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/probability-theory/">Probability Theory for Natural Language Processing</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/language-models/">The Foundations of Language Models</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/logistic-regression/">The Comprehensive Guide to Logistic Regression</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/byte-pair-encoding/">What is Byte-Pair Encoding for Tokenization?</a></li>
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+                    <li><a href="/blog/2019/manageml/">Managing Machine Learning Experiments</a></li>
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+                    <li><a href="/blog/2017/what-is-nlp/">What is Natural Language Processing (NLP)?</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2016/NLP-ML/">Natural Language Processing vs. Machine Learning vs. Deep Learning</a></li>
+                
+            
+        
+            
+                
+                    <li class="active"><a href="/blog/2015/word2vec/">Online Word2Vec for Gensim</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2015/statistics-for-everyone/">Understanding your Data - Basic Statistics</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2014/all-about-that-bayes-intro-to-probability/">An Introduction to Probability</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2014/build-your-own-search-engine/">Build your own search Engine</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2014/core-of-lucene/">The Math behind Lucene</a></li>
+                
+            
+        
+    </ul>
+</div>
+        </aside>
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'datasciencetoolbox'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+
+
+<script>
+    // Load document before calculating window height
+            var winHeight = $(window).height(),
+                docHeight = $(document).height(),
+                progressBar = $('#myBar'),
+                max, value;
+
+            /* Set the max scrollable area */
+            max = docHeight - winHeight;
+            //progressBar.attr('max', max);
+
+            $(document).on('scroll', function () {
+                value = $(window).scrollTop()/max;
+                console.log(value);
+                progressBar.attr('value', value);
+            });
+</script>
+        </div>
+    </div>
+
+    <!-- Begin Footer
+    ================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center text-lg-center">
+                    Copyright © 2023 Rutu Mulkar. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer
+    ================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//datasciencetoolbox.disqus.com/count.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: 
+        {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: false,
+        }
+        
+    });
+</script>
+
+  
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    CommonHTML: { linebreaks: { automatic: true } },
+    "HTML-CSS": { scale: 100, linebreaks: { automatic: true } },
+    TeX: { equationNumbers: {autoNumber: "all"} } });
+</script>
+
+<!-- Category filter -->
+<script src="/assets/js/categorySearch.js"></script>
+</body>
+</html>

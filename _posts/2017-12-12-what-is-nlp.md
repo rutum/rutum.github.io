@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: What is Natural Language Processing (NLP)?
 filter: [blog]
 tags: nlp introduction

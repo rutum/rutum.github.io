@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="http://localhost:4000/assets/images/lightning-border.png">
+<title>The Comprehensive Guide to Logistic Regression | Rutu Mulkar</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>The Comprehensive Guide to Logistic Regression | Rutu Mulkar</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="The Comprehensive Guide to Logistic Regression" />
+<meta name="author" content="rutum" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In Natural Language Processing (NLP) Logistic Regression is the baseline supervised ML algorithm for classification. It also has a very close relationship with neural networks (If you are new to neural networks, start with Logistic Regression to understand the basics.)" />
+<meta property="og:description" content="In Natural Language Processing (NLP) Logistic Regression is the baseline supervised ML algorithm for classification. It also has a very close relationship with neural networks (If you are new to neural networks, start with Logistic Regression to understand the basics.)" />
+<link rel="canonical" href="http://localhost:4000/blog/2021/logistic-regression/" />
+<meta property="og:url" content="http://localhost:4000/blog/2021/logistic-regression/" />
+<meta property="og:site_name" content="Rutu Mulkar" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-23T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="The Comprehensive Guide to Logistic Regression" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"rutum"},"description":"In Natural Language Processing (NLP) Logistic Regression is the baseline supervised ML algorithm for classification. It also has a very close relationship with neural networks (If you are new to neural networks, start with Logistic Regression to understand the basics.)","@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"},"name":"rutum"},"headline":"The Comprehensive Guide to Logistic Regression","dateModified":"2021-04-25T00:00:00-07:00","datePublished":"2021-04-23T00:00:00-07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2021/logistic-regression/"},"url":"http://localhost:4000/blog/2021/logistic-regression/","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;&family=Mukta:wght@300;500&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+
+<!-- Google analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-31232401-1', 'auto');
+ga('send', 'pageview');
+</script>
+<style>
+    ::-moz-selection { /* Code for Firefox */
+        color: #fbfff1;
+        background: #3066be;
+    }
+    
+    ::selection {
+        color: #fbfff1;
+        background: #3066be;
+    }
+    </style>
+
+</head>
+
+<!--  -->
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<!-- <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet"> -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="http://localhost:4000/"> 
+        <h2> <img class="d-inline-block align-text-center" src="http://localhost:4000/assets/images/lightning.png"/></h2>
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+        <!-- Begin Menu -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="/index.html">Syntax and Semantics</a>
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link" href="/books/index.html"> Book Summaries</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/_pages/about/index.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search f-dlex" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<!-- <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form> -->
+  
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+                </li>
+            </ul>
+        <!-- End Menu -->
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+
+<div class="site-content">
+
+    <div class="container">
+
+        <!-- Site Title
+        ================================================== -->
+        <div class="mainheading">
+        <!--     <h1 class="sitetitle">Rutu Mulkar</h1>
+            <p class="lead">
+                
+            </p> -->
+        </div>
+        <!-- Content
+        ================================================== -->
+
+        <div class="main-content">
+            <!-- reading progress-bar -->
+<div class="progress_container">
+    <progress class="progress_read" id="myBar" value="0"></progress>
+</div>
+
+<!-- Begin Article
+    ================================================== -->
+    <div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-1 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=The Comprehensive Guide to Logistic Regression&url=http://localhost:4000/blog/2021/logistic-regression/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/blog/2021/logistic-regression/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/blog/2021/logistic-regression/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        <!--  -->
+
+        <div class="col-md-8 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Post Title -->
+                <h1 class="posttitle">The Comprehensive Guide to Logistic Regression</h1>
+                <!-- Reading time -->
+                <!-- <span class="bluecolor smtext" title="Estimated read time">
+    
+    
+        Approximate time to read: 16 min
+    
+</span> -->
+            </div>
+            <!-- Post Date -->
+            <p>
+                <span class="post-date"><time class="post-date" datetime="2021-04-23">Apr 23rd, 2021</time> </span>            
+                <br>
+                <span>
+                    <span class="tag"><a href="http://localhost:4000/categories#"> nlp</a></span>
+                
+                    <span class="tag"><a href="http://localhost:4000/categories#"> classification</a></span>
+                </span> 
+
+            </p>
+            
+            
+            <p><span class="post-update">[Updated  on <time datetime="2021-04-25T00:00:00-07:00" itemprop="dateModified">Apr 25, 2021</time>]</span></p>
+            
+
+            <!-- Rating -->
+            <!--  -->
+            
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>In <a href="https://algorithmia.com/blog/introduction-natural-language-processing-nlp">Natural Language Processing</a> (NLP) <a href="https://en.wikipedia.org/wiki/Logistic_regression">Logistic Regression</a> is the baseline supervised ML algorithm for <a href="https://en.wikipedia.org/wiki/Classification">classification</a>. It also has a very close relationship with <a href="https://en.wikipedia.org/wiki/Neural_network">neural networks</a> (If you are new to neural networks, start with Logistic Regression to understand the basics.)</p>
+
+<p>In this post I will discuss the following:</p>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#components-of-a-classification-system">Components of a Classification System</a>
+    <ul>
+      <li><a href="#logistic-regression-phases">Logistic Regression Phases</a></li>
+    </ul>
+  </li>
+  <li><a href="#feature-representation">Feature Representation</a></li>
+  <li><a href="#classification-using-the-sigmoid-function">Classification using the Sigmoid Function</a>
+    <ul>
+      <li><a href="#characteristics-of-sigmoid-function">Characteristics of Sigmoid Function</a></li>
+    </ul>
+  </li>
+  <li><a href="#learning-process-in-logistic-regression">Learning Process in Logistic Regression</a>
+    <ul>
+      <li><a href="#cost-function-cross-entropy-loss">Cost Function: Cross Entropy Loss</a>
+        <ul>
+          <li><a href="#cross-entropy">Cross Entropy</a></li>
+          <li><a href="#convex-optimization-problem">Convex Optimization Problem</a></li>
+          <li><a href="#decision-boundary">Decision Boundary</a></li>
+        </ul>
+      </li>
+      <li><a href="#gradient-descent">Gradient Descent</a>
+        <ul>
+          <li><a href="#learning-rate">Learning Rate</a></li>
+          <li><a href="#stochastic-gradient-descent">Stochastic Gradient Descent</a></li>
+          <li><a href="#batch-training">Batch Training</a></li>
+          <li><a href="#mini-batch-training">Mini-Batch Training</a></li>
+        </ul>
+      </li>
+      <li><a href="#regularization">Regularization</a>
+        <ul>
+          <li><a href="#l2-regularization">L2 Regularization</a></li>
+          <li><a href="#l1-regularization">L1 Regularization</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#multinomial-logistic-regression">Multinomial Logistic Regression</a>
+    <ul>
+      <li><a href="#loss-function-in-multinomial-logistic-regression">Loss Function in Multinomial Logistic Regression</a></li>
+    </ul>
+  </li>
+  <li><a href="#working-example-of-logistic-regression">Working Example of Logistic Regression</a>
+    <ul>
+      <li><a href="#gradient-descent-step-1">Gradient Descent Step 1</a></li>
+      <li><a href="#gradient-descent-step-2">Gradient Descent Step 2</a></li>
+    </ul>
+  </li>
+  <li><a href="#summary-of-logistic-regression">Summary of Logistic Regression</a></li>
+  <li><a href="#further-reading">Further Reading</a></li>
+</ul>
+
+<hr />
+
+<h1 id="introduction">Introduction</h1>
+
+<p>Logistic Regression is a <a href="https://medium.com/@akankshamalhotra24/generative-classifiers-v-s-discriminative-classifiers-1045f499d8cc#:~:text=An%20example%20of%20a%20discriminative,decision%20boundary%20for%20the%20model.">discriminative classifier</a>.</p>
+<blockquote>
+  <p>Discriminative models try to learn to <strong>distinguish</strong> what different classes of data look like.</p>
+</blockquote>
+
+<p>Some examples of discriminative classifiers are <a href="https://en.wikipedia.org/wiki/Logistic_regression">Logistic Regression</a>, <a href="https://en.wikipedia.org/wiki/Artificial_neural_network">Neural Networks</a>, <a href="https://en.wikipedia.org/wiki/Conditional_random_field">Conditional Random Fields</a>, and <a href="https://en.wikipedia.org/wiki/Support-vector_machine">Support Vector Machines</a>.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a>, is a <a href="https://en.wikipedia.org/wiki/Generative_model">generative classifier</a>.</p>
+<blockquote>
+  <p>Generative models have the goal to <strong>understand</strong> what different classes of data look like.</p>
+</blockquote>
+
+<p>Some examples of generative classifiers include <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a>, <a href="https://en.wikipedia.org/wiki/Bayesian_network">Bayesian Networks</a>, <a href="https://en.wikipedia.org/wiki/Markov_random_field">Markov Random Fields</a>, and <a href="https://en.wikipedia.org/wiki/Hidden_Markov_model">Hidden Markov Models</a>. <a href="https://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/">LDA</a> (Latent Dirichlet Allocation is a generative statistical model for topic modeling.</p>
+
+<p><a href="https://papers.nips.cc/paper/2001/file/7b7a53e239400a13bd6be6c91c4f6c4e-Paper.pdf">Ng and Jordan, 2001</a> provide a great analysis of generative vs discriminative models.</p>
+
+<h1 id="components-of-a-classification-system">Components of a Classification System</h1>
+
+<p>A Machine Learning system for classification has 4 components:</p>
+
+<ol>
+  <li>Feature Representation: For each input observation $x^{(i)}$, this will be a vector of features $[x_1, x_2, x_3, … , x_n]$</li>
+  <li>A Classification Function: This gets us the probability of the output, given an input. This is denoted by $P(y|x)$. <a href="https://en.wikipedia.org/wiki/Sigmoid_function">Sigmoid</a> and <a href="https://en.wikipedia.org/wiki/Softmax_function">Softmax</a> are tools for classification for Logistic Regression.</li>
+  <li>Objective Function for Learning: This is the function that we want to optimize, usually involving minimizing error on training examples. Cross Entropy Loss is the objective function for Logistic Regression.</li>
+  <li>Algorithm for Optimizing the Objective Function: We use the Stochastic Gradient Descent Algorithm for optimizing over our Objective Function.</li>
+</ol>
+
+<h2 id="logistic-regression-phases">Logistic Regression Phases</h2>
+
+<p>Logistic Regression has two phases:</p>
+
+<ol>
+  <li>Training Phase: We train the system (specifically the weights $w$ and bias $b$) using Stochastic Gradient Descent and Cross Entropy Loss</li>
+  <li>Test Phase: Given a text example $x$, we compute $p(y|x)$ and return the higher probability label.</li>
+</ol>
+
+<h1 id="feature-representation">Feature Representation</h1>
+
+<p>A single input observation $x$ can be represented by a vector of features $[x_1, x_2, x_3, \ldots , x_n]$. For Logistic Regression this is usually done by <a href="https://en.wikipedia.org/wiki/Feature_engineering">feature engineering</a> which is the process of manually identifying which features are relevant to solve the problem, and convert the text features into real numbers.</p>
+
+<p><strong>Feature Interactions</strong>: Feature Interaction is the combination of different features to form a more complex feature.</p>
+
+<p><strong>Feature Templates</strong>: Feature Templates is when templates are used to automatically create features using abstract specification of features.</p>
+
+<p><strong>Representation Learning</strong>: <a href="https://en.wikipedia.org/wiki/Feature_learning">Representation Learning</a> is the process of learning features automatically in an unsupervised way from the input. In order to avoid the excessive human effort of feature design, recent NLP efforts are focused on representation learning</p>
+
+<h1 id="classification-using-the-sigmoid-function">Classification using the Sigmoid Function</h1>
+
+<p>The result of Logistic Regression is:</p>
+
+\[z = (\sum_{i=1}^n w_i x_i) + b\]
+
+<p>Here, $w_i \cdot x_i$ is the <a href="https://en.wikipedia.org/wiki/Dot_product">dot product</a> of vectors $x_i$ and $w_i$ and $z$ is a real number vector ranging from $-\infty$ to $+\infty$</p>
+
+<blockquote>
+  <p>Dot Product: The dot product of 2 vectors $a$ and $b$ is written as $a \cdot b$ and is the sum of the products of the corresponding elements of each vector.</p>
+</blockquote>
+
+<p>$z$ is not a legal probability. To make it a probability, $z$ will pass through the, written as $\sigma(z)$</p>
+
+\[y = \sigma(z) = \frac{1}{(1+e^{-z})}\]
+
+<p align="center">
+    <img src="https://rutumulkar.com/assets/images/sigmoid.jpg" alt="Image of Sigmoid Function" width="400" />
+    <br />
+    <em class="image-label">Fig 1: Sigmoid Function (Image Credit: Wikipedia)</em>
+</p>
+
+<h2 id="characteristics-of-sigmoid-function">Characteristics of Sigmoid Function</h2>
+<ul>
+  <li>Sigmoid takes a real valued number and maps it to the range [0, 1] (which is perfect to get a probability)</li>
+  <li>Sigmoid tends to squash outlier values towards 0 or 1</li>
+  <li>Sigmoid is differentiable - which makes it handy for learning (A function is not differentiable if it has a undefined slope or a vertical slope)</li>
+</ul>
+
+<p>For classification into two classes:</p>
+
+\[\begin{eqnarray}
+p(y=1) &amp;=&amp; \sigma(w \cdot x) + b \nonumber \\
+    &amp;=&amp; \frac{1}{1+e^{w.x + b}}
+\end{eqnarray}\]
+
+\[\begin{eqnarray}
+p(y=0) &amp;=&amp; 1 - \sigma(w \cdot x) + b \nonumber \\
+&amp;=&amp; 1 - \frac{1}{1+e^{w.x + b}} \nonumber \\
+&amp;=&amp;\frac{e^{w.x + b}}{1+e^{w.x + b}}
+\end{eqnarray}\]
+
+<h1 id="learning-process-in-logistic-regression">Learning Process in Logistic Regression</h1>
+
+<h2 id="cost-function-cross-entropy-loss">Cost Function: Cross Entropy Loss</h2>
+
+<p><a href="https://machinelearningmastery.com/cross-entropy-for-machine-learning/">Cross Entropy Loss</a> is a function that determines for an observation $x$, how close the output of the classifier $\hat{y}$ is to the correct output $y$. This $Loss$ is expressed as: $ L(\hat{y}, y) $</p>
+
+<p>$ L(\hat{y}, y)$ is computed via a loss function that prefers the correct class labels of the training examples to be more likely. This is called <a href="https://en.wikipedia.org/wiki/Maximum_likelihood_estimation">conditional maximum likelihood estimation</a>. We choose parameters $w$ and $b$ that maximize the probability of the true $y$ labels in the training data given the observations $x$.</p>
+
+<p>Given a <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli Distribution</a> (a distribution that can only have 2 outcomes):</p>
+
+\[p(y|x) = \hat{y}^y (1-\hat{y})^{1-y}\]
+
+<p>Taking log on both sides:</p>
+
+\[\log{p(y|x)} = y\log{\hat{y}} + (1-y)\log{(1-\hat{y})}\]
+
+<p>Equation (6) is what we are trying to maximize. In order to turn this into a loss function (something that we need to minimize), we just flip the sign on Equation $(6)$. The result is Cross Entropy Loss $L_{CE}$.</p>
+
+\[\begin{eqnarray}
+L_{CE}(\hat{y}, y) &amp;=&amp; -\log{ p(y|x)} \nonumber \\
+
+                   &amp;=&amp; -[y \log{\sigma(w \cdot x + b) + (1-y)\log(1-\sigma(w \cdot x + b))}]
+\end{eqnarray}\]
+
+<p>Equation (7) is known as the cross entropy loss. It is also the formula for the cross entropy between the true probability distribution $y$ and the estimated distribution $\hat{y}$.</p>
+
+<h3 id="cross-entropy">Cross Entropy</h3>
+<p><a href="">Cross Entropy</a> is the measure of the difference between two probability distributions for a given random variable.</p>
+
+<h3 id="convex-optimization-problem">Convex Optimization Problem</h3>
+<p>For logistic regression the loss function is convex, i.e. it has just one minimum. There is no local minima to get stuck in, so gradient descent will always find the minimum. The loss for multi-layer neural networks in non-convex, so it is possible to get stuck in local minima using neural networks.</p>
+
+<h3 id="decision-boundary">Decision Boundary</h3>
+
+<p><a href="">Decision Boundary</a> is the threshold above which $\hat{y} = 1$, and below which $\hat{y} = 0$. This means that the decision boundary decides which class a given instance belongs to, based on the final probability of the item and the value of the decision boundary.</p>
+
+\[\hat{y} = \left\{
+    \begin{array}{ll}
+        1 &amp; \mbox{if $p(y=1|x)$ $\gt$ 0.5}\\
+        0 &amp; \mbox{otherwise}
+    \end{array}
+\right.\]
+
+<p>Here 0.5 is the decision boundary, and it is the threshold that decides which class an item belongs to.</p>
+
+<h2 id="gradient-descent">Gradient Descent</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Gradient_descent">Gradient Descent</a> finds the gradient of the loss function at the current point (by taking a differential of it), and then moves in the opposite direction of gradient.</p>
+
+<h3 id="learning-rate">Learning Rate</h3>
+<p>The magnitude of the amount to move in gradient descent is the slope $ \frac{d}{dw} \;  f(x,w)$ weighted by the learning rate $\eta$.</p>
+
+\[w^{t+1} = w^{t} - \eta \; \frac{d}{dw} \; f(x; w)\]
+
+<p><strong>Learning Rate</strong>: A parameter that needs to be adjusted:</p>
+<ul>
+  <li>If the learning rate is too high, each step towards learning becomes too large and it overshoots the minimum</li>
+  <li>If the learning rate is too low, each step is too small and it takes a long time to get to the minimum</li>
+  <li>Start $\eta$ at a higher value and slowly decrease it, so that it is a function of the iteration $k$ in training</li>
+</ul>
+
+<h3 id="stochastic-gradient-descent">Stochastic Gradient Descent</h3>
+<p>It is called Stochastic Gradient Descent because it chooses a single random example at a time. It moves weights so that it can improve the performance of that single instance.</p>
+
+<h3 id="batch-training">Batch Training</h3>
+<p>When we use Batch Training, we compute the gradient over the entire dataset. It looks at all the examples for each iteration to decide the next step.</p>
+
+<h3 id="mini-batch-training">Mini-Batch Training</h3>
+<p>We train a group of $m$ examples (where $m$ is 512, or 1024 or similar) that is less than the size of the entire dataset. When $m = 1$ it becomes Stochastic Gradient Descent again. Mini-Batch Training is more efficient than Batch Training and more accurate than Stochastic Gradient Descent. Mini-Batch Gradient Descent is the average of the individual gradients.</p>
+
+<h2 id="regularization">Regularization</h2>
+<p><a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">Regularization</a> is used to avoid overfitting and to generalize well for the test data. If the model fits the training data too well, it will not be able to handle new cases presented in the test data.</p>
+
+<p>A regularization term $R(\theta)$ is added to the objective function. i.e. the function that computes $\hat{\theta}$, where $\hat{\theta}$ is the next set of $w$ and $b$ parameters.</p>
+
+<p>Once we add regularization, we can find $\hat{\theta}$ as:</p>
+
+\[\hat{\theta} = argmax_{\theta} \sum_{i=0}^m log(p(y^{(i)}\|x^{(i)})) - \alpha R(\theta)\]
+
+<p>Here we are maximizing the log probability instead of minimizing the loss (Equation (7)).</p>
+
+<p>$R(\theta)$ is used to penalize large weights. The intuition behind this is that if the model matches the training data perfectly, but uses large weights, then it will be penalized more than the case where the model matches the training data a little less, but does so using small weights.</p>
+
+<h3 id="l2-regularization">L2 Regularization</h3>
+<p><a href="https://en.wikipedia.org/wiki/Tikhonov_regularization">L2 Regularization</a> is the euclidean distance of the vector squared from the origin.</p>
+
+<p>$ R(\theta) = || \theta ||_2^2$ Is the notation of L2 Norm</p>
+
+<p>$ R(\theta) = \sum_{j=1}^n \theta_j^2$ Is how we can compute L2 Norm</p>
+
+<p>L2 regularization is easy to optimize because of it’s simple derivative. It prefers weight vectors in smaller weights.</p>
+
+<h3 id="l1-regularization">L1 Regularization</h3>
+<p><a href="https://www.quora.com/What-is-the-difference-between-L1-and-L2-regularization-How-does-it-solve-the-problem-of-overfitting-Which-regularizer-to-use-and-when">L1 Regularization</a> is the linear function named after L1 norm or Manhattan Distance, which is the sum of the absolute values of the weights.</p>
+
+<p>$R(\theta) = || \theta ||_1$ is the notation of L1 norm</p>
+
+<p>L1 Regularization is hard to differentiate as the derivative of $| \theta |$ is non continuous at 0. It prefers sparse solutions with larger weights.</p>
+
+<h1 id="multinomial-logistic-regression">Multinomial Logistic Regression</h1>
+<p><a href="https://en.wikipedia.org/wiki/Multinomial_logistic_regression">[Multinomial Logistic Regression](</a>) is also known as Softmax Regression or Maxent Classifier. In Multinomial Logistic Regression the target variable $y$ ranges over more than two classes.</p>
+
+<p>In order to support more than 2 classes, Multinomial Logistic Regression uses the <a href="https://en.wikipedia.org/wiki/Softmax_function">softmax function</a> instead of the sigmoid function.</p>
+
+<p>For a vector $Z$ of dimensionality $k$ the softmax function is defined as:</p>
+
+\[Softmax(Z_i) = \frac{e^{z_i}}{\sum_{j=1}^k e^{z_j}}\]
+
+<p>In the above equation the denominator helps normalize the values into probabilities.</p>
+
+<ul>
+  <li>Like Sigmoid, Softmax has the property of squashing values towards 0 or 1</li>
+  <li>If one of the inputs is larger than the others, it will tend to push its probability towards 1, and suppress the probabilities of the smaller inputs.</li>
+</ul>
+
+<h2 id="loss-function-in-multinomial-logistic-regression">Loss Function in Multinomial Logistic Regression</h2>
+<p>To compute the loss function in Multinomial Regression, we need to account for $k$ classes that a given item can belong to (instead of just 2 classes)
+\(\begin{eqnarray}
+L_{CE}(\hat{y}, y) &amp;=&amp; - \sum_{k=1}^k 1 \{y=k\} log p(y=k|x) \nonumber \\
+&amp;=&amp; - \sum_{k=1}^k 1 \{y=k\} log \frac{e^{w_k \cdot x + b}}{\sum_{j=1}^k e^{w_j \cdot x + b_j}}
+\end{eqnarray}\)</p>
+
+<p>In equation (11) $ 1{ }$ evaluates to 1 if the condition in the brackets is true, and $0$ otherwise.</p>
+
+<h1 id="working-example-of-logistic-regression">Working Example of Logistic Regression</h1>
+<p>Consider a simple scenario where we are doing sentiment analysis of a dataset, and we have 2 classes: positive and negative (there is no neutral class in our hypothetical scenario). In this example we will be using the sigmoid function (because we have only 2 classes, and for simplicity we will not be using any regularization.</p>
+
+<p>The following are the matrices representing the actual outcome $y$ and the features corresponding to it $x$.</p>
+
+<p>$y = \begin{pmatrix}y\\1 \\ 0\end{pmatrix} \;\; x = \begin{pmatrix}x1 &amp; x2 \\ 3 &amp; 2\\ 1 &amp; 3\end{pmatrix}$</p>
+
+<p>In this example we have only 2 features $x_1$ and $x_2$. $x1$ is the number of positive words found in the sentence and $x2$ is the number of negative words found in the sentence. Also, $y=0$ represents negative (or bad sentiment), and $y=1$ represents positive (or good sentiment).</p>
+
+<p>This stage is feature extraction and representation of our data.</p>
+
+<p>The next state is to initialize out initial weights. For this example, we are setting 
+$w_1 \; = \; w_2 \;= \; b \;= \; 0$.</p>
+
+<p>($w_1$ is the weight of feature $x_1$ and $w_2$ is the weight of feature $x_2$), $\beta$ is our bias term.</p>
+
+<p>$\eta \;= \; 0.1$</p>
+
+<p>Each step in learning for logistic regression is represented by the following formula:</p>
+
+\[\theta^{t+1} = \theta^t - \eta \; \delta_\theta \; L(f(x^{(i)}, \theta), y^{(i)})\]
+
+<p>Here is a breakdown of each of the components of the formula.</p>
+
+<p align="center">
+    <img src="https://rutumulkar.com/assets/images/learning.png" alt="Learning in Logistic Regression" width="500" />
+    <br />
+    <em class="image-label">Fig 2: Each step for Learning in Logistic Regression</em>
+</p>
+
+<h3 id="gradient-descent-step-1">Gradient Descent Step 1</h3>
+<p>Considering the first row, where $y=1$ finding the gradient for this example:</p>
+
+<p>$ \delta_{wb} = \begin{pmatrix} \frac{\partial L_{CE}(w, b)}{\partial_{w_1}} \\ \frac{\partial L_{CE}(w, b)}{\partial_{w_1}} \\ \frac{\partial L_{CE}(w, b)}{\partial_{b}} \end{pmatrix}$</p>
+
+<p>$ \delta_{wb} = \begin{pmatrix} (\sigma (w \cdot x + b) - y)) \; x_1 \\ (\sigma (w \cdot x + b) - y)) \; x_2 \\ \sigma (w \cdot x + b) - y \end{pmatrix}$</p>
+
+<p>We know that initial $w, b = 0$. Substituting these values:</p>
+
+<p>$ \delta_{wb} = \begin{pmatrix} (\sigma (0) - 1)) \; x_1 \\ (\sigma (0) - y)) \; x_2 \\ \sigma (0) - y \end{pmatrix}$</p>
+
+<p>Given that $\sigma(0) = 0.5$ (See the sigmoid image above) and $x_1 = 3$ and $x_2 = 2$ for the first example in matrix $x$ (first row in matrix)</p>
+
+<p>$ \delta_{wb} = \begin{pmatrix} (0.5 - 1) * 3 \\ (0.5 - 1) * 2 \\ 0.5 - 1 \end{pmatrix}$</p>
+
+<p>$ \delta_{wb} = \begin{pmatrix} -1.5 \\ -1.0 \\ -0.5 \end{pmatrix}$</p>
+
+<p>Now that we have the gradient, we can compute $\theta_1$ by moving in the opposite direction as the gradient.</p>
+
+<p>$ \theta_{1} = \begin{pmatrix} w_1 \\ w_2 \\ b \end{pmatrix} - \eta \begin{pmatrix} -1.5 \\ -1.0 \\ -0.5 \end{pmatrix}$</p>
+
+<p>Given that $w_1 = w_2 = b = 0$ and $\eta = 0.1$:</p>
+
+<p>$ \theta_{1} = \begin{pmatrix} 0.15 \\ 0.1 \\ 0.05 \end{pmatrix}$</p>
+
+<p>The weights after one step of gradient descent: $w_1 = 0.15$, $w_2 = 0.1$, $b = 0.05$.</p>
+
+<h3 id="gradient-descent-step-2">Gradient Descent Step 2</h3>
+<p>This time we will consider row 2 of our matrix. The weights learned so far are : $w_1 = 0.15$, $w_2 = 0.1$, $b = 0.05$
+The values from our matrix are $x_1 = 1$, $x_2=3$, $y=0$.</p>
+
+<p>From Equation (9) computing the gradient:</p>
+
+<p>$ \delta_{wb} = \begin{pmatrix} (\sigma (w \cdot x + b) - 0)) \; x_1 \\ (\sigma (w \cdot x + b) - 0)) \; x_2 \\ \sigma (w \cdot x + b) - y \end{pmatrix}$</p>
+
+<p>$ \delta_{wb} = \begin{pmatrix} (\sigma (0.15 * 1 + 0.1 * 3 + 0.05) - 0) \; 1 \\ (\sigma (0.15 * 1 + 0.1 * 3 + 0.05) - 0) \; 3 \\ \sigma (0.15 * 1 + 0.1 * 3 + 0.05) - 0 \end{pmatrix}$</p>
+
+<p>$ \delta_{wb} = \begin{pmatrix} (\sigma (0.15 + 0.3 + 0.05) - 0) \; 1 \\ (\sigma (0.15 + 0.3 + 0.05) - 0) \; 3 \\ \sigma (0.15 + 0.3 + 0.05) - 0 \end{pmatrix}$</p>
+
+<p>Sigmoid of 0.5 is 0.622. (<a href="https://keisan.casio.com/exec/system/15157249643325">Compute your own sigmoid</a>)</p>
+
+<p>$ \delta_{wb} = \begin{pmatrix} (0.622 - 0) \; 1 \\ (0.622 - 0) \; 3 \\ 0.622 - 0 \end{pmatrix}$</p>
+
+<p>$ \delta_{wb} = \begin{pmatrix} 0.378 \\ 1.134 \\ 0.378 \end{pmatrix}$</p>
+
+<p>Now that we have the gradient, we can compute $\theta_2 $ by moving in the opposite direction as the gradient.</p>
+
+<p>$ \theta_{2} = \begin{pmatrix} w_1 \\ w_2  \\ b \end{pmatrix} - \eta \begin{pmatrix} 0.378 \\ 1.134 \\ 0.378 \end{pmatrix}$</p>
+
+<p>$ \theta_{2} = \begin{pmatrix} 0.15 \\ 0.1  \\ 0.05 \end{pmatrix} - 0.1 \begin{pmatrix} 0.378 \\ 1.134 \\ 0.378 \end{pmatrix}$</p>
+
+<p>$ \theta_{2} = \begin{pmatrix} 0.15 - 0.0378 \\ 0.1 - 0.1134 \\ 0.05 - 0.0378 \end{pmatrix} $</p>
+
+<p>$ \theta_{2} = \begin{pmatrix} 0.1122 \\ -0.0134 \\ 0.4622 \end{pmatrix} $</p>
+
+<p>At the end of step 2, $w_1 = 0.1122$, $w_2 = -0.0134$ and $b = 0.04622$.</p>
+
+<p>We can continue this process for $k$ number of steps and iterate through the examples again and again till we find the global minimum.</p>
+
+<h1 id="summary-of-logistic-regression">Summary of Logistic Regression</h1>
+<ul>
+  <li>Each input is composed of a vector $x_1, x_2 \ldots x_n$</li>
+  <li>We compute $\hat{y} = \sigma(w \cdot x + b)</li>
+  <li>Compute loss = $ \hat{y} - y$. We use cross entropy loss to compute this value</li>
+  <li>Compute the gradient of the loss = $\frac{d}{dc}L_{CE}$</li>
+  <li>Sigmoid is replaced by Softmax when we do multinomial Logistic Regression</li>
+  <li>Regularization is used to avoid overfitting and make the model more generalized</li>
+</ul>
+
+<h1 id="further-reading">Further Reading</h1>
+
+<ul>
+  <li><a href="https://papers.nips.cc/paper/2001/file/7b7a53e239400a13bd6be6c91c4f6c4e-Paper.pdf">On discriminative vs. generative classifiers: a comparison of logistic regression and naive Bayes</a> NIPS’01: Proceedings of the 14th International Conference on Neural Information Processing Systems: Natural and Synthetic, January 2001 Pages 841–848</li>
+  <li><a href="https://web.stanford.edu/~jurafsky/slp3/5.pdf">Chapter 5, Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition</a> by Daniel Jurafsky, James H. Martin</li>
+  <li><a href="https://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/">Introduction to Latent Dirichlet Allocation</a>, by Edwin Chen</li>
+</ul>
+
+            </div>
+        </div>
+        <!-- End Post -->
+
+        <!-- Related posts list-->
+        <aside class="col-md-3 flex-md-unordered">
+            <div class="related-posts sticky-top sticky-top-offset">
+    <p class="related">Related posts:</p>
+    <ul>
+        
+            
+                
+                    <li><a href="/blog/2023/ml-to-llm/">Machine Learning, Deep Learning and Large Language Models</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2023/Important-books-for-AI/">Important books to read for AI</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/probability-theory/">Probability Theory for Natural Language Processing</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/language-models/">The Foundations of Language Models</a></li>
+                
+            
+        
+            
+                
+                    <li class="active"><a href="/blog/2021/logistic-regression/">The Comprehensive Guide to Logistic Regression</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/byte-pair-encoding/">What is Byte-Pair Encoding for Tokenization?</a></li>
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+                    <li><a href="/blog/2019/manageml/">Managing Machine Learning Experiments</a></li>
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+                    <li><a href="/blog/2017/what-is-nlp/">What is Natural Language Processing (NLP)?</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2016/NLP-ML/">Natural Language Processing vs. Machine Learning vs. Deep Learning</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2015/word2vec/">Online Word2Vec for Gensim</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2015/statistics-for-everyone/">Understanding your Data - Basic Statistics</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2014/all-about-that-bayes-intro-to-probability/">An Introduction to Probability</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2014/build-your-own-search-engine/">Build your own search Engine</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2014/core-of-lucene/">The Math behind Lucene</a></li>
+                
+            
+        
+    </ul>
+</div>
+        </aside>
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'datasciencetoolbox'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+
+
+<script>
+    // Load document before calculating window height
+            var winHeight = $(window).height(),
+                docHeight = $(document).height(),
+                progressBar = $('#myBar'),
+                max, value;
+
+            /* Set the max scrollable area */
+            max = docHeight - winHeight;
+            //progressBar.attr('max', max);
+
+            $(document).on('scroll', function () {
+                value = $(window).scrollTop()/max;
+                console.log(value);
+                progressBar.attr('value', value);
+            });
+</script>
+        </div>
+    </div>
+
+    <!-- Begin Footer
+    ================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center text-lg-center">
+                    Copyright © 2023 Rutu Mulkar. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer
+    ================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//datasciencetoolbox.disqus.com/count.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: 
+        {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: false,
+        }
+        
+    });
+</script>
+
+  
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    CommonHTML: { linebreaks: { automatic: true } },
+    "HTML-CSS": { scale: 100, linebreaks: { automatic: true } },
+    TeX: { equationNumbers: {autoNumber: "all"} } });
+</script>
+
+<!-- Category filter -->
+<script src="/assets/js/categorySearch.js"></script>
+</body>
+</html>

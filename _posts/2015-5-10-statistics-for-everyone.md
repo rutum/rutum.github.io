@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Understanding your Data - Basic Statistics
 filter: [blog]
 tags: statistics

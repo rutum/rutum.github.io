@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="http://localhost:4000/assets/images/lightning-border.png">
+<title>An Introduction to Probability | Rutu Mulkar</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>An Introduction to Probability | Rutu Mulkar</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="An Introduction to Probability" />
+<meta name="author" content="rutum" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This post is an introduction to probability theory. Probability theory is the backbone of AI, and the this post attempts to cover these fundamentals, and bring us to Naive Bayes, which is a simple generative classification algorithm for text classification. In this post we will cover the following:" />
+<meta property="og:description" content="This post is an introduction to probability theory. Probability theory is the backbone of AI, and the this post attempts to cover these fundamentals, and bring us to Naive Bayes, which is a simple generative classification algorithm for text classification. In this post we will cover the following:" />
+<link rel="canonical" href="http://localhost:4000/blog/2014/all-about-that-bayes-intro-to-probability/" />
+<meta property="og:url" content="http://localhost:4000/blog/2014/all-about-that-bayes-intro-to-probability/" />
+<meta property="og:site_name" content="Rutu Mulkar" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-07-07T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="An Introduction to Probability" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"rutum"},"description":"This post is an introduction to probability theory. Probability theory is the backbone of AI, and the this post attempts to cover these fundamentals, and bring us to Naive Bayes, which is a simple generative classification algorithm for text classification. In this post we will cover the following:","@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"},"name":"rutum"},"headline":"An Introduction to Probability","dateModified":"2021-05-08T00:00:00-07:00","datePublished":"2014-07-07T00:00:00-07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2014/all-about-that-bayes-intro-to-probability/"},"url":"http://localhost:4000/blog/2014/all-about-that-bayes-intro-to-probability/","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;&family=Mukta:wght@300;500&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+
+<!-- Google analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-31232401-1', 'auto');
+ga('send', 'pageview');
+</script>
+<style>
+    ::-moz-selection { /* Code for Firefox */
+        color: #fbfff1;
+        background: #3066be;
+    }
+    
+    ::selection {
+        color: #fbfff1;
+        background: #3066be;
+    }
+    </style>
+
+</head>
+
+<!--  -->
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<!-- <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet"> -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="http://localhost:4000/"> 
+        <h2> <img class="d-inline-block align-text-center" src="http://localhost:4000/assets/images/lightning.png"/></h2>
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+        <!-- Begin Menu -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="/index.html">Syntax and Semantics</a>
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link" href="/books/index.html"> Book Summaries</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/_pages/about/index.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search f-dlex" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<!-- <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form> -->
+  
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+                </li>
+            </ul>
+        <!-- End Menu -->
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+
+<div class="site-content">
+
+    <div class="container">
+
+        <!-- Site Title
+        ================================================== -->
+        <div class="mainheading">
+        <!--     <h1 class="sitetitle">Rutu Mulkar</h1>
+            <p class="lead">
+                
+            </p> -->
+        </div>
+        <!-- Content
+        ================================================== -->
+
+        <div class="main-content">
+            <!-- reading progress-bar -->
+<div class="progress_container">
+    <progress class="progress_read" id="myBar" value="0"></progress>
+</div>
+
+<!-- Begin Article
+    ================================================== -->
+    <div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-1 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=An Introduction to Probability&url=http://localhost:4000/blog/2014/all-about-that-bayes-intro-to-probability/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/blog/2014/all-about-that-bayes-intro-to-probability/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/blog/2014/all-about-that-bayes-intro-to-probability/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        <!--  -->
+
+        <div class="col-md-8 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Post Title -->
+                <h1 class="posttitle">An Introduction to Probability</h1>
+                <!-- Reading time -->
+                <!-- <span class="bluecolor smtext" title="Estimated read time">
+    
+    
+        Approximate time to read: 11 min
+    
+</span> -->
+            </div>
+            <!-- Post Date -->
+            <p>
+                <span class="post-date"><time class="post-date" datetime="2014-07-07">Jul 7th, 2014</time> </span>            
+                <br>
+                <span>
+                    <span class="tag"><a href="http://localhost:4000/categories#"> probability</a></span>
+                </span> 
+
+            </p>
+            
+            
+            <p><span class="post-update">[Updated  on <time datetime="2021-05-08T00:00:00-07:00" itemprop="dateModified">May 8, 2021</time>]</span></p>
+            
+
+            <!-- Rating -->
+            <!--  -->
+            
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>This post is an introduction to probability theory. Probability theory is the backbone of AI, and the this post attempts to cover these fundamentals, and bring us to <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a>, which is a simple generative classification algorithm for text classification. In this post we will cover the following:</p>
+
+<ul>
+  <li><a href="#random-variables">Random Variables</a></li>
+  <li><a href="#simple-probability">Simple Probability</a></li>
+  <li><a href="#probability-of-2-events">Probability of 2 Events</a></li>
+  <li><a href="#conditional-probability">Conditional Probability</a></li>
+  <li><a href="#difference-between-conditional-and-joint-probability">Difference between conditional and joint probability</a></li>
+  <li><a href="#bayes-rule">Bayes Rule</a></li>
+  <li><a href="#naive-bayes">Naive Bayes</a></li>
+  <li><a href="#further-reading">Further Reading</a></li>
+</ul>
+
+<h1 id="random-variables">Random Variables</h1>
+
+<p>In this world things keep happening around us. Each event occurring is a Random Variable. A Random Variable is an event, like elections, snow or hail. Random variables have an outcome attached them - the value of which is between 0 and 1. This is the likelihood of that event happening. We hear the outcomes of random variables all the time - There is a 50% chance or precipitation, The Seattle Seahawks have a 90% chance of winning the game.</p>
+
+<h1 id="simple-probability">Simple Probability</h1>
+
+<p>Where do we get these numbers from? From past data.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Year</strong></td>
+      <td>2008</td>
+      <td>2009</td>
+      <td>2010</td>
+      <td>2011</td>
+      <td>2012</td>
+      <td>2013</td>
+      <td>2014</td>
+      <td>2015</td>
+    </tr>
+    <tr>
+      <td><strong>Rain</strong></td>
+      <td>Rainy</td>
+      <td>Dry</td>
+      <td>Rainy</td>
+      <td>Rainy</td>
+      <td>Rainy</td>
+      <td>Dry</td>
+      <td>Dry</td>
+      <td>Rainy</td>
+    </tr>
+  </tbody>
+</table>
+
+\[p(Rain=Rainy) = \frac{\sum(Rain=Rainy)}{\sum(Rain=Rainy) + \sum(Rain=Dry)} = \frac{5}{8}\]
+
+\[p(Rain=Dry) = \frac{\sum(Rain=Dry)}{\sum(Rain=Rainy) + \sum(Rain=Dry)} = \frac{3}{8}\]
+
+<h1 id="probability-of-2-events">Probability of 2 Events</h1>
+
+<p>What is the probability that event A and Event B happening together? Consider the following table, with data about the <em>Rain</em> and <em>Sun</em> received by Seattle for the past few years.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Year</strong></td>
+      <td>2008</td>
+      <td>2009</td>
+      <td>2010</td>
+      <td>2011</td>
+      <td>2012</td>
+      <td>2013</td>
+      <td>2014</td>
+      <td>2015</td>
+    </tr>
+    <tr>
+      <td><strong>Rain</strong></td>
+      <td>Rainy</td>
+      <td>Dry</td>
+      <td>Rainy</td>
+      <td>Rainy</td>
+      <td>Rainy</td>
+      <td>Dry</td>
+      <td>Dry</td>
+      <td>Rainy</td>
+    </tr>
+    <tr>
+      <td><strong>Sun</strong></td>
+      <td>Sunny</td>
+      <td>Sunny</td>
+      <td>Sunny</td>
+      <td>Cloudy</td>
+      <td>Cloudy</td>
+      <td>Cloudy</td>
+      <td>Sunny</td>
+      <td>Sunny</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Using the above information, can you compute what is the probability that it will be Sunny and Rainy in 2016?</p>
+
+<p>We can get this number easily from the <strong>Joint Distribution</strong></p>
+
+<table>
+<tbody>
+<tr>
+    <td colspan="2" rowspan="2"></td>
+    <td align="center" colspan="2"><b>RAIN</b></td>
+</tr>
+<tr>
+    <td><b>Rainy</b></td>
+    <td><b>Dry</b></td></tr>
+<tr>
+    <td align="center" rowspan="2"><b>SUN</b></td>
+    <td><b>Sunny</b></td>
+    <td>3/8</td>
+    <td>2/8</td>
+</tr>
+<tr>
+    <td><b>Cloudy</b>
+    </td><td>2/8</td>
+    <td>1/8</td></tr>
+</tbody>
+</table>
+
+<p>In 3 out of the 8 examples above, it is <em>Sunny</em> and <em>Rainy</em> at the same time. Similarly, in 1 out of 8 times it is <em>Cloudy</em> and it is <em>Dry</em>. So we can compute the probability of multiple events happening at the same time using the <em>Joint Distribution</em>. If there are more than 2 variables, the table will be of a higher dimension</p>
+
+<p>We can extend this table further include <strong>Marginalization</strong>. <em>Marginalization</em> is just a fancy word for adding up all the probabilities in each row, and the probabilities in each column respectively.</p>
+
+<table>
+<tbody>
+    <tr>
+        <td colspan="2" rowspan="2"></td>
+        <td align="center" colspan="3"><b>RAIN</b></td>
+    </tr>
+    <tr>
+        <td><b>Rainy</b></td>
+        <td><b>Dry</b></td>
+        <td><b>Margin</b></td></tr>
+    <tr>
+        <td align="center" rowspan="3"><b>SUN</b></td>
+        <td><b>Sunny</b></td>
+        <td>0.375</td>
+        <td>0.25</td>
+        <td>0.625</td>
+    </tr>
+    <tr>
+        <td><b>Cloudy</b></td>
+        <td>0.25</td>
+        <td>0.125</td>
+        <td>0.375</td>
+    </tr>
+    <tr>
+        <td><b>Margin</b></td>
+        <td>0.625</td>
+        <td>0.375</td>
+        <td>1</td></tr>
+</tbody>
+</table>
+
+<p>Why are margins helpful? They remove the effects of one of the two events in the table. So, if we want to know the probability that it will rain (irrespective of other events), we can find it from the marginal table as 0.625. From Table 1, we can confirm this by computing all the individual instances that it rains - 5/8 = 0.625</p>
+
+<h1 id="conditional-probability">Conditional Probability</h1>
+
+<p>What do we do when one of the outcomes is already given to us? On this new day in 2016, it is very sunny, but what is the probability that it will rain?</p>
+
+\[P(Rain=Rainy \mid Sun=Sunny)\]
+
+<p>which is read as - probability that it will rain, given that there is sun.</p>
+
+<p>This is computed in the same way as we compute normal probability, but we will just look at the cases where Sun = Sun from Table 1. There are 5 instances of Sun = Sun in Table 1, and in 3 of those cases Rain = Rain. So the probability of</p>
+
+\[P(Rain=Rainy \mid Sun=Sunny) = 3/5 = 0.6\]
+
+<p>We can also compute this from Table 3.
+Total probability of Sun = 0.625 (Row 1 Marginal probability).
+Probability of Rain and Sun = 0.375</p>
+
+<p>Probability of Rain given Sun = 0.375/0.625 = 0.6</p>
+
+<h1 id="difference-between-conditional-and-joint-probability">Difference between conditional and joint probability</h1>
+
+<p>Conditional and Joint probability are often mistaken for each other because of the similarity in their naming convention. So what is the difference between: $ P(AB) $ and $ P(A \mid B) $</p>
+
+<p>The first is Joint Probability and the second is Conditional Probability.</p>
+
+<p>Joint probability computes the probability of 2 events happening together. In the case above - what is the probability that Event A and Event B both happen together? We do not know whether either of these events actually happened, and are computing the probability of both of them happening together.</p>
+
+<p>Conditional probability is similar, but with one difference - We already know that one of the events (e.g. Event B) did happen. So we are looking for the probability of Event A, when we know the Event B already happened or that the probability of Event B is 1. This is a subtle but a significantly different way of looking at things.</p>
+
+<h1 id="bayes-rule">Bayes Rule</h1>
+
+\[P(A B) = P(A) \, P(B \mid A)\]
+
+\[P(B A) = P(B) \, P(A \mid B)\]
+
+\[P(A B) = P(B A)\]
+
+<p>Equating (4) and (5)</p>
+
+\[P(A \mid B) = \frac{P(B \mid A) \, P(A)}{P(B)}\]
+
+<p>This is the <strong>Bayes Rule</strong>.</p>
+
+<p>Bayes Rule is interesting, and significant, because we can use it to discover the conditional probability of something, using the conditional probability going the other direction. For example: to find the probability $ P(death \mid smoking)$ , we can get this unknown from $ P(smoking \mid death) $, which is much easier to collect data for, as it is easier to find out whether the person who died was a smoker or a non smoker.</p>
+
+<hr />
+
+<p>Lets look at some real examples of probability in action. Consider a prosecutor, who wants to know whether to charge someone with a crime, given the forensic evidence of fingerprints, and town population.</p>
+
+<p>The data we have is the following:</p>
+
+<ul>
+  <li>One person in a town of 100,000 committed a crime. The probability that is he guilty $ P(G) = 0.00001$, where $P(G)$ is the probability of a person being guilty of having committed a crime</li>
+  <li>The forensics experts tell us, that if someone commits a crime, then they leave behind fingerprints 99% of the time. $P(F \mid G) = 0.99$, where $P(F \mid G)$ is the probability of fingerprints, given crime is commited</li>
+  <li>There are usually 3 people’s fingerprints in any given location. So $P(F) = 3 * 0.00001 = 0.00003$. This is because only 1 in 100,000 people could have their fingerprints</li>
+</ul>
+
+<p>We need to compute:</p>
+
+\[P(G \mid F)\]
+
+<p>Using <em>Bayes Rule</em> we know that:</p>
+
+\[P(G \mid F) = \frac{P(F \mid G) \, P(G)}{P(F)}\]
+
+<p>Plugging in the values that we already know:</p>
+
+\[P(G \mid F) = \frac{0.99 * 0.00001}{0.00003}\]
+
+\[P(G \mid F) = 0.33\]
+
+<p>This is a good enough probability to get in touch with the suspect, and get his side of the story. However, when the prosecutor talks to the detective, the detective points out that the suspects actually lives at the scrime scene. This makes it highly likely to find the suspect’s fingerprints in that location. And the new probability of finding fingerprints becomes : $P(F) = 0.99$</p>
+
+<p>Plugging in those values again into (9), we get:</p>
+
+\[P(G \mid F) = \frac{P(F \mid G) \, P(G)}{P(F)}\]
+
+\[P(G \mid F) = \frac{0.99 * 0.00001}{0.99}\]
+
+\[P(G \mid F) = 0.00001\]
+
+<p>So it completely changes the probability of the suspect being guilty.</p>
+
+<p>This example is interesting because we computed the probability of a $P(G \mid F)$ using the probability of $P(F \mid G)$. This is because we have more data from previous solved crimes about how many peple actually leave fingerprints behind, and the correlation of that with them being guilty.</p>
+
+<hr />
+
+<p>Another motivation for using conditional probability, is that conditional probability in one direction is often less stable that the conditional probability in the other direction. For example, the probability of disease given a symptom $P(D \mid S)$ is less stable as compared to probability of symptom given disease $P(S \mid D)$</p>
+
+<p>So, consider a situation where you think that you might have a horrible disease <em>Severenitis</em>. You know that Severenitis is very rare and the probability that someone actually has it is 0.0001. There is a test for it that is reasonably accurate 99%. You go get the test, and it comes back positive. You think, “oh no! I am 99% likely to have the disease”. Is this correct? Lets do the Math.</p>
+
+<p>Let $P(H \leftarrow w)$ be the probability of Health being <em>well</em>, and $P(H \leftarrow s)$ be the probability of Health being <em>sick</em>. Let and $P(T \leftarrow p)$ be the probability of the Test being <em>positive</em> and $P(T \leftarrow n)$ be the probability of the Test being <em>negative</em>.</p>
+
+<p>We know that the probability you have the disease is low $P(H \leftarrow s) = 0.0001$. We also know that the test is 99% accurate. What does this mean? It means that if you are sick, then the test will accurately predict it by 99%</p>
+
+<p>$P(T \leftarrow n \mid H \leftarrow w) = 0.99$</p>
+
+<p>$P(T \leftarrow n \mid H \leftarrow s) = 0.01$</p>
+
+<p>$P(T \leftarrow p \mid H \leftarrow w) = 0.01$</p>
+
+<p>$P(T \leftarrow p \mid H \leftarrow s) = 0.99$</p>
+
+<p>We need to find out the probability that you are <em>sick</em> given that the test is <em>positive</em> or $P(H \leftarrow s \mid T \leftarrow p)$</p>
+
+<p>Using Bayes Rule:</p>
+
+\[P(H \leftarrow s \mid T \leftarrow p) = \frac{P(T \leftarrow p \mid H \leftarrow s) \, P(H \leftarrow s)}{P(T \leftarrow p)}\]
+
+<p>We know the numerator, but not the denominator. However, it is easy enough to compute the denominator using some clever math!</p>
+
+<p>We know that the total probability of</p>
+
+<p>$P(H \leftarrow s \mid T \leftarrow p) + P(H \leftarrow w \mid T \leftarrow p) = 1$</p>
+
+\[P(H \leftarrow s \mid T \leftarrow p) = \frac{P(T \leftarrow p \mid H \leftarrow s) \, P(H \leftarrow s)}{P(T \leftarrow p)}\]
+
+\[P(H \leftarrow w \mid T \leftarrow p) = \frac{P(T \leftarrow p \mid H \leftarrow w) \, P(H \leftarrow w)}{P(T \leftarrow p)}\]
+
+<p>Adding (16) and (17), and equating with (15) we get:</p>
+
+\[\frac{P(T \leftarrow p \mid H \leftarrow s) \, P(H \leftarrow s)}{P(T \leftarrow p)} + \frac{P(T \leftarrow p \mid H \leftarrow w) \, P(H \leftarrow w)}{P(T \leftarrow p)} = 1\]
+
+<p>Therefore:</p>
+
+\[P(T \leftarrow p) = P(T \leftarrow p \mid H \leftarrow s) \, P(H \leftarrow s) + P(T \leftarrow p \mid H \leftarrow w) \, P(H \leftarrow w)\]
+
+<p>Substituting (7) into (4) we get:</p>
+
+\[P(H \leftarrow s \mid T \leftarrow p) = \frac{P(T \leftarrow p \mid H \leftarrow s) \, P(H \leftarrow s)}{P(T \leftarrow p \mid H \leftarrow s) \, P(H \leftarrow s) + P(T \leftarrow p \mid H \leftarrow w) \, P(H \leftarrow w)}\]
+
+\[P(H \leftarrow s \mid T \leftarrow p) = \frac{0.99 \times 0.0001}{0.99 \times 0.0001  + 0.01 \times 0.9999}\]
+
+\[= 0.0098\]
+
+<p>This is the reason why doctors are hesitant to order expensive tests if it is unlikely tht you have the disease. Even though the test is accurate, rare diseases are so rare that the very rarity dominates the accuracy of the test.</p>
+
+<hr />
+
+<h1 id="naive-bayes">Naive Bayes</h1>
+
+<p>When someone applies <em>Naive Bayes</em> to a problem, they are assuming <em>conditional independence</em> of all the events. This means:</p>
+
+\[P(ABC... \mid Z) = P(A \mid Z) \, P(B \mid Z) \, P(C \mid Z) \,...\]
+
+<p>When this is plugged into Bayes Rules:</p>
+
+\[P(A \mid BCD...) = \frac{P(BCD...\mid A ) \, P(A)}{P(BCD...)}\]
+
+\[= \frac{P(B\mid A ) \, P(C \mid A) P(D \mid A) ... P(A)}{P(BCD...)}\]
+
+<ol>
+  <li>Let $P(BCD…) = \alpha$ which is the normalization constant. Then,</li>
+</ol>
+
+\[= \alpha \times P(B\mid A ) \, P(C \mid A) P(D \mid A) ... P(A)\]
+
+<p>What we have done here, is assumed that the events A, B, C etc. are not dependent on each other, thereby reducing a very high dimensional table into several low dimensional tables. If we have 100 features, and each feature can take 2 values, then we would have a table of size $2^{100}$. However, assuming independence of events we reduce this to one hundred 4 element tables.</p>
+
+<blockquote>
+  <p>Naive Bayes is rarely ever true, but it often works because we are not interested in the right probability, but the fact that the correct class has the highest probability.</p>
+</blockquote>
+
+<h1 id="further-reading">Further Reading</h1>
+
+<ol>
+  <li><a href="http://www.usna.edu/Users/cs/crabbe/SI420/current/classes/naivebayes/naivebayes.pdf"> A gentle review of Basic Probability</a></li>
+</ol>
+
+
+            </div>
+        </div>
+        <!-- End Post -->
+
+        <!-- Related posts list-->
+        <aside class="col-md-3 flex-md-unordered">
+            <div class="related-posts sticky-top sticky-top-offset">
+    <p class="related">Related posts:</p>
+    <ul>
+        
+            
+                
+                    <li><a href="/blog/2023/ml-to-llm/">Machine Learning, Deep Learning and Large Language Models</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2023/Important-books-for-AI/">Important books to read for AI</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/probability-theory/">Probability Theory for Natural Language Processing</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/language-models/">The Foundations of Language Models</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/logistic-regression/">The Comprehensive Guide to Logistic Regression</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2021/byte-pair-encoding/">What is Byte-Pair Encoding for Tokenization?</a></li>
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+                    <li><a href="/blog/2019/manageml/">Managing Machine Learning Experiments</a></li>
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+                    <li><a href="/blog/2017/what-is-nlp/">What is Natural Language Processing (NLP)?</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2016/NLP-ML/">Natural Language Processing vs. Machine Learning vs. Deep Learning</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2015/word2vec/">Online Word2Vec for Gensim</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2015/statistics-for-everyone/">Understanding your Data - Basic Statistics</a></li>
+                
+            
+        
+            
+                
+                    <li class="active"><a href="/blog/2014/all-about-that-bayes-intro-to-probability/">An Introduction to Probability</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2014/build-your-own-search-engine/">Build your own search Engine</a></li>
+                
+            
+        
+            
+                
+                    <li><a href="/blog/2014/core-of-lucene/">The Math behind Lucene</a></li>
+                
+            
+        
+    </ul>
+</div>
+        </aside>
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'datasciencetoolbox'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+
+
+<script>
+    // Load document before calculating window height
+            var winHeight = $(window).height(),
+                docHeight = $(document).height(),
+                progressBar = $('#myBar'),
+                max, value;
+
+            /* Set the max scrollable area */
+            max = docHeight - winHeight;
+            //progressBar.attr('max', max);
+
+            $(document).on('scroll', function () {
+                value = $(window).scrollTop()/max;
+                console.log(value);
+                progressBar.attr('value', value);
+            });
+</script>
+        </div>
+    </div>
+
+    <!-- Begin Footer
+    ================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center text-lg-center">
+                    Copyright © 2023 Rutu Mulkar. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer
+    ================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//datasciencetoolbox.disqus.com/count.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: 
+        {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: false,
+        }
+        
+    });
+</script>
+
+  
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    CommonHTML: { linebreaks: { automatic: true } },
+    "HTML-CSS": { scale: 100, linebreaks: { automatic: true } },
+    TeX: { equationNumbers: {autoNumber: "all"} } });
+</script>
+
+<!-- Category filter -->
+<script src="/assets/js/categorySearch.js"></script>
+</body>
+</html>

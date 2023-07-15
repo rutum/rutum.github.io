@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: The Foundations of Language Models
 description: This post describes how to document, reproduce and manage your ML experiments at scale
 filter: [blog]
@@ -14,6 +14,23 @@ date: 2021-04-24
 The next word following this will most likely be "disgusting", or "bad", but will probably not be "table" or "chair". [Language Models](https://en.wikipedia.org/wiki/Language_model) are models that assign probabilities to sequences of words to be able to predict the next word given a sequence of words.
 
 The probability of a word $w$ given some history $h$ is $p(w\|h)$. 
+
+In this post I am going to discuss the following concepts:
+
+- [N-Grams](#n-grams)
+  - [Working Example](#working-example)
+  - [Practical Issues](#practical-issues)
+- [Problems with language Models](#problems-with-language-models)
+- [Smoothing](#smoothing)
+  - [Laplace Smoothing](#laplace-smoothing)
+  - [Add-k smoothing](#add-k-smoothing)
+  - [Backoff and Interpolation](#backoff-and-interpolation)
+- [Evaluating Language Models](#evaluating-language-models)
+  - [Intrinsic Evaluation](#intrinsic-evaluation)
+  - [Extrinsic Evaluation](#extrinsic-evaluation)
+    - [Perplexity](#perplexity)
+- [N-Gram Efficiency considerations](#n-gram-efficiency-considerations)
+- [References](#references)
 
 ## N-Grams
 The probability of a word $w$ given the history $h$ is defined as: 

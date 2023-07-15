@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Probability Theory for Natural Language Processing
 filter: [blog]
 tags: nlp classification
@@ -13,7 +13,7 @@ A lot of work in [Natural Language Processing (NLP)](https://rutumulkar.com/blog
 Probability theory deals with predicting how likely something will happen. Below are some concepts to know and understand about probability. 
 In this post I will discuss the following: 
 
-<!-- - [Experiment (Trial)](#experiment-trial)
+- [Experiment (Trial)](#experiment-trial)
 - [Foundations](#foundations)
   - [Sample space](#sample-space)
   - [Event Space](#event-space)
@@ -38,7 +38,7 @@ In this post I will discuss the following:
   - [Bayesian Updating](#bayesian-updating)
   - [Likelihood Ratio](#likelihood-ratio)
 - [Derivation](#derivation)
-- [Bayes Optimal Decision](#bayes-optimal-decision) -->
+- [Bayes Optimal Decision](#bayes-optimal-decision)
 
 ---
 

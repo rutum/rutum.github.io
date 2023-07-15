@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: The Comprehensive Guide to Logistic Regression
 filter: [blog]
 tags: nlp classification
@@ -10,6 +10,36 @@ last_modified_at: 2021-04-25
 ---
 
 In [Natural Language Processing](https://algorithmia.com/blog/introduction-natural-language-processing-nlp) (NLP) [Logistic Regression](https://en.wikipedia.org/wiki/Logistic_regression) is the baseline supervised ML algorithm for [classification](https://en.wikipedia.org/wiki/Classification). It also has a very close relationship with [neural networks](https://en.wikipedia.org/wiki/Neural_network) (If you are new to neural networks, start with Logistic Regression to understand the basics.)
+
+In this post I will discuss the following: 
+- [Introduction](#introduction)
+- [Components of a Classification System](#components-of-a-classification-system)
+  - [Logistic Regression Phases](#logistic-regression-phases)
+- [Feature Representation](#feature-representation)
+- [Classification using the Sigmoid Function](#classification-using-the-sigmoid-function)
+  - [Characteristics of Sigmoid Function](#characteristics-of-sigmoid-function)
+- [Learning Process in Logistic Regression](#learning-process-in-logistic-regression)
+  - [Cost Function: Cross Entropy Loss](#cost-function-cross-entropy-loss)
+    - [Cross Entropy](#cross-entropy)
+    - [Convex Optimization Problem](#convex-optimization-problem)
+    - [Decision Boundary](#decision-boundary)
+  - [Gradient Descent](#gradient-descent)
+    - [Learning Rate](#learning-rate)
+    - [Stochastic Gradient Descent](#stochastic-gradient-descent)
+    - [Batch Training](#batch-training)
+    - [Mini-Batch Training](#mini-batch-training)
+  - [Regularization](#regularization)
+    - [L2 Regularization](#l2-regularization)
+    - [L1 Regularization](#l1-regularization)
+- [Multinomial Logistic Regression](#multinomial-logistic-regression)
+  - [Loss Function in Multinomial Logistic Regression](#loss-function-in-multinomial-logistic-regression)
+- [Working Example of Logistic Regression](#working-example-of-logistic-regression)
+    - [Gradient Descent Step 1](#gradient-descent-step-1)
+    - [Gradient Descent Step 2](#gradient-descent-step-2)
+- [Summary of Logistic Regression](#summary-of-logistic-regression)
+- [Further Reading](#further-reading)
+
+---
 
 # Introduction
 

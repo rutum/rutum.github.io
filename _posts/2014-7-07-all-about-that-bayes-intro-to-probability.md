@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: An Introduction to Probability
 filter: [blog]
 tags: probability introduction
@@ -8,7 +8,17 @@ author: rutum
 last_modified_at: 2021-05-08
 ---
 
-This post is an introduction to probability theory. Probability theory is the backbone of AI, and the this post attempts to cover these fundamentals, and bring us to [Naive Bayes](https://en.wikipedia.org/wiki/Naive_Bayes_classifier), which is a simple generative classification algorithm for text classification.
+This post is an introduction to probability theory. Probability theory is the backbone of AI, and the this post attempts to cover these fundamentals, and bring us to [Naive Bayes](https://en.wikipedia.org/wiki/Naive_Bayes_classifier), which is a simple generative classification algorithm for text classification. In this post we will cover the following: 
+
+- [Random Variables](#random-variables)
+- [Simple Probability](#simple-probability)
+- [Probability of 2 Events](#probability-of-2-events)
+- [Conditional Probability](#conditional-probability)
+- [Difference between conditional and joint probability](#difference-between-conditional-and-joint-probability)
+- [Bayes Rule](#bayes-rule)
+- [Naive Bayes](#naive-bayes)
+- [Further Reading](#further-reading)
+
 
 # Random Variables
 
