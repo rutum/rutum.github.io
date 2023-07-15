@@ -1,0 +1,1143 @@
+<!DOCTYPE html><html lang="en">
+  <head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Probability Theory for Natural Language Processing - rutum</title>
+
+<meta name="description" content="A lot of work in Natural Language Processing (NLP) such a creation of Language Models is based on probability theory. For the purpose of NLP, knowing about p...">
+<link rel="canonical" href="http://localhost:4000/probability/2021/05/08/probability-theory.html"><link rel="alternate" type="application/rss+xml" title="rutum" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+
+<meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
+
+<meta name="theme-color" content="#ffffff">
+<!-- end favicons snippet --><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css" ><!-- start custom head snippets -->
+
+<!-- end custom head snippets -->
+<script>(function() {
+  window.isArray = function(val) {
+    return Object.prototype.toString.call(val) === '[object Array]';
+  };
+  window.isString = function(val) {
+    return typeof val === 'string';
+  };
+
+  window.hasEvent = function(event) {
+    return 'on'.concat(event) in window.document;
+  };
+
+  window.isOverallScroller = function(node) {
+    return node === document.documentElement || node === document.body || node === window;
+  };
+
+  window.isFormElement = function(node) {
+    var tagName = node.tagName;
+    return tagName === 'INPUT' || tagName === 'SELECT' || tagName === 'TEXTAREA';
+  };
+
+  window.pageLoad = (function () {
+    var loaded = false, cbs = [];
+    window.addEventListener('load', function () {
+      var i;
+      loaded = true;
+      if (cbs.length > 0) {
+        for (i = 0; i < cbs.length; i++) {
+          cbs[i]();
+        }
+      }
+    });
+    return {
+      then: function(cb) {
+        cb && (loaded ? cb() : (cbs.push(cb)));
+      }
+    };
+  })();
+})();
+(function() {
+  window.throttle = function(func, wait) {
+    var args, result, thisArg, timeoutId, lastCalled = 0;
+
+    function trailingCall() {
+      lastCalled = new Date;
+      timeoutId = null;
+      result = func.apply(thisArg, args);
+    }
+    return function() {
+      var now = new Date,
+        remaining = wait - (now - lastCalled);
+
+      args = arguments;
+      thisArg = this;
+
+      if (remaining <= 0) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+        lastCalled = now;
+        result = func.apply(thisArg, args);
+      } else if (!timeoutId) {
+        timeoutId = setTimeout(trailingCall, remaining);
+      }
+      return result;
+    };
+  };
+})();
+(function() {
+  var Set = (function() {
+    var add = function(item) {
+      var i, data = this._data;
+      for (i = 0; i < data.length; i++) {
+        if (data[i] === item) {
+          return;
+        }
+      }
+      this.size ++;
+      data.push(item);
+      return data;
+    };
+
+    var Set = function(data) {
+      this.size = 0;
+      this._data = [];
+      var i;
+      if (data.length > 0) {
+        for (i = 0; i < data.length; i++) {
+          add.call(this, data[i]);
+        }
+      }
+    };
+    Set.prototype.add = add;
+    Set.prototype.get = function(index) { return this._data[index]; };
+    Set.prototype.has = function(item) {
+      var i, data = this._data;
+      for (i = 0; i < data.length; i++) {
+        if (this.get(i) === item) {
+          return true;
+        }
+      }
+      return false;
+    };
+    Set.prototype.is = function(map) {
+      if (map._data.length !== this._data.length) { return false; }
+      var i, j, flag, tData = this._data, mData = map._data;
+      for (i = 0; i < tData.length; i++) {
+        for (flag = false, j = 0; j < mData.length; j++) {
+          if (tData[i] === mData[j]) {
+            flag = true;
+            break;
+          }
+        }
+        if (!flag) { return false; }
+      }
+      return true;
+    };
+    Set.prototype.values = function() {
+      return this._data;
+    };
+    return Set;
+  })();
+
+  window.Lazyload = (function(doc) {
+    var queue = {js: [], css: []}, sources = {js: {}, css: {}}, context = this;
+    var createNode = function(name, attrs) {
+      var node = doc.createElement(name), attr;
+      for (attr in attrs) {
+        if (attrs.hasOwnProperty(attr)) {
+          node.setAttribute(attr, attrs[attr]);
+        }
+      }
+      return node;
+    };
+    var end = function(type, url) {
+      var s, q, qi, cbs, i, j, cur, val, flag;
+      if (type === 'js' || type ==='css') {
+        s = sources[type], q = queue[type];
+        s[url] = true;
+        for (i = 0; i < q.length; i++) {
+          cur = q[i];
+          if (cur.urls.has(url)) {
+            qi = cur, val = qi.urls.values();
+            qi && (cbs = qi.callbacks);
+            for (flag = true, j = 0; j < val.length; j++) {
+              cur = val[j];
+              if (!s[cur]) {
+                flag = false;
+              }
+            }
+            if (flag && cbs && cbs.length > 0) {
+              for (j = 0; j < cbs.length; j++) {
+                cbs[j].call(context);
+              }
+              qi.load = true;
+            }
+          }
+        }
+      }
+    };
+    var load = function(type, urls, callback) {
+      var s, q, qi, node, i, cur,
+        _urls = typeof urls === 'string' ? new Set([urls]) : new Set(urls), val, url;
+      if (type === 'js' || type ==='css') {
+        s = sources[type], q = queue[type];
+        for (i = 0; i < q.length; i++) {
+          cur = q[i];
+          if (_urls.is(cur.urls)) {
+            qi = cur;
+            break;
+          }
+        }
+        val = _urls.values();
+        if (qi) {
+          callback && (qi.load || qi.callbacks.push(callback));
+          callback && (qi.load && callback());
+        } else {
+          q.push({
+            urls: _urls,
+            callbacks: callback ? [callback] : [],
+            load: false
+          });
+          for (i = 0; i < val.length; i++) {
+            node = null, url = val[i];
+            if (s[url] === undefined) {
+              (type === 'js' ) && (node = createNode('script', { src: url }));
+              (type === 'css') && (node = createNode('link', { rel: 'stylesheet', href: url }));
+              if (node) {
+                node.onload = (function(type, url) {
+                  return function() {
+                    end(type, url);
+                  };
+                })(type, url);
+                (doc.head || doc.body).appendChild(node);
+                s[url] = false;
+              }
+            }
+          }
+        }
+      }
+    };
+    return {
+      js: function(url, callback) {
+        load('js', url, callback);
+      },
+      css: function(url, callback) {
+        load('css', url, callback);
+      }
+    };
+  })(this.document);
+})();
+</script><script>
+  (function() {
+    var TEXT_VARIABLES = {
+      version: '2.2.6',
+      sources: {
+        font_awesome: 'https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css',
+        jquery: 'https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js',
+        leancloud_js_sdk: '//cdn.jsdelivr.net/npm/leancloud-storage@3.13.2/dist/av-min.js',
+        chart: 'https://cdn.bootcss.com/Chart.js/2.7.2/Chart.bundle.min.js',
+        gitalk: {
+          js: 'https://cdn.bootcss.com/gitalk/1.2.2/gitalk.min.js',
+          css: 'https://cdn.bootcss.com/gitalk/1.2.2/gitalk.min.css'
+        },
+        valine: 'https://unpkg.com/valine/dist/Valine.min.js',
+        mathjax: 'https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML',
+        mermaid: 'https://cdn.bootcss.com/mermaid/8.0.0-rc.8/mermaid.min.js'
+      },
+      site: {
+        toc: {
+          selectors: 'h1,h2,h3'
+        }
+      },
+      paths: {
+        search_js: '/assets/search.js'
+      }
+    };
+    window.TEXT_VARIABLES = TEXT_VARIABLES;
+  })();
+</script>
+</head>
+  <body>
+    <div class="root" data-is-touch="false">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
+
+      <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
+      <div class="header__title">
+        <div class="header__brand">
+          <!-- <i class="fal fa-paper-plane"></i> --><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="24px" height="24px" viewBox="0 0 24 24">
+<style type="text/css">
+	.st0{fill:#515151;}
+</style>
+<path class="st0" d="M1.7,22.3c5.7-5.7,11.3-5.7,17,0c3.3-3.3,3.5-5.3,0.8-6c2.7,0.7,3.5-1.1,2.3-5.6s-3.3-5.2-6.3-2.1
+	c3-3,2.3-5.2-2.1-6.3S7,1.8,7.7,4.6C7,1.8,5,2.1,1.7,5.3C7.3,11,7.3,16.7,1.7,22.3"/>
+</svg>
+<a title="Your Site Description
+" href="/">rutum</a></div><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></div><nav class="navigation">
+        <ul><li class="navigation__item"><a href="/archive.html">Archive</a></li><li class="navigation__item"><a href="/about.html">About</a></li><li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li></ul>
+      </nav></div>
+  </header>
+</div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
+
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
+</aside></div>
+
+              <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
+
+<!-- end custom main top snippet -->
+<article itemscope itemtype="http://schema.org/WebPage"><div class="article__header"><header><h1>Probability Theory for Natural Language Processing</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="Edit on Github"
+            href="https://github.com/user_name/repo_name/tree/master/_posts/2021-05-8-probability-theory.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="Probability Theory for Natural Language Processing"><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=nlp">nlp</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=classification">classification</a>
+            </li></ul><ul class="right-col menu"><li><i class="fas fa-user"></i> <span>Rutu Mulkar</span></li><li><i class="far fa-calendar-alt"></i> <span>May 08, 2021</span>
+            </li></ul></div><meta itemprop="author" content="Rutu Mulkar"/><meta itemprop="datePublished" content="2021-05-08T00:00:00-07:00">
+    <meta itemprop="keywords" content="nlp,classification"><div class="js-article-content"><p>A lot of work in <a href="https://rutumulkar.com/blog/2017/what-is-nlp/">Natural Language Processing (NLP)</a> such a creation of <a href="https://rutumulkar.com/blog/2021/language-models/">Language Models</a> is based on <a href="https://en.wikipedia.org/wiki/Probability_theory">probability theory</a>. For the purpose of NLP, knowing about probabilities of words can help us predict the next word, understanding the rarity of words, analyzing and knowing when to ignore common words with respect to a given context - e.g. articles such as “the” and “a” have a very high probability of occurring in any document and add less information to the overall semantics, where as the probability of “supercalifragilisticexpialidocious” is incredibly low, but having it in a sentence provides much more semantics.</p>
+
+<p>Probability theory deals with predicting how likely something will happen. Below are some concepts to know and understand about probability. 
+In this post I will discuss the following:</p>
+
+<!-- - [Experiment (Trial)](#experiment-trial)
+- [Foundations](#foundations)
+  - [Sample space](#sample-space)
+  - [Event Space](#event-space)
+  - [Disjoint Sets](#disjoint-sets)
+  - [Well Founded Probability Space](#well-founded-probability-space)
+- [Probability Theory](#probability-theory)
+  - [Conditional Probability and Independence](#conditional-probability-and-independence)
+  - [Chain Rule](#chain-rule)
+  - [Independence of Events](#independence-of-events)
+  - [Bayes Theorem](#bayes-theorem)
+  - [Random Variables](#random-variables)
+  - [Probability Mass Function](#probability-mass-function)
+  - [Expectation](#expectation)
+  - [Variance](#variance)
+  - [Standard Deviation](#standard-deviation)
+  - [Joint Probability Mass Function](#joint-probability-mass-function)
+  - [Marginal Distribution](#marginal-distribution)
+  - [Relative Frequency](#relative-frequency)
+- [Distributions](#distributions)
+  - [Continuous distribution](#continuous-distribution)
+- [Maximum Likelihood Estimate](#maximum-likelihood-estimate)
+  - [Bayesian Updating](#bayesian-updating)
+  - [Likelihood Ratio](#likelihood-ratio)
+- [Derivation](#derivation)
+- [Bayes Optimal Decision](#bayes-optimal-decision) -->
+
+<hr />
+
+<h1 id="experiment-trial">Experiment (Trial)</h1>
+<p>An experiment (also known as a trial) is a process by which an observation is made. Rolling a dice is a trial, observing the weather is a trial. The outcome of a trial is called an event.</p>
+
+<h1 id="foundations">Foundations</h1>
+<h2 id="sample-space">Sample space</h2>
+<p>The sample space is a collection of all the basic outcomes or events of our experiment.  Sample space can be discrete or continuous. In NLP, the sample space of a given dataset can be the exhausting combinations of words that can occur together as bigrams. In a trial with 2 dice, the sample space is all the combinations in which the dice can have an outcome. A sample space is represented as $\Omega$. $\phi$ represents an event that can never happen.</p>
+
+<h2 id="event-space">Event Space</h2>
+<p>An event space is the set of all the possible subsets of the sample space. The size of an event space is $2^{\Omega}$. An event space is represented as $\mathcal{F}$.</p>
+
+<h2 id="disjoint-sets">Disjoint Sets</h2>
+<p>Disjoint sets are sets that do not share any events with each other. E.g. in NLP if 2 datasets have no common vocabulary or vocabulary sequences, they are disjoint from one another. $A_j$ and $A_k$ are disjoint sets if they satisfy the following condition:</p>
+
+\[A_j \in \mathcal{F} (A_j \cap A_k = \phi, j \ne k)\]
+
+\[P(\cup_{j=1}^{\inf}A_j) = \sum_{j=1}^{\inf} P(A_j)\]
+
+<h2 id="well-founded-probability-space">Well Founded Probability Space</h2>
+<p>A well founded probability space contains:</p>
+<ul>
+  <li>Sample space $\Omega$</li>
+  <li>a $\sigma$ field of events $\mathcal{F}$</li>
+  <li>A probability function (where all the individual probabilities sum to $1$)</li>
+</ul>
+
+<h1 id="probability-theory">Probability Theory</h1>
+<h2 id="conditional-probability-and-independence">Conditional Probability and Independence</h2>
+<p>Conditional Probability is the heart of <a href="">Naive Bayes</a> algorithm. Conditional Probability measures the probability of an event given another event has occurred.</p>
+
+<p align="center">
+    <img src="https://rutumulkar.com/assets/images/cond_prob.png" alt="Image of Conditional Probability" width="400" />
+    <br />
+    <em class="image-label">Fig 1: Conditional Probability</em>
+</p>
+
+\[P(A|B) = \frac{P(A \cap B)}{P(B)}\]
+
+<p>A simpler way of understanding conditional probability is the following: If event $B$ has definitely happened, how likely is it for event $A$ to also happen? This is answered by the fraction of times $A$ happens when $B$ happens.</p>
+
+<h2 id="chain-rule">Chain Rule</h2>
+<p>Chain rule of probabilities is used for Markov Models. According to chain rule, if we have 2 events $A$ and $B$, the probability of $A \cap B$ can be written as below:</p>
+
+\[P(A \cap B) = P(A|B) P(B)\]
+
+<p>When events A and B occur together they are written as $P(A \cap B)$ or $P(A B)$</p>
+
+<p>For $n$ events, $A_1, A_2, \ldots, A_n$, the chain rule is:</p>
+
+\[P(A_1 \cap A_2 \ldots \cap A_n) = P(A_1) P(A_2|A_1) \ldots P(A_n|\cap_{i=1}^{n-1}A_i)\]
+
+<p>Another notation is:</p>
+
+\[P(A_1 A_2 \ldots A_n) = P(A_1) P(A_2|A_1) \ldots P(A_n|\prod_{i=1}^{n-1}A_i)\]
+
+<p>Applying this to NLP, we can compute the probability of the sentence “Pete is happy” by computing:</p>
+
+\[P(Pete, is, happy) = P(Pete) P(is| Pete) P(happy| is, Pete)\]
+
+<p>For very long sentences, such joint probabilities are very hard to compute, e.g. the probability of the sentence “I am happy because I ate salad for lunch on Wednesday” depends on the frequency of this exact sentence in the corpus. It is quite possible that this exact sentence does not exist in our training dataset, cut the component words do exist. In which case it is helpful to make an independence assumption.</p>
+
+<h2 id="independence-of-events">Independence of Events</h2>
+
+<p>Two events $A$ and $B$ are independent of each other if $P(A B) = P(A) P(B)$. That means that there is no overlap between the two events with respect to Figure 1.</p>
+
+<p>When applying the independence assumption, $P(A|B) = P(A)$ because the presence of $B$ does not affect the probability of $A$ at all.</p>
+
+<p>Two events $A$ and $B$ are conditionally independent given an event $C$ where $P(C) &gt; 0$ if:</p>
+
+\[P(A \cap B|C) = P(A|C) P(B|C)\]
+
+<h2 id="bayes-theorem">Bayes Theorem</h2>
+<p>According to Bayes theorem:</p>
+
+\[P(B|A) = \frac{P(A|B) P(B)}{P(A)}\]
+
+<p>The denominator is a normalizing factor, and it helps produce a probability function.</p>
+
+<p>If we are simply interested in which event is most likely given A, we can ignore the normalizing constant because it is the same value for all events.</p>
+
+<p><strong>Bayes theorem is central to the noisy channel model</strong></p>
+
+<h2 id="random-variables">Random Variables</h2>
+<p>Random Variables map outcomes of random processes to numbers. Random variables are different from regular variables. Random variables can have many values, but regular variables can be solved for a small set of values. The probability $P(random|condition)$ helps with the mathematics notation of probability.</p>
+
+<p>The value held by a random variable can be discrete of continuous. Discrete is separate values e.g. 1, 2, 3, where as continuous is when the random variable can held any value within an interval e.g. between 0 and 1.</p>
+
+<h2 id="probability-mass-function">Probability Mass Function</h2>
+<p>Probability Mass Function (or PMF) of a discrete random variable $X$ provides the probabilities $P(X=x)$ for all the possible values of $x$.</p>
+
+<h2 id="expectation">Expectation</h2>
+<p>Expectation tells us what is the most likely outcome to expect. Expectation is the mean or average of the random variable:</p>
+
+\[E(X) = \sum_{x}xP(x)\]
+
+<p>Calculating Expectation is central to Information Theory.</p>
+
+<h2 id="variance">Variance</h2>
+<p>The variance of a random variable is a measure of whether the values of the random variable tend to be consistent over trials or to vary a lot. Variance is represented as $\sigma^2$</p>
+
+\[\begin{eqnarray}
+var(X) &amp;=&amp; E((X-E(X))^2 \nonumber\\
+ &amp;=&amp; E(X^2)-E^2(X))
+\end{eqnarray}\]
+
+<h2 id="standard-deviation">Standard Deviation</h2>
+<p>Standard Deviation is the square root of variance. It is represented as $\sigma$.</p>
+
+<h2 id="joint-probability-mass-function">Joint Probability Mass Function</h2>
+<p>The joint probability of two events $x$ and $y$ is represented as:</p>
+
+\[P(x,y) = P(X=y, Y=y)\]
+
+<h2 id="marginal-distribution">Marginal Distribution</h2>
+<p>Marginal PMFs total up the probability masses for the values of each variable separately.</p>
+
+\[P_X(x) = \sum_y P(x,y)\]
+
+\[P_Y(y) = \sum_x P(x,y)\]
+
+<h2 id="relative-frequency">Relative Frequency</h2>
+<p>The proportion of times a certain outcome occurs is called the relative frequency of the outcome.</p>
+
+<p>$P$ - probability function</p>
+
+<p>$p$ - probability mass function</p>
+
+<p>We take a parametric approach to estimate the probability function in language.</p>
+
+<p>Non-parametric approaches are used in classification, or when the underlying distribution of the data is unknown.</p>
+
+<h1 id="distributions">Distributions</h1>
+<p>The types of functions for probability mass functions are called distributions</p>
+
+<ul>
+  <li><strong>Discrete Distributions</strong>: Binomial discrete distributions are a series of trails with 2 outcomes only.
+    <ul>
+      <li>Multi-nominal Distribution: A special case of binomial distribution is <strong>Multi-nominal Distribution</strong> where each trial has more than 2 basic outcomes</li>
+      <li>Bernoulli distribution: A special case of discrete distributions where there is only one trial.</li>
+    </ul>
+  </li>
+  <li><strong>Continuous distributions</strong> Continuous distributions are also known as Normal distributions</li>
+</ul>
+
+<h2 id="continuous-distribution">Continuous distribution</h2>
+<p>A continuous distribution is also known as a Normal Distribution or a Bell Curve. We also refer to them as Gaussians (often used in clustering). A Gaussian is represented as:</p>
+
+\[n(x; \mu, \sigma) = \frac{1}{\sigma \sqrt{2\pi}} e^{\frac{-(x-\mu)}{2\sigma^2}}\]
+
+<p>Where $\sigma$ is the standard deviation and $\mu$ is the mean.</p>
+
+<p>It is also the probability density of observing a single data point $x$, that is generated from a gaussian distribution.</p>
+
+<h1 id="maximum-likelihood-estimate">Maximum Likelihood Estimate</h1>
+<p>Maximum Likelihood Estimate or MLE helps us identify which values of $\mu$ and $\sigma$ should we use that produce a curve that explains or covers all the data points. It is the way to determine the most likely outcome to a set of trials.</p>
+
+<h2 id="bayesian-updating">Bayesian Updating</h2>
+<p>The process of using prior to get posterior, posterior becomes the new prior, as new data comes.</p>
+
+\[P(\Theta|data) = P(data|\Theta) \text{ } P(\Theta)\]
+
+<p>Here $\Theta$ is what we are interested in and what we are trying to estimate. It represented the set of parameters. If we are trying to estimate the parameters of a gaussian distribution then $\Theta$ represents both the mean $\mu$ and the standard deviation $\sigma$ and $\Theta = \{\mu, \sigma\}$</p>
+
+<p>Here $P(\Theta|data)$ is the posterior and $P(\Theta)$ is the prior.</p>
+
+<p>Prior belief is computed as the following:</p>
+
+\[P(s|\mu_m) = m^i (1-m)^j\]
+
+<p>Here:</p>
+<ul>
+  <li>$i$ = outcome of 1 counts</li>
+  <li>$j$ = outcome of 2 counts</li>
+  <li>$\mu_m$ is the model that asserts the outcome</li>
+  <li>$s$ is a sequence of observations</li>
+</ul>
+
+<h2 id="likelihood-ratio">Likelihood Ratio</h2>
+<p>Ratio computed between 2 models to see which of them is more likely to occur.</p>
+
+<p>People often take log likelihood ratio and see it the result is $&gt;$ 1 or $&lt;$ 1</p>
+
+<p>The ratio to determine which theory is most likely to occur given a sequence of events $s$.</p>
+
+<p>Let $v$ be the first theory and $\mu$ be the seond theory.</p>
+
+\[\frac{P(\mu|s)}{P(v|s)} = \frac{P(s|\mu) P(\mu)}{P(s|v)P(v)}\]
+
+<p>If the ratio is $&gt;1$ we prefer theory $\mu$ (the numerator).
+If the ratio is $&lt;1$ we prefer theory $v$ (the denominator).</p>
+
+<h1 id="derivation">Derivation</h1>
+<p>Derivation is the process of finding the maxima and minima of functions.</p>
+
+<p>Computing the partial derivative WRT $\mu$ and then setting the equation to $0$ gives us the MLE fo $\mu$</p>
+
+<h1 id="bayes-optimal-decision">Bayes Optimal Decision</h1>
+<p>When we pick the best decision theory out of all the available theories that could explain the data, we make the Bayes Optimal Decision.</p>
+</div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
+
+<!-- end custom main bottom snippet -->
+</div>
+            </div></div></div><div class="page__footer d-print-none">
+<footer class="footer py-4 js-page-footer">
+  <div class="main"><div itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rutu Mulkar"><meta itemprop="url" content="/"><meta itemprop="description" content="Ex-Starup Founder, Science at Amazon"><div class="footer__author-links"><div class="author-links">
+  <ul class="menu menu--nowrap menu--inline"></ul>
+</div>
+</div>
+    </div><div class="site-info mt-2">
+      <div>© rutum 2021,
+        Powered by <a title="Jekyll is a simple, blog-aware, static site generator." href="http://jekyllrb.com/">Jekyll</a> & <a
+        title="TeXt is a super customizable Jekyll theme." href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Theme</a>.
+      </div>
+    </div>
+  </div>
+</footer>
+</div></div>
+    </div><script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $body = $('body'), $window = $(window);
+    var $pageRoot = $('.js-page-root'), $pageMain = $('.js-page-main');
+    var activeCount = 0;
+    function modal(options) {
+      var $root = this, visible, onChange, hideWhenWindowScroll = false;
+      var scrollTop;
+      function setOptions(options) {
+        var _options = options || {};
+        visible = _options.initialVisible === undefined ? false : show;
+        onChange = _options.onChange;
+        hideWhenWindowScroll = _options.hideWhenWindowScroll;
+      }
+      function init() {
+        setState(visible);
+      }
+      function setState(isShow) {
+        if (isShow === visible) {
+          return;
+        }
+        visible = isShow;
+        if (visible) {
+          activeCount++;
+          scrollTop = $(window).scrollTop() || $pageMain.scrollTop();
+          $root.addClass('modal--show');
+          $pageMain.scrollTop(scrollTop);
+          activeCount === 1 && ($pageRoot.addClass('show-modal'), $body.addClass('of-hidden'));
+          hideWhenWindowScroll && window.hasEvent('touchstart') && $window.on('scroll', hide);
+          $window.on('keyup', handleKeyup);
+        } else {
+          activeCount > 0 && activeCount--;
+          $root.removeClass('modal--show');
+          $window.scrollTop(scrollTop);
+          activeCount === 0 && ($pageRoot.removeClass('show-modal'), $body.removeClass('of-hidden'));
+          hideWhenWindowScroll && window.hasEvent('touchstart') && $window.off('scroll', hide);
+          $window.off('keyup', handleKeyup);
+        }
+        onChange && onChange(visible);
+      }
+      function show() {
+        setState(true);
+      }
+      function hide() {
+        setState(false);
+      }
+      function handleKeyup(e) {
+        // Char Code: 27  ESC
+        if (e.which ===  27) {
+          hide();
+        }
+      }
+      setOptions(options);
+      init();
+      return {
+        show: show,
+        hide: hide,
+        $el: $root
+      };
+    }
+    $.fn.modal = modal;
+  });
+})();
+</script><div class="modal modal--overflow page__search-modal d-print-none js-page-search-modal"><script>
+(function () {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    // search panel
+    var search = (window.search || (window.search = {}));
+    var useDefaultSearchBox = window.useDefaultSearchBox === undefined ?
+      true : window.useDefaultSearchBox ;
+
+    var $searchModal = $('.js-page-search-modal');
+    var $searchToggle = $('.js-search-toggle');
+    var searchModal = $searchModal.modal({ onChange: handleModalChange, hideWhenWindowScroll: true });
+    var modalVisible = false;
+    search.searchModal = searchModal;
+
+    var $searchBox = null;
+    var $searchInput = null;
+    var $searchClear = null;
+
+    function getModalVisible() {
+      return modalVisible;
+    }
+    search.getModalVisible = getModalVisible;
+
+    function handleModalChange(visible) {
+      modalVisible = visible;
+      if (visible) {
+        search.onShow && search.onShow();
+        useDefaultSearchBox && $searchInput[0] && $searchInput[0].focus();
+      } else {
+        search.onShow && search.onHide();
+        useDefaultSearchBox && $searchInput[0] && $searchInput[0].blur();
+        setTimeout(function() {
+          useDefaultSearchBox && ($searchInput.val(''), $searchBox.removeClass('not-empty'));
+          search.clear && search.clear();
+          window.pageAsideAffix && window.pageAsideAffix.refresh();
+        }, 400);
+      }
+    }
+
+    $searchToggle.on('click', function() {
+      modalVisible ? searchModal.hide() : searchModal.show();
+    });
+    // Char Code: 83  S, 191 /
+    $(window).on('keyup', function(e) {
+      if (!modalVisible && !window.isFormElement(e.target || e.srcElement) && (e.which === 83 || e.which === 191)) {
+        modalVisible || searchModal.show();
+      }
+    });
+
+    if (useDefaultSearchBox) {
+      $searchBox = $('.js-search-box');
+      $searchInput = $searchBox.children('input');
+      $searchClear = $searchBox.children('.js-icon-clear');
+      search.getSearchInput = function() {
+        return $searchInput.get(0);
+      };
+      search.getVal = function() {
+        return $searchInput.val();
+      };
+      search.setVal = function(val) {
+        $searchInput.val(val);
+      };
+
+      $searchInput.on('focus', function() {
+        $(this).addClass('focus');
+      });
+      $searchInput.on('blur', function() {
+        $(this).removeClass('focus');
+      });
+      $searchInput.on('input', window.throttle(function() {
+        var val = $(this).val();
+        if (val === '' || typeof val !== 'string') {
+          search.clear && search.clear();
+        } else {
+          $searchBox.addClass('not-empty');
+          search.onInputNotEmpty && search.onInputNotEmpty(val);
+        }
+      }, 400));
+      $searchClear.on('click', function() {
+        $searchInput.val(''); $searchBox.removeClass('not-empty');
+        search.clear && search.clear();
+      });
+    }
+  });
+})();
+</script><div class="search search--dark">
+  <div class="main">
+    <div class="search__header">Search</div>
+    <div class="search-bar">
+      <div class="search-box js-search-box">
+        <div class="search-box__icon-search"><i class="fas fa-search"></i></div>
+        <input type="text" />
+        <div class="search-box__icon-clear js-icon-clear">
+          <a><i class="fas fa-times"></i></a>
+        </div>
+      </div>
+      <button class="button button--theme-dark button--pill search__cancel js-search-toggle">
+        Cancel</button>
+    </div>
+    <div class="search-result js-search-result"></div>
+  </div>
+</div>
+<script>var SOURCES = window.TEXT_VARIABLES.sources;
+var PAHTS = window.TEXT_VARIABLES.paths;
+window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
+  var search = (window.search || (window.search = {}));
+  var searchData = window.TEXT_SEARCH_DATA || {};
+
+  function memorize(f) {
+    var cache = {};
+    return function () {
+      var key = Array.prototype.join.call(arguments, ',');
+      if (key in cache) return cache[key];
+      else return cache[key] = f.apply(this, arguments);
+    };
+  }
+
+  /// search
+  function searchByQuery(query) {
+    var i, j, key, keys, cur, _title, result = {};
+    keys = Object.keys(searchData);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i];
+      for (j = 0; j < searchData[key].length; j++) {
+        cur = searchData[key][j], _title = cur.title;
+        if ((result[key] === undefined || result[key] && result[key].length < 4 )
+          && _title.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+          if (result[key] === undefined) {
+            result[key] = [];
+          }
+          result[key].push(cur);
+        }
+      }
+    }
+    return result;
+  }
+
+  var renderHeader = memorize(function(header) {
+    return $('<p class="search-result__header">' + header + '</p>');
+  });
+
+  var renderItem = function(index, title, url) {
+    return $('<li class="search-result__item" data-index="' + index + '"><a class="button" href="' + url + '">' + title + '</a></li>');
+  };
+
+  function render(data) {
+    if (!data) { return null; }
+    var $root = $('<ul></ul>'), i, j, key, keys, cur, itemIndex = 0;
+    keys = Object.keys(data);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i];
+      $root.append(renderHeader(key));
+      for (j = 0; j < data[key].length; j++) {
+        cur = data[key][j];
+        $root.append(renderItem(itemIndex++, cur.title, cur.url));
+      }
+    }
+    return $root;
+  }
+
+  // search box
+  var $result = $('.js-search-result'), $resultItems;
+  var lastActiveIndex, activeIndex;
+
+  function clear() {
+    $result.html(null);
+    $resultItems = $('.search-result__item'); activeIndex = 0;
+  }
+  function onInputNotEmpty(val) {
+    $result.html(render(searchByQuery(val)));
+    $resultItems = $('.search-result__item'); activeIndex = 0;
+    $resultItems.eq(0).addClass('active');
+  }
+
+  search.clear = clear;
+  search.onInputNotEmpty = onInputNotEmpty;
+
+  function updateResultItems() {
+    lastActiveIndex >= 0 && $resultItems.eq(lastActiveIndex).removeClass('active');
+    activeIndex >= 0 && $resultItems.eq(activeIndex).addClass('active');
+  }
+
+  function moveActiveIndex(direction) {
+    var itemsCount = $resultItems ? $resultItems.length : 0;
+    if (itemsCount > 1) {
+      lastActiveIndex = activeIndex;
+      if (direction === 'up') {
+        activeIndex = (activeIndex - 1 + itemsCount) % itemsCount;
+      } else if (direction === 'down') {
+        activeIndex = (activeIndex + 1 + itemsCount) % itemsCount;
+      }
+      updateResultItems();
+    }
+  }
+
+  // Char Code: 13  Enter, 37  ⬅, 38  ⬆, 39  ➡, 40  ⬇
+  $(window).on('keyup', function(e) {
+    var modalVisible = search.getModalVisible && search.getModalVisible();
+    if (modalVisible) {
+      if (e.which === 38) {
+        modalVisible && moveActiveIndex('up');
+      } else if (e.which === 40) {
+        modalVisible && moveActiveIndex('down');
+      } else if (e.which === 13) {
+        modalVisible && $resultItems && activeIndex >= 0 && $resultItems.eq(activeIndex).children('a')[0].click();
+      }
+    }
+  });
+
+  $result.on('mouseover', '.search-result__item > a', function() {
+    var itemIndex = $(this).parent().data('index');
+    itemIndex >= 0 && (lastActiveIndex = activeIndex, activeIndex = itemIndex, updateResultItems());
+  });
+});
+</script>
+</div></div>
+
+
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function scrollToAnchor(anchor, duration, callback) {
+      var $root = this;
+      $root.animate({ scrollTop: $(anchor).position().top }, duration, function() {
+        window.history.replaceState(null, '', window.location.href.split('#')[0] + anchor);
+        callback && callback();
+      });
+    }
+    $.fn.scrollToAnchor = scrollToAnchor;
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function affix(options) {
+      var $root = this, $window = $(window), $scrollTarget, $scroll,
+        offsetBottom = 0, scrollTarget = window, scroll = window.document, disabled = false, isOverallScroller = true,
+        rootTop, rootLeft, rootHeight, scrollBottom, rootBottomTop,
+        hasInit = false, curState;
+
+      function setOptions(options) {
+        var _options = options || {};
+        _options.offsetBottom && (offsetBottom = _options.offsetBottom);
+        _options.scrollTarget && (scrollTarget = _options.scrollTarget);
+        _options.scroll && (scroll = _options.scroll);
+        _options.disabled !== undefined && (disabled = _options.disabled);
+        $scrollTarget = $(scrollTarget);
+        isOverallScroller = window.isOverallScroller($scrollTarget[0]);
+        $scroll = $(scroll);
+      }
+      function preCalc() {
+        top();
+        rootHeight = $root.outerHeight();
+        rootTop = $root.offset().top + (isOverallScroller ? 0 :  $scrollTarget.scrollTop());
+        rootLeft = $root.offset().left;
+      }
+      function calc(needPreCalc) {
+        needPreCalc && preCalc();
+        scrollBottom = $scroll.outerHeight() - offsetBottom - rootHeight;
+        rootBottomTop = scrollBottom - rootTop;
+      }
+      function top() {
+        if (curState !== 'top') {
+          $root.removeClass('fixed').css({
+            left: 0,
+            top: 0
+          });
+          curState = 'top';
+        }
+      }
+      function fixed() {
+        if (curState !== 'fixed') {
+          $root.addClass('fixed').css({
+            left: rootLeft + 'px',
+            top: 0
+          });
+          curState = 'fixed';
+        }
+      }
+      function bottom() {
+        if (curState !== 'bottom') {
+          $root.removeClass('fixed').css({
+            left: 0,
+            top: rootBottomTop + 'px'
+          });
+          curState = 'bottom';
+        }
+      }
+      function setState() {
+        var scrollTop = $scrollTarget.scrollTop();
+        if (scrollTop >= rootTop && scrollTop <= scrollBottom) {
+          fixed();
+        } else if (scrollTop < rootTop) {
+          top();
+        } else {
+          bottom();
+        }
+      }
+      function init() {
+        if(!hasInit) {
+          var interval, timeout;
+          calc(true); setState();
+          // run calc every 100 millisecond
+          interval = setInterval(function() {
+            calc();
+          }, 100);
+          timeout = setTimeout(function() {
+            clearInterval(interval);
+          }, 45000);
+          window.pageLoad.then(function() {
+            setTimeout(function() {
+              clearInterval(interval);
+              clearTimeout(timeout);
+            }, 3000);
+          });
+          $scrollTarget.on('scroll', function() {
+            disabled || setState();
+          });
+          $window.on('resize', function() {
+            disabled || (calc(true), setState());
+          });
+          hasInit = true;
+        }
+      }
+
+      setOptions(options);
+      if (!disabled) {
+        init();
+      }
+      $window.on('resize', window.throttle(function() {
+        init();
+      }, 200));
+      return {
+        setOptions: setOptions,
+        refresh: function() {
+          calc(true, { animation: false }); setState();
+        }
+      };
+    }
+    $.fn.affix = affix;
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function toc(options) {
+      var $root = this, $window = $(window), $scrollTarget, $scroller, $tocUl = $('<ul class="toc toc--ellipsis"></ul>'), $tocLi, $headings, $activeLast, $activeCur,
+        selectors = 'h1,h2,h3', container = 'body', scrollTarget = window, scroller = 'html, body', disabled = false,
+        headingsPos, scrolling = false, hasRendered = false, hasInit = false;
+
+      function setOptions(options) {
+        var _options = options || {};
+        _options.selectors && (selectors = _options.selectors);
+        _options.container && (container = _options.container);
+        _options.scrollTarget && (scrollTarget = _options.scrollTarget);
+        _options.scroller && (scroller = _options.scroller);
+        _options.disabled !== undefined && (disabled = _options.disabled);
+        $headings = $(container).find(selectors).filter('[id]');
+        $scrollTarget = $(scrollTarget);
+        $scroller = $(scroller);
+      }
+      function calc() {
+        headingsPos = [];
+        $headings.each(function() {
+          headingsPos.push(Math.floor($(this).position().top));
+        });
+      }
+      function setState(element, disabled) {
+        var scrollTop = $scrollTarget.scrollTop(), i;
+        if (disabled || !headingsPos || headingsPos.length < 1) { return; }
+        if (element) {
+          $activeCur = element;
+        } else {
+          for (i = 0; i < headingsPos.length; i++) {
+            if (scrollTop >= headingsPos[i]) {
+              $activeCur = $tocLi.eq(i);
+            } else {
+              $activeCur || ($activeCur = $tocLi.eq(i));
+              break;
+            }
+          }
+        }
+        $activeLast && $activeLast.removeClass('active');
+        ($activeLast = $activeCur).addClass('active');
+      }
+      function render() {
+        if(!hasRendered) {
+          $root.append($tocUl);
+          $headings.each(function() {
+            var $this = $(this);
+            $tocUl.append($('<li></li>').addClass('toc-' + $this.prop('tagName').toLowerCase())
+              .append($('<a></a>').text($this.text()).attr('href', '#' + $this.prop('id'))));
+          });
+          $tocLi = $tocUl.children('li');
+          $tocUl.on('click', 'a', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            scrolling = true;
+            setState($this.parent());
+            $scroller.scrollToAnchor($this.attr('href'), 400, function() {
+              scrolling = false;
+            });
+          });
+        }
+        hasRendered = true;
+      }
+      function init() {
+        var interval, timeout;
+        if(!hasInit) {
+          render(); calc(); setState(null, scrolling);
+          // run calc every 100 millisecond
+          interval = setInterval(function() {
+            calc();
+          }, 100);
+          timeout = setTimeout(function() {
+            clearInterval(interval);
+          }, 45000);
+          window.pageLoad.then(function() {
+            setTimeout(function() {
+              clearInterval(interval);
+              clearTimeout(timeout);
+            }, 3000);
+          });
+          $scrollTarget.on('scroll', function() {
+            disabled || setState(null, scrolling);
+          });
+          $window.on('resize', window.throttle(function() {
+            if (!disabled) {
+              render(); calc(); setState(null, scrolling);
+            }
+          }, 100));
+        }
+        hasInit = true;
+      }
+
+      setOptions(options);
+      if (!disabled) {
+        init();
+      }
+      $window.on('resize', window.throttle(function() {
+        init();
+      }, 200));
+      return {
+        setOptions: setOptions
+      };
+    }
+    $.fn.toc = toc;
+  });
+})();
+/*(function () {
+
+})();*/
+</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();
+</script><script type="text/x-mathjax-config">
+	var _config = { tex2jax: {
+		inlineMath: [['$','$'], ['\\(','\\)']]
+	}};_config.TeX = { equationNumbers: { autoNumber: "all" } };MathJax.Hub.Config(_config);
+</script>
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+    </div>
+    <script>(function () {
+  var $root = document.getElementsByClassName('root')[0];
+  if (window.hasEvent('touchstart')) {
+    $root.dataset.isTouch = true;
+    document.addEventListener('touchstart', function(){}, false);
+  }
+})();
+</script>
+  </body>
+</html>
+

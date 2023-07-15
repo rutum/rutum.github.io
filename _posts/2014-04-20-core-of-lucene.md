@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: The Math behind Lucene
 filter: [blog]
 author: rutum

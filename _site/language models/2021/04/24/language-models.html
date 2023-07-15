@@ -1,0 +1,1182 @@
+<!DOCTYPE html><html lang="en">
+  <head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>The Foundations of Language Models - rutum</title>
+
+<meta name="description" content="Language Models are models that are trained to predict the next word, given a set of words that are already uttered or written. e.g. Consider the sentence:  ...">
+<link rel="canonical" href="http://localhost:4000/language%20models/2021/04/24/language-models.html"><link rel="alternate" type="application/rss+xml" title="rutum" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+
+<meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
+
+<meta name="theme-color" content="#ffffff">
+<!-- end favicons snippet --><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css" ><!-- start custom head snippets -->
+
+<!-- end custom head snippets -->
+<script>(function() {
+  window.isArray = function(val) {
+    return Object.prototype.toString.call(val) === '[object Array]';
+  };
+  window.isString = function(val) {
+    return typeof val === 'string';
+  };
+
+  window.hasEvent = function(event) {
+    return 'on'.concat(event) in window.document;
+  };
+
+  window.isOverallScroller = function(node) {
+    return node === document.documentElement || node === document.body || node === window;
+  };
+
+  window.isFormElement = function(node) {
+    var tagName = node.tagName;
+    return tagName === 'INPUT' || tagName === 'SELECT' || tagName === 'TEXTAREA';
+  };
+
+  window.pageLoad = (function () {
+    var loaded = false, cbs = [];
+    window.addEventListener('load', function () {
+      var i;
+      loaded = true;
+      if (cbs.length > 0) {
+        for (i = 0; i < cbs.length; i++) {
+          cbs[i]();
+        }
+      }
+    });
+    return {
+      then: function(cb) {
+        cb && (loaded ? cb() : (cbs.push(cb)));
+      }
+    };
+  })();
+})();
+(function() {
+  window.throttle = function(func, wait) {
+    var args, result, thisArg, timeoutId, lastCalled = 0;
+
+    function trailingCall() {
+      lastCalled = new Date;
+      timeoutId = null;
+      result = func.apply(thisArg, args);
+    }
+    return function() {
+      var now = new Date,
+        remaining = wait - (now - lastCalled);
+
+      args = arguments;
+      thisArg = this;
+
+      if (remaining <= 0) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+        lastCalled = now;
+        result = func.apply(thisArg, args);
+      } else if (!timeoutId) {
+        timeoutId = setTimeout(trailingCall, remaining);
+      }
+      return result;
+    };
+  };
+})();
+(function() {
+  var Set = (function() {
+    var add = function(item) {
+      var i, data = this._data;
+      for (i = 0; i < data.length; i++) {
+        if (data[i] === item) {
+          return;
+        }
+      }
+      this.size ++;
+      data.push(item);
+      return data;
+    };
+
+    var Set = function(data) {
+      this.size = 0;
+      this._data = [];
+      var i;
+      if (data.length > 0) {
+        for (i = 0; i < data.length; i++) {
+          add.call(this, data[i]);
+        }
+      }
+    };
+    Set.prototype.add = add;
+    Set.prototype.get = function(index) { return this._data[index]; };
+    Set.prototype.has = function(item) {
+      var i, data = this._data;
+      for (i = 0; i < data.length; i++) {
+        if (this.get(i) === item) {
+          return true;
+        }
+      }
+      return false;
+    };
+    Set.prototype.is = function(map) {
+      if (map._data.length !== this._data.length) { return false; }
+      var i, j, flag, tData = this._data, mData = map._data;
+      for (i = 0; i < tData.length; i++) {
+        for (flag = false, j = 0; j < mData.length; j++) {
+          if (tData[i] === mData[j]) {
+            flag = true;
+            break;
+          }
+        }
+        if (!flag) { return false; }
+      }
+      return true;
+    };
+    Set.prototype.values = function() {
+      return this._data;
+    };
+    return Set;
+  })();
+
+  window.Lazyload = (function(doc) {
+    var queue = {js: [], css: []}, sources = {js: {}, css: {}}, context = this;
+    var createNode = function(name, attrs) {
+      var node = doc.createElement(name), attr;
+      for (attr in attrs) {
+        if (attrs.hasOwnProperty(attr)) {
+          node.setAttribute(attr, attrs[attr]);
+        }
+      }
+      return node;
+    };
+    var end = function(type, url) {
+      var s, q, qi, cbs, i, j, cur, val, flag;
+      if (type === 'js' || type ==='css') {
+        s = sources[type], q = queue[type];
+        s[url] = true;
+        for (i = 0; i < q.length; i++) {
+          cur = q[i];
+          if (cur.urls.has(url)) {
+            qi = cur, val = qi.urls.values();
+            qi && (cbs = qi.callbacks);
+            for (flag = true, j = 0; j < val.length; j++) {
+              cur = val[j];
+              if (!s[cur]) {
+                flag = false;
+              }
+            }
+            if (flag && cbs && cbs.length > 0) {
+              for (j = 0; j < cbs.length; j++) {
+                cbs[j].call(context);
+              }
+              qi.load = true;
+            }
+          }
+        }
+      }
+    };
+    var load = function(type, urls, callback) {
+      var s, q, qi, node, i, cur,
+        _urls = typeof urls === 'string' ? new Set([urls]) : new Set(urls), val, url;
+      if (type === 'js' || type ==='css') {
+        s = sources[type], q = queue[type];
+        for (i = 0; i < q.length; i++) {
+          cur = q[i];
+          if (_urls.is(cur.urls)) {
+            qi = cur;
+            break;
+          }
+        }
+        val = _urls.values();
+        if (qi) {
+          callback && (qi.load || qi.callbacks.push(callback));
+          callback && (qi.load && callback());
+        } else {
+          q.push({
+            urls: _urls,
+            callbacks: callback ? [callback] : [],
+            load: false
+          });
+          for (i = 0; i < val.length; i++) {
+            node = null, url = val[i];
+            if (s[url] === undefined) {
+              (type === 'js' ) && (node = createNode('script', { src: url }));
+              (type === 'css') && (node = createNode('link', { rel: 'stylesheet', href: url }));
+              if (node) {
+                node.onload = (function(type, url) {
+                  return function() {
+                    end(type, url);
+                  };
+                })(type, url);
+                (doc.head || doc.body).appendChild(node);
+                s[url] = false;
+              }
+            }
+          }
+        }
+      }
+    };
+    return {
+      js: function(url, callback) {
+        load('js', url, callback);
+      },
+      css: function(url, callback) {
+        load('css', url, callback);
+      }
+    };
+  })(this.document);
+})();
+</script><script>
+  (function() {
+    var TEXT_VARIABLES = {
+      version: '2.2.6',
+      sources: {
+        font_awesome: 'https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css',
+        jquery: 'https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js',
+        leancloud_js_sdk: '//cdn.jsdelivr.net/npm/leancloud-storage@3.13.2/dist/av-min.js',
+        chart: 'https://cdn.bootcss.com/Chart.js/2.7.2/Chart.bundle.min.js',
+        gitalk: {
+          js: 'https://cdn.bootcss.com/gitalk/1.2.2/gitalk.min.js',
+          css: 'https://cdn.bootcss.com/gitalk/1.2.2/gitalk.min.css'
+        },
+        valine: 'https://unpkg.com/valine/dist/Valine.min.js',
+        mathjax: 'https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML',
+        mermaid: 'https://cdn.bootcss.com/mermaid/8.0.0-rc.8/mermaid.min.js'
+      },
+      site: {
+        toc: {
+          selectors: 'h1,h2,h3'
+        }
+      },
+      paths: {
+        search_js: '/assets/search.js'
+      }
+    };
+    window.TEXT_VARIABLES = TEXT_VARIABLES;
+  })();
+</script>
+</head>
+  <body>
+    <div class="root" data-is-touch="false">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
+
+      <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
+      <div class="header__title">
+        <div class="header__brand">
+          <!-- <i class="fal fa-paper-plane"></i> --><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="24px" height="24px" viewBox="0 0 24 24">
+<style type="text/css">
+	.st0{fill:#515151;}
+</style>
+<path class="st0" d="M1.7,22.3c5.7-5.7,11.3-5.7,17,0c3.3-3.3,3.5-5.3,0.8-6c2.7,0.7,3.5-1.1,2.3-5.6s-3.3-5.2-6.3-2.1
+	c3-3,2.3-5.2-2.1-6.3S7,1.8,7.7,4.6C7,1.8,5,2.1,1.7,5.3C7.3,11,7.3,16.7,1.7,22.3"/>
+</svg>
+<a title="Your Site Description
+" href="/">rutum</a></div><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></div><nav class="navigation">
+        <ul><li class="navigation__item"><a href="/archive.html">Archive</a></li><li class="navigation__item"><a href="/about.html">About</a></li><li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li></ul>
+      </nav></div>
+  </header>
+</div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
+
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
+</aside></div>
+
+              <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
+
+<!-- end custom main top snippet -->
+<article itemscope itemtype="http://schema.org/WebPage"><div class="article__header"><header><h1>The Foundations of Language Models</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="Edit on Github"
+            href="https://github.com/user_name/repo_name/tree/master/_posts/2021-04-25-language-models.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="The Foundations of Language Models"><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=language_models">language_models</a>
+            </li></ul><ul class="right-col menu"><li><i class="fas fa-user"></i> <span>Rutu Mulkar</span></li><li><i class="far fa-calendar-alt"></i> <span>Apr 24, 2021</span>
+            </li></ul></div><meta itemprop="author" content="Rutu Mulkar"/><meta itemprop="datePublished" content="2021-04-24T00:00:00-07:00">
+    <meta itemprop="keywords" content="language_models"><div class="js-article-content"><p><a href="https://en.wikipedia.org/wiki/Language_model">Language Models</a> are models that are trained to predict the next word, given a set of words that are already uttered or written. e.g. Consider the sentence:  <em>“Don’t eat that because it looks…“</em></p>
+
+<p>The next word following this will most likely be “disgusting”, or “bad”, but will probably not be “table” or “chair”. <a href="https://en.wikipedia.org/wiki/Language_model">Language Models</a> are models that assign probabilities to sequences of words to be able to predict the next word given a sequence of words.</p>
+
+<p>The probability of a word $w$ given some history $h$ is $p(w|h)$.</p>
+
+<h2 id="n-grams">N-Grams</h2>
+<p>The probability of a word $w$ given the history $h$ is defined as:</p>
+
+\[p(w|h)\]
+
+<p>as $h$ is several tokens long, we can rephrase it as the probability of the ${n+1}^{th}$ word $w_{n+1}$ depends on the words $w_1, w_2 \cdots w_n$.</p>
+
+\[p(w_{n+1}|w_1, w_2, w_3 \cdots w_n)\]
+
+<p>One way to answer this is using relative frequency counts. i.e. count the number of times we see $w_1, w_2, w_3 \cdots w_n$ and the number of times we see $w_1, w_2, w_3 \ldots w_n$ followed by $w_{n+1}$.</p>
+
+<p><a href="https://www.mathsisfun.com/data/relative-frequency.html">Relative frequency</a> is defined as the ratio of an observed sequence to the observed sequence followed by a suffix. Using the concept of relative frequency we can get:</p>
+
+\[P(w_{n+1}|w_1 w_2 w_3 \ldots w_n) = \frac{C(w_1 w_2 w_3 \cdots w_n w_{n+1})}{C(w_1 w_2 w_3 \ldots w_n)}\]
+
+<p>Where $C(x_1, x_2)$ is the count or the number of times we see a pattern of token $x_1$ followed by $x_2$.</p>
+
+<p>This approach of getting probabilities from counts works well in many cases, but if we wanted to know the joint probability of an entire sequence of words $p(w_1, w_2, w_3 \ldots w_n)$, we would have to compute - out of all the possible combinations of size $n$ how many are this exact sequence $w_1, w_2, w_3 \ldots w_n$. It fails when the size of the sequence is very long.</p>
+
+<p>Even the entire web isn’t big enough to compute such probabilities, because there are not enough examples for every word combination even on the world wide web). For this reason, we will have to introduce clever ways of computing probability.</p>
+
+<p>Let’s decompose this joint probability into a conditional probabilities using the chain rule of probability.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Chain_rule_(probability)">Chain Rule of Probability</a> helps us decompose a joint probability into a conditional probability of a word given previous words. <a href="https://machinelearningmastery.com/joint-marginal-and-conditional-probability-for-machine-learning/">Joint Probability</a> of $n$ words is the probability of $n$ words occurring together. Using the chain rule, we can break down Equation the joint probability of a sequence of tokens into conditional probabilities. Here is how we do it:</p>
+
+\[\begin{eqnarray}
+P(w_1 w_2 w_3 \cdots w_n w_{n+1}) &amp;=&amp; P(w_1) P(w_2|w_1) P(w_3|w_1 w_2) \ldots P(w_n|w_1\ldots w_{n-1}) \nonumber \\ 
+&amp;=&amp; \prod_{k=1}^{n+1} P(w_k|w_1 \ldots w_k)
+\end{eqnarray}\]
+
+<p>The chain rule still has the constraint of needing the probability of a long sequence of previous words. One idea is to approximate this using the Markov Assumption.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Markov_property">Markov Assumption</a> says that the probability of a word only depends on the previous word and not the entire sequence of tokens preceding it. According to this assumption, we can predict a word without looking too much into the previous history of words. So, instead of working with the exact probabilities of a long sequence of preceding words, we can use a small window of preceding words. This is where we introduce a <a href="https://en.wikipedia.org/wiki/Bigram">bigram model</a> (that uses the preceding word only) a <a href="https://en.wikipedia.org/wiki/Trigram">trigram model</a> (that uses the preceding two words) to predict the probability of a sequence of tokens.</p>
+
+<p>Using the bigram model we can simplify the probability of a sequence of tokens to the following:</p>
+
+\[P(w_1, w_2, w_3 \cdots w_n, w_{n+1}) = \prod_{k=1}^n P(w_k|w_{k-1})\]
+
+<p>Similarly using the trigram model we can simplify the probability of a sequence of tokens to the following:</p>
+
+\[P(w_1, w_2, w_3 \cdots w_n, w_{n+1}) = \prod_{k=1}^n P(w_k|w_{k-1} w_{k-2})\]
+
+<p>Now that we have simplified the RHS, we need to compute the probabilities.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Maximum_likelihood_estimation#:~:text=In%20statistics%2C%20maximum%20likelihood%20estimation,observed%20data%20is%20most%20probable.">Maximum Likelihood Estimation (MLE)</a> is an intuitive way of measuring the parameters of an N-gram model, by computing the counts of words or tokens that exist together, normalized by the total counts so that the output is a probability that is between 0 and 1. Relative frequency is one way of measuring the MLE. Relative frequency can be computed using equation (7) below and Figure (1) explains the equation:</p>
+
+\[P(w_n|w_{n-1}) = \frac{C(w_{n-1}w_n)}{\sum_w C(w_{n-1}w)}\]
+
+<p align="center">
+    <img src="http://localhost:4000/assets/images/relative-frequency.png" alt="Relative Frequency" width="500" />
+    <br />
+    <em class="image-label">Fig 1: Relative Frequency Explained</em>
+</p>
+
+<h3 id="working-example">Working Example</h3>
+<p>Let’s build a small language model using bigrams, and use our model to predict the probability of a new sentence. For our toy example, consider a tiny corpus of the following sentences:</p>
+
+<blockquote>
+  <p>&lt;s&gt; I am Sam &lt;\s&gt;</p>
+
+  <p>&lt;s&gt; Sam I am &lt;\s&gt;</p>
+
+  <p>&lt;s&gt; I do not like that Sam I am &lt;\s&gt;</p>
+</blockquote>
+
+<p>Here &lt;s&gt; represents the start of a sentence and &lt;\s&gt; represents the end of the sentence.</p>
+
+<p>This corpus has the following lexicon or unique words:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>token</strong></td>
+      <td><strong>frequency</strong></td>
+    </tr>
+    <tr>
+      <td>I</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>am</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Sam</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>do</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>not</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>like</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>that</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Computing the conditional probabilities</p>
+
+\[P(I|&lt;s&gt;) = \frac{2}{4}\]
+
+\[P(Sam|&lt;s&gt;) = \frac{1}{3}\]
+
+\[P(am|I) = \frac{3}{4}\]
+
+<p>We can continue computing probabilities for all different possibilities of bigrams, then for any new sentence such as  the following:</p>
+
+<blockquote>
+  <p>I like Sam</p>
+</blockquote>
+
+<p>We can compute the join probability of the tokens of this sentence from the conditional probability of the bigrams $P(like|I)$ and $P(Sam|like)$.</p>
+
+<h3 id="practical-issues">Practical Issues</h3>
+<ul>
+  <li>Always use Log probabilities. Multiplication in linear space is addition in log space, and we will avoid numerical underflow</li>
+  <li>It is typical to use trigrams instead of bigrams (although we illustrated bigrams in the example above)</li>
+  <li>There are often unknown words in the sentence we want to predict the probability of, and we need to handle that.</li>
+  <li>We often won’t find instances of joint probability in our corpus, and we need to account for that. E.g. in the above example we do not have an instance of ‘sam like’, and so the conditional probability of $P(Sam|like)$ will be $0$.</li>
+</ul>
+
+<h2 id="problems-with-language-models">Problems with language Models</h2>
+<p>Language Models face the issue of <a href="https://en.wikipedia.org/wiki/Language_model">sparsity</a> - which means that the training corpus is limited and some perfectly acceptable English word sequences are bound to be missing from it. This means that it is possible to have several n-grams with a probability of $0$, but should actually have a non-zero probability.</p>
+
+<p>Another issue with language models is that the vocabulary the the language model is trained on might not have seen words from the test dataset - introducing the issue of unknown words or <a href="https://groups.csail.mit.edu/sls/publications/2000/03105.pdf">out of vocabulary words(OOV)</a>. One way to deal with OOV words is to replace all words with a frequency below a certain threshold by ‘UNK’. Other ways to deal with this is to use smoothing and discounting techniques.</p>
+
+<h2 id="smoothing">Smoothing</h2>
+<p>There will always be unknown words in the test dataset that the language model will have to work with that sparsity. To keep the language model from assigning zero probabilities to unseen events, we will shave off some probability mass from some more frequent events and give it to the events that we have never seen. This process is called <a href="https://nlp.stanford.edu/~wcmac/papers/20050421-smoothing-tutorial.pdf">smoothing</a> or <a href="https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1086/handouts/cs224n-lecture2-language-models-slides.pdf">discounting</a>.</p>
+
+<p>A few types of smoothing are:</p>
+<ul>
+  <li>add-1 smoothing (or <a href="****">Laplace smoothing</a>)</li>
+  <li>add-k smoothing</li>
+  <li>backoff and interpolation</li>
+  <li>stupid backoff</li>
+  <li>Kneser ney smoothing</li>
+</ul>
+
+<h3 id="laplace-smoothing">Laplace Smoothing</h3>
+<p>Laplace smoothing involves adding $1$ to all of the bigram (or n-gram) counts before we normalize them into probabilities.</p>
+
+\[P(w_i) = \frac{c_i}{N}\]
+
+<p>If we add $1$ to each probability, and there are $V$ words in the vocabulary, we will need to add $V$ to the denominator as we add $1$ to each numerator.</p>
+
+\[P_{laplace}(w_i) = \frac{c_i}{N+V} \label{laplace}\]
+
+<p>In equation \ref{laplace}, $w_i$ is the $i^{th}$ word, $N$ is a normalizer (total number of words) and $V$ is the vocabulary size.</p>
+
+<p>But instead of adding to the numerator and denominator, a better way to is change the numerator only, and show how it affects smoothing by describing an adjusted count $c^*$.</p>
+
+\[c_i^* = (c_i + 1) \frac{N}{N+V}\]
+
+<p>Now we can convert each adjusted count into a probability by dividing it by $N$ (the total number of tokens)</p>
+
+<p>Although Laplace smoothing isn’t the best type of smoothing as it gives away a lot of probability mass to infrequent terms, it is still used and is practical for classification.</p>
+
+<p>** Question: How can you use Language Models for classification? **</p>
+
+\[P(w_n|w_{n-1}) = \frac{C(w_{n-1} w_n)}{C(w_{n-1})}\]
+
+<p>Using Laplace Smoothing, this becomes:</p>
+
+\[p^*_{Laplace}(w_n|w_{n-1}) = \frac{C(w_{n-1} w_n) + 1}{\sum_w C(w_{n-1}w) + V}\]
+
+<h3 id="add-k-smoothing">Add-k smoothing</h3>
+<p>Add-K smoothing is an alternative to add $1$ smoothing, where we move a bit less of the probability mass from the seen events to the unseen events.</p>
+
+\[p^*_{add-k}(w_n|w_{n-1}) = \frac{C(w_{n-1} w_n) + k}{\sum_w C(w_{n-1}w) + kV}\]
+
+<p>Add-K requires us to have a method for choosing our k (0.5? 0.1? 0.05?) e.g. one can optimize over a dev set or some other data source.</p>
+
+<h3 id="backoff-and-interpolation">Backoff and Interpolation</h3>
+<p><a href="https://en.wikipedia.org/wiki/Katz%27s_back-off_model">Backoff</a> is an approach for smoothing using which we only backoff to a lower order n-gram when we have zero evidence for a higher level n-gram.</p>
+
+<p>So, we use a trigram if the evidence is sufficient, but if such a trigram does not exist, we backoff to a bigram, and if the bigram does not exist, we backoff to a unigram.</p>
+
+<p><a href="https://nlp.stanford.edu/~wcmac/papers/20050421-smoothing-tutorial.pdf">Interpolation</a> is an approach is using a mixture of probability estimates from all the n-gram estimators. For instance, if we are looking at trigrams, we would compute its probability by combining the trigram, bigram and unigram counts.</p>
+
+<p>Interpolation for a trigram can be defined by the following formula:</p>
+
+\[\hat{p}(w_n|w_{n-2}w_{n-1}) = \lambda_1 p(w_n|w_{n-2}w_{n-1}) + \lambda_2 p(w_n|w_{n-1}) + \lambda_3 p(w_n)\]
+
+<p>where $\sum_i \lambda_i = 1$</p>
+
+<p>The values of $\lambda$ can be computed by optimizing over a heldout dataset. <a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm">EM Algorithm (Expectation Maximization Algorithm)</a> is an iterative learning algorithm that converges on locally optimal $\lambda$s</p>
+
+<h2 id="evaluating-language-models">Evaluating Language Models</h2>
+<p>There are 2 ways to evaluate language models:</p>
+<ul>
+  <li>intrinsic evaluation: Evaluation of the model as a measure of how much it improves the application that it is used in.</li>
+  <li>extrinsic evaluation: Measure of the quality of the model independent of any application</li>
+</ul>
+
+<h3 id="intrinsic-evaluation">Intrinsic Evaluation</h3>
+<p>For intrinsic evaluation of a language model we need to have:</p>
+<ul>
+  <li>training dataset</li>
+  <li>test dataset</li>
+  <li>held out dataset</li>
+</ul>
+
+<p>We use the language model to compute scores on the test dataset, and use the heldout and training dataset to optimize out language model.</p>
+
+<h3 id="extrinsic-evaluation">Extrinsic Evaluation</h3>
+<p>To compute extrinsic evaluation of a language model, we compute the effect of a new language model on the final end to end product that it is integrated with. Good scores during intrinsic evaluation does not always mean better scores during extrinsic evaluation, which is why both the types of evaluation are important.</p>
+
+<h4 id="perplexity">Perplexity</h4>
+<p><a href="https://en.wikipedia.org/wiki/Perplexity">Perplexity</a> is the measure of computation of the probabilities learned from the training dataset and applied on the test dataset. Perplexity is represented as $PP$ and is measured as the inverse probability of the test set, normalized by the number of words.</p>
+
+\[\begin{eqnarray}
+PP(w) &amp;=&amp; P(w_1 w_2 w_3 \ldots w_n)^{-\frac{1}{n}} \nonumber \\
+&amp;=&amp; \sqrt[n]{\frac{1}{P(w_1 w_2 w_3 \ldots w_n)}} \nonumber \\
+&amp;=&amp; \sqrt[n]{\frac{1}{\prod_{i=1}^nP(w_i|w_1 w_2 \ldots w_{i-1})}}
+\end{eqnarray}\]
+
+<p>To compute perplexity of a bigram, we can simplify Equation (11) to the following:</p>
+
+\[PP(w) = \sqrt[n]{\frac{1}{\prod_{i=1}^nP(w_i|w_{i-1})}}\]
+
+<p>Similarly, to compute perplexity of a bigram, we can simplify Equation (11) to the following:</p>
+
+\[PP(w) = \sqrt[n]{\frac{1}{\prod_{i=1}^nP(w_i|w_{i-1} w_{i-2})}}\]
+
+<blockquote>
+  <p>Minimizing perplexity is equivalent to maximizing the test set probability. If the perplexity is low, it means that the training data captures the probability of the test set really well.</p>
+</blockquote>
+
+<p>Another way to think about perplexity is to think of it as the weighted average branching factor of the language. The <a href="https://towardsdatascience.com/perplexity-in-language-models-87a196019a94">branching factor</a> of a language is the number of possible next words that can follow any word.</p>
+
+<p>Intrinsic improvement in perplexity does not guarantee an extrinsic improvement in the performance of the language processing task.</p>
+
+<h2 id="n-gram-efficiency-considerations">N-Gram Efficiency considerations</h2>
+<p>When a language model uses large sets of n-grams, it is important to store the efficiently. Below are some ways to store LMs efficiently:</p>
+
+<ul>
+  <li>Words: storing words in 64 bit hash representations, and the actual words are stored on disc as string</li>
+  <li>Probabilities: 4-8 bits instead of 8 byte float</li>
+  <li>n-grams: Stored in reverse <a href="https://en.wikipedia.org/wiki/Trie">tries</a></li>
+  <li>Approximate language models can be created using techniques such as <a href="https://en.wikipedia.org/wiki/Bloom_filter">bloom filters</a></li>
+  <li>n-grams can be shrunk by pruning i.e. only storing n-grams with counts greater than some threshold.</li>
+  <li>Efficient Language Models such as <a href="https://github.com/kpu/kenlm">KenLM</a>
+    <ul>
+      <li>Use sorted Arrays</li>
+      <li>Efficiently combined probabilities and backoffs into a single value</li>
+      <li>Use merge sorts to efficiently build probability tables in a minimal number of passes through a large corpus</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="references">References</h2>
+<ul>
+  <li><a href="https://web.stanford.edu/~jurafsky/slp3/3.pdf">Chapter 3, Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition</a> by Daniel Jurafsky, James H. Martin</li>
+  <li><a href="https://en.wikipedia.org/wiki/Language_model">Language Models</a>, Wikipedia</li>
+  <li><a href="https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1086/handouts/cs224n-lecture2-language-models-slides.pdf">Lecture 2, Language Models</a>, CS224n Stanford NLP</li>
+  <li><a href="https://nlp.stanford.edu/~wcmac/papers/20050421-smoothing-tutorial.pdf">NLP Lunch Tutorial: Smoothing</a>, Bill MacCartney, Stanford NLP</li>
+  <li><a href="https://www.mathsisfun.com/data/relative-frequency.html">Relative Frequency</a>, mathisfun.com</li>
+</ul>
+</div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
+
+<!-- end custom main bottom snippet -->
+</div>
+            </div></div></div><div class="page__footer d-print-none">
+<footer class="footer py-4 js-page-footer">
+  <div class="main"><div itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rutu Mulkar"><meta itemprop="url" content="/"><meta itemprop="description" content="Ex-Starup Founder, Science at Amazon"><div class="footer__author-links"><div class="author-links">
+  <ul class="menu menu--nowrap menu--inline"></ul>
+</div>
+</div>
+    </div><div class="site-info mt-2">
+      <div>© rutum 2021,
+        Powered by <a title="Jekyll is a simple, blog-aware, static site generator." href="http://jekyllrb.com/">Jekyll</a> & <a
+        title="TeXt is a super customizable Jekyll theme." href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Theme</a>.
+      </div>
+    </div>
+  </div>
+</footer>
+</div></div>
+    </div><script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $body = $('body'), $window = $(window);
+    var $pageRoot = $('.js-page-root'), $pageMain = $('.js-page-main');
+    var activeCount = 0;
+    function modal(options) {
+      var $root = this, visible, onChange, hideWhenWindowScroll = false;
+      var scrollTop;
+      function setOptions(options) {
+        var _options = options || {};
+        visible = _options.initialVisible === undefined ? false : show;
+        onChange = _options.onChange;
+        hideWhenWindowScroll = _options.hideWhenWindowScroll;
+      }
+      function init() {
+        setState(visible);
+      }
+      function setState(isShow) {
+        if (isShow === visible) {
+          return;
+        }
+        visible = isShow;
+        if (visible) {
+          activeCount++;
+          scrollTop = $(window).scrollTop() || $pageMain.scrollTop();
+          $root.addClass('modal--show');
+          $pageMain.scrollTop(scrollTop);
+          activeCount === 1 && ($pageRoot.addClass('show-modal'), $body.addClass('of-hidden'));
+          hideWhenWindowScroll && window.hasEvent('touchstart') && $window.on('scroll', hide);
+          $window.on('keyup', handleKeyup);
+        } else {
+          activeCount > 0 && activeCount--;
+          $root.removeClass('modal--show');
+          $window.scrollTop(scrollTop);
+          activeCount === 0 && ($pageRoot.removeClass('show-modal'), $body.removeClass('of-hidden'));
+          hideWhenWindowScroll && window.hasEvent('touchstart') && $window.off('scroll', hide);
+          $window.off('keyup', handleKeyup);
+        }
+        onChange && onChange(visible);
+      }
+      function show() {
+        setState(true);
+      }
+      function hide() {
+        setState(false);
+      }
+      function handleKeyup(e) {
+        // Char Code: 27  ESC
+        if (e.which ===  27) {
+          hide();
+        }
+      }
+      setOptions(options);
+      init();
+      return {
+        show: show,
+        hide: hide,
+        $el: $root
+      };
+    }
+    $.fn.modal = modal;
+  });
+})();
+</script><div class="modal modal--overflow page__search-modal d-print-none js-page-search-modal"><script>
+(function () {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    // search panel
+    var search = (window.search || (window.search = {}));
+    var useDefaultSearchBox = window.useDefaultSearchBox === undefined ?
+      true : window.useDefaultSearchBox ;
+
+    var $searchModal = $('.js-page-search-modal');
+    var $searchToggle = $('.js-search-toggle');
+    var searchModal = $searchModal.modal({ onChange: handleModalChange, hideWhenWindowScroll: true });
+    var modalVisible = false;
+    search.searchModal = searchModal;
+
+    var $searchBox = null;
+    var $searchInput = null;
+    var $searchClear = null;
+
+    function getModalVisible() {
+      return modalVisible;
+    }
+    search.getModalVisible = getModalVisible;
+
+    function handleModalChange(visible) {
+      modalVisible = visible;
+      if (visible) {
+        search.onShow && search.onShow();
+        useDefaultSearchBox && $searchInput[0] && $searchInput[0].focus();
+      } else {
+        search.onShow && search.onHide();
+        useDefaultSearchBox && $searchInput[0] && $searchInput[0].blur();
+        setTimeout(function() {
+          useDefaultSearchBox && ($searchInput.val(''), $searchBox.removeClass('not-empty'));
+          search.clear && search.clear();
+          window.pageAsideAffix && window.pageAsideAffix.refresh();
+        }, 400);
+      }
+    }
+
+    $searchToggle.on('click', function() {
+      modalVisible ? searchModal.hide() : searchModal.show();
+    });
+    // Char Code: 83  S, 191 /
+    $(window).on('keyup', function(e) {
+      if (!modalVisible && !window.isFormElement(e.target || e.srcElement) && (e.which === 83 || e.which === 191)) {
+        modalVisible || searchModal.show();
+      }
+    });
+
+    if (useDefaultSearchBox) {
+      $searchBox = $('.js-search-box');
+      $searchInput = $searchBox.children('input');
+      $searchClear = $searchBox.children('.js-icon-clear');
+      search.getSearchInput = function() {
+        return $searchInput.get(0);
+      };
+      search.getVal = function() {
+        return $searchInput.val();
+      };
+      search.setVal = function(val) {
+        $searchInput.val(val);
+      };
+
+      $searchInput.on('focus', function() {
+        $(this).addClass('focus');
+      });
+      $searchInput.on('blur', function() {
+        $(this).removeClass('focus');
+      });
+      $searchInput.on('input', window.throttle(function() {
+        var val = $(this).val();
+        if (val === '' || typeof val !== 'string') {
+          search.clear && search.clear();
+        } else {
+          $searchBox.addClass('not-empty');
+          search.onInputNotEmpty && search.onInputNotEmpty(val);
+        }
+      }, 400));
+      $searchClear.on('click', function() {
+        $searchInput.val(''); $searchBox.removeClass('not-empty');
+        search.clear && search.clear();
+      });
+    }
+  });
+})();
+</script><div class="search search--dark">
+  <div class="main">
+    <div class="search__header">Search</div>
+    <div class="search-bar">
+      <div class="search-box js-search-box">
+        <div class="search-box__icon-search"><i class="fas fa-search"></i></div>
+        <input type="text" />
+        <div class="search-box__icon-clear js-icon-clear">
+          <a><i class="fas fa-times"></i></a>
+        </div>
+      </div>
+      <button class="button button--theme-dark button--pill search__cancel js-search-toggle">
+        Cancel</button>
+    </div>
+    <div class="search-result js-search-result"></div>
+  </div>
+</div>
+<script>var SOURCES = window.TEXT_VARIABLES.sources;
+var PAHTS = window.TEXT_VARIABLES.paths;
+window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
+  var search = (window.search || (window.search = {}));
+  var searchData = window.TEXT_SEARCH_DATA || {};
+
+  function memorize(f) {
+    var cache = {};
+    return function () {
+      var key = Array.prototype.join.call(arguments, ',');
+      if (key in cache) return cache[key];
+      else return cache[key] = f.apply(this, arguments);
+    };
+  }
+
+  /// search
+  function searchByQuery(query) {
+    var i, j, key, keys, cur, _title, result = {};
+    keys = Object.keys(searchData);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i];
+      for (j = 0; j < searchData[key].length; j++) {
+        cur = searchData[key][j], _title = cur.title;
+        if ((result[key] === undefined || result[key] && result[key].length < 4 )
+          && _title.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+          if (result[key] === undefined) {
+            result[key] = [];
+          }
+          result[key].push(cur);
+        }
+      }
+    }
+    return result;
+  }
+
+  var renderHeader = memorize(function(header) {
+    return $('<p class="search-result__header">' + header + '</p>');
+  });
+
+  var renderItem = function(index, title, url) {
+    return $('<li class="search-result__item" data-index="' + index + '"><a class="button" href="' + url + '">' + title + '</a></li>');
+  };
+
+  function render(data) {
+    if (!data) { return null; }
+    var $root = $('<ul></ul>'), i, j, key, keys, cur, itemIndex = 0;
+    keys = Object.keys(data);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i];
+      $root.append(renderHeader(key));
+      for (j = 0; j < data[key].length; j++) {
+        cur = data[key][j];
+        $root.append(renderItem(itemIndex++, cur.title, cur.url));
+      }
+    }
+    return $root;
+  }
+
+  // search box
+  var $result = $('.js-search-result'), $resultItems;
+  var lastActiveIndex, activeIndex;
+
+  function clear() {
+    $result.html(null);
+    $resultItems = $('.search-result__item'); activeIndex = 0;
+  }
+  function onInputNotEmpty(val) {
+    $result.html(render(searchByQuery(val)));
+    $resultItems = $('.search-result__item'); activeIndex = 0;
+    $resultItems.eq(0).addClass('active');
+  }
+
+  search.clear = clear;
+  search.onInputNotEmpty = onInputNotEmpty;
+
+  function updateResultItems() {
+    lastActiveIndex >= 0 && $resultItems.eq(lastActiveIndex).removeClass('active');
+    activeIndex >= 0 && $resultItems.eq(activeIndex).addClass('active');
+  }
+
+  function moveActiveIndex(direction) {
+    var itemsCount = $resultItems ? $resultItems.length : 0;
+    if (itemsCount > 1) {
+      lastActiveIndex = activeIndex;
+      if (direction === 'up') {
+        activeIndex = (activeIndex - 1 + itemsCount) % itemsCount;
+      } else if (direction === 'down') {
+        activeIndex = (activeIndex + 1 + itemsCount) % itemsCount;
+      }
+      updateResultItems();
+    }
+  }
+
+  // Char Code: 13  Enter, 37  ⬅, 38  ⬆, 39  ➡, 40  ⬇
+  $(window).on('keyup', function(e) {
+    var modalVisible = search.getModalVisible && search.getModalVisible();
+    if (modalVisible) {
+      if (e.which === 38) {
+        modalVisible && moveActiveIndex('up');
+      } else if (e.which === 40) {
+        modalVisible && moveActiveIndex('down');
+      } else if (e.which === 13) {
+        modalVisible && $resultItems && activeIndex >= 0 && $resultItems.eq(activeIndex).children('a')[0].click();
+      }
+    }
+  });
+
+  $result.on('mouseover', '.search-result__item > a', function() {
+    var itemIndex = $(this).parent().data('index');
+    itemIndex >= 0 && (lastActiveIndex = activeIndex, activeIndex = itemIndex, updateResultItems());
+  });
+});
+</script>
+</div></div>
+
+
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function scrollToAnchor(anchor, duration, callback) {
+      var $root = this;
+      $root.animate({ scrollTop: $(anchor).position().top }, duration, function() {
+        window.history.replaceState(null, '', window.location.href.split('#')[0] + anchor);
+        callback && callback();
+      });
+    }
+    $.fn.scrollToAnchor = scrollToAnchor;
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function affix(options) {
+      var $root = this, $window = $(window), $scrollTarget, $scroll,
+        offsetBottom = 0, scrollTarget = window, scroll = window.document, disabled = false, isOverallScroller = true,
+        rootTop, rootLeft, rootHeight, scrollBottom, rootBottomTop,
+        hasInit = false, curState;
+
+      function setOptions(options) {
+        var _options = options || {};
+        _options.offsetBottom && (offsetBottom = _options.offsetBottom);
+        _options.scrollTarget && (scrollTarget = _options.scrollTarget);
+        _options.scroll && (scroll = _options.scroll);
+        _options.disabled !== undefined && (disabled = _options.disabled);
+        $scrollTarget = $(scrollTarget);
+        isOverallScroller = window.isOverallScroller($scrollTarget[0]);
+        $scroll = $(scroll);
+      }
+      function preCalc() {
+        top();
+        rootHeight = $root.outerHeight();
+        rootTop = $root.offset().top + (isOverallScroller ? 0 :  $scrollTarget.scrollTop());
+        rootLeft = $root.offset().left;
+      }
+      function calc(needPreCalc) {
+        needPreCalc && preCalc();
+        scrollBottom = $scroll.outerHeight() - offsetBottom - rootHeight;
+        rootBottomTop = scrollBottom - rootTop;
+      }
+      function top() {
+        if (curState !== 'top') {
+          $root.removeClass('fixed').css({
+            left: 0,
+            top: 0
+          });
+          curState = 'top';
+        }
+      }
+      function fixed() {
+        if (curState !== 'fixed') {
+          $root.addClass('fixed').css({
+            left: rootLeft + 'px',
+            top: 0
+          });
+          curState = 'fixed';
+        }
+      }
+      function bottom() {
+        if (curState !== 'bottom') {
+          $root.removeClass('fixed').css({
+            left: 0,
+            top: rootBottomTop + 'px'
+          });
+          curState = 'bottom';
+        }
+      }
+      function setState() {
+        var scrollTop = $scrollTarget.scrollTop();
+        if (scrollTop >= rootTop && scrollTop <= scrollBottom) {
+          fixed();
+        } else if (scrollTop < rootTop) {
+          top();
+        } else {
+          bottom();
+        }
+      }
+      function init() {
+        if(!hasInit) {
+          var interval, timeout;
+          calc(true); setState();
+          // run calc every 100 millisecond
+          interval = setInterval(function() {
+            calc();
+          }, 100);
+          timeout = setTimeout(function() {
+            clearInterval(interval);
+          }, 45000);
+          window.pageLoad.then(function() {
+            setTimeout(function() {
+              clearInterval(interval);
+              clearTimeout(timeout);
+            }, 3000);
+          });
+          $scrollTarget.on('scroll', function() {
+            disabled || setState();
+          });
+          $window.on('resize', function() {
+            disabled || (calc(true), setState());
+          });
+          hasInit = true;
+        }
+      }
+
+      setOptions(options);
+      if (!disabled) {
+        init();
+      }
+      $window.on('resize', window.throttle(function() {
+        init();
+      }, 200));
+      return {
+        setOptions: setOptions,
+        refresh: function() {
+          calc(true, { animation: false }); setState();
+        }
+      };
+    }
+    $.fn.affix = affix;
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function toc(options) {
+      var $root = this, $window = $(window), $scrollTarget, $scroller, $tocUl = $('<ul class="toc toc--ellipsis"></ul>'), $tocLi, $headings, $activeLast, $activeCur,
+        selectors = 'h1,h2,h3', container = 'body', scrollTarget = window, scroller = 'html, body', disabled = false,
+        headingsPos, scrolling = false, hasRendered = false, hasInit = false;
+
+      function setOptions(options) {
+        var _options = options || {};
+        _options.selectors && (selectors = _options.selectors);
+        _options.container && (container = _options.container);
+        _options.scrollTarget && (scrollTarget = _options.scrollTarget);
+        _options.scroller && (scroller = _options.scroller);
+        _options.disabled !== undefined && (disabled = _options.disabled);
+        $headings = $(container).find(selectors).filter('[id]');
+        $scrollTarget = $(scrollTarget);
+        $scroller = $(scroller);
+      }
+      function calc() {
+        headingsPos = [];
+        $headings.each(function() {
+          headingsPos.push(Math.floor($(this).position().top));
+        });
+      }
+      function setState(element, disabled) {
+        var scrollTop = $scrollTarget.scrollTop(), i;
+        if (disabled || !headingsPos || headingsPos.length < 1) { return; }
+        if (element) {
+          $activeCur = element;
+        } else {
+          for (i = 0; i < headingsPos.length; i++) {
+            if (scrollTop >= headingsPos[i]) {
+              $activeCur = $tocLi.eq(i);
+            } else {
+              $activeCur || ($activeCur = $tocLi.eq(i));
+              break;
+            }
+          }
+        }
+        $activeLast && $activeLast.removeClass('active');
+        ($activeLast = $activeCur).addClass('active');
+      }
+      function render() {
+        if(!hasRendered) {
+          $root.append($tocUl);
+          $headings.each(function() {
+            var $this = $(this);
+            $tocUl.append($('<li></li>').addClass('toc-' + $this.prop('tagName').toLowerCase())
+              .append($('<a></a>').text($this.text()).attr('href', '#' + $this.prop('id'))));
+          });
+          $tocLi = $tocUl.children('li');
+          $tocUl.on('click', 'a', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            scrolling = true;
+            setState($this.parent());
+            $scroller.scrollToAnchor($this.attr('href'), 400, function() {
+              scrolling = false;
+            });
+          });
+        }
+        hasRendered = true;
+      }
+      function init() {
+        var interval, timeout;
+        if(!hasInit) {
+          render(); calc(); setState(null, scrolling);
+          // run calc every 100 millisecond
+          interval = setInterval(function() {
+            calc();
+          }, 100);
+          timeout = setTimeout(function() {
+            clearInterval(interval);
+          }, 45000);
+          window.pageLoad.then(function() {
+            setTimeout(function() {
+              clearInterval(interval);
+              clearTimeout(timeout);
+            }, 3000);
+          });
+          $scrollTarget.on('scroll', function() {
+            disabled || setState(null, scrolling);
+          });
+          $window.on('resize', window.throttle(function() {
+            if (!disabled) {
+              render(); calc(); setState(null, scrolling);
+            }
+          }, 100));
+        }
+        hasInit = true;
+      }
+
+      setOptions(options);
+      if (!disabled) {
+        init();
+      }
+      $window.on('resize', window.throttle(function() {
+        init();
+      }, 200));
+      return {
+        setOptions: setOptions
+      };
+    }
+    $.fn.toc = toc;
+  });
+})();
+/*(function () {
+
+})();*/
+</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();
+</script><script type="text/x-mathjax-config">
+	var _config = { tex2jax: {
+		inlineMath: [['$','$'], ['\\(','\\)']]
+	}};_config.TeX = { equationNumbers: { autoNumber: "all" } };MathJax.Hub.Config(_config);
+</script>
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+    </div>
+    <script>(function () {
+  var $root = document.getElementsByClassName('root')[0];
+  if (window.hasEvent('touchstart')) {
+    $root.dataset.isTouch = true;
+    document.addEventListener('touchstart', function(){}, false);
+  }
+})();
+</script>
+  </body>
+</html>
+

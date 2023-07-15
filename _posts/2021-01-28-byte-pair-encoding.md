@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: What is Byte-Pair Encoding for Tokenization?
 filter: [blog]
 tags: tokenization
